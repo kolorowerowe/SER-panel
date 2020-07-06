@@ -1,4 +1,4 @@
-import {FETCH_GREETING, FETCH_GREETING_FAILURE, FETCH_GREETING_SUCCESS} from "../types/generalTypes";
+import {CHANGE_LANGUAGE, FETCH_GREETING, FETCH_GREETING_FAILURE, FETCH_GREETING_SUCCESS} from "../types/generalTypes";
 import axios from "axios";
 
 
@@ -21,3 +21,13 @@ export const fetchGreetingAction = (dispatch) => {
             });
         });
 };
+
+export const changeLanguage = (languageCode, dispatch) => {
+    dispatch({
+        type: CHANGE_LANGUAGE,
+        payload: languageCode
+    });
+
+    localStorage.setItem("languageCode", languageCode)
+
+}

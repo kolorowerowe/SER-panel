@@ -13,6 +13,7 @@ import {Dashboard, Settings} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/core/styles";
 import PropTypes from "prop-types"
 import { useHistory } from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 const drawerWidth = 240;
 
@@ -22,6 +23,7 @@ const SideBarDrawer = (props) => {
 
     const classes = useStyles();
     const history = useHistory();
+    const {t} = useTranslation();
 
     function handleRedirect(path) {
         history.push(path);
@@ -29,12 +31,12 @@ const SideBarDrawer = (props) => {
 
     const sideBarElements = [
         {
-            text: 'Dashboard',
+            text: t('sidebar:startPage'),
             icon: <Dashboard/>,
-            path: '/dashboard'
+            path: '/'
         },
         {
-            text: 'Settings',
+            text: t('sidebar:settings'),
             icon: <Settings/>,
             path: '/settings'
         }
@@ -68,7 +70,7 @@ const SideBarDrawer = (props) => {
                 <ListItemIcon>
                     <ExitToAppIcon/>
                 </ListItemIcon>
-                <ListItemText primary={'Sign out'}/>
+                <ListItemText primary={t('sidebar:signOut')}/>
             </ListItem>
         </Drawer>
 );

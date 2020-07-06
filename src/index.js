@@ -3,18 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {Router} from "react-router";
 import {createBrowserHistory} from "history";
 import {Provider} from "react-redux";
 import {store} from "./redux/store";
+import './i18n';
+import {BrowserRouter} from "react-router-dom";
 
 const customHistory = createBrowserHistory();
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router history={customHistory}>
+        <BrowserRouter history={customHistory}>
             <App/>
-        </Router>
+        </BrowserRouter>
     </Provider>,
     document.getElementById('root')
 );

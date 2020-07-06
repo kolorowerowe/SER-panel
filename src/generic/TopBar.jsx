@@ -6,9 +6,19 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Typography from "@material-ui/core/Typography";
 import Badge from "@material-ui/core/Badge";
-import NotificationsIcon from "@material-ui/icons/Notifications";
+import PersonIcon from '@material-ui/icons/Person';
 import AppBar from "@material-ui/core/AppBar";
 import {makeStyles} from "@material-ui/core/styles";
+import LanguageIcon from '@material-ui/icons/Translate';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
+import MenuItem from "@material-ui/core/MenuItem";
+import {useTranslation} from "react-i18next";
+import Button from "@material-ui/core/Button";
+import {useDispatch, useSelector} from "react-redux";
+import Menu from "@material-ui/core/Menu";
+import {changeLanguage} from "../redux/actions/generalActions";
+import i18next from "i18next";
 
 const drawerWidth = 240;
 
@@ -17,6 +27,34 @@ const TopBar = (props) => {
     const {handleDrawerOpen, open} = props;
 
     const classes = useStyles();
+    const {t} = useTranslation();
+    const dispatch = useDispatch();
+
+
+    const LANGUAGES_LABEL = [
+        {
+            code: 'en',
+            text: 'English',
+        },
+        {
+            code: 'pl',
+            text: 'Polski',
+        }
+    ];
+
+    const {languageCode} = useSelector((state) => state.preferences);
+
+    const [languageMenu, setLanguageMenu] = React.useState(null);
+
+    const handleLanguageIconClick = (event) => {
+        setLanguageMenu(event.currentTarget);
+    };
+
+    const handleLanguageMenuChange = (languageCode) => {
+        setLanguageMenu(null);
+        i18next.changeLanguage(languageCode);
+        changeLanguage(languageCode, dispatch);
+    };
 
     return (
         <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
@@ -24,18 +62,47 @@ const TopBar = (props) => {
                 <IconButton
                     edge="start"
                     color="inherit"
-                    aria-label="open drawer"
                     onClick={handleDrawerOpen}
                     className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
                 >
                     <MenuIcon/>
                 </IconButton>
                 <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                    Dashboard
+                    {t('general:header')}
                 </Typography>
+
+                <Button
+                    color="inherit"
+                    onClick={handleLanguageIconClick}
+                >
+                    <LanguageIcon/>
+                    <span className={classes.language}>
+                            {LANGUAGES_LABEL.filter((language) => language.code === languageCode)[0].text}
+                        </span>
+                    <ExpandMoreIcon fontSize="small"/>
+                </Button>
+
+                <Menu
+                    anchorEl={languageMenu}
+                    open={!!languageMenu}
+                    onClose={() => setLanguageMenu(null)}
+                >
+                    {LANGUAGES_LABEL.map((language) => (
+                        <MenuItem
+                            key={language.code}
+                            value={language.code}
+                            selected={languageCode === language.code}
+                            onClick={() => handleLanguageMenuChange(language.code)}
+                            lang={language.code}
+                        >
+                            {language.text}
+                        </MenuItem>
+                    ))}
+                </Menu>
+
                 <IconButton color="inherit">
                     <Badge badgeContent={4} color="secondary">
-                        <NotificationsIcon/>
+                        <PersonIcon/>
                     </Badge>
                 </IconButton>
             </Toolbar>
@@ -84,5 +151,12 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
         flexGrow: 1,
-    }
+    },
+    language: {
+        margin: theme.spacing(0, 0.5, 0, 1),
+        display: 'none',
+        [theme.breakpoints.up('md')]: {
+            display: 'block',
+        },
+    },
 }));
