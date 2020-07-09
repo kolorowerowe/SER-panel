@@ -1,10 +1,11 @@
 import React from 'react';
+import DefaultCard from "../../generic/DefaultCard";
 
 const SettingsComponentContainer = () => {
     return (
-        <div>
+        <DefaultCard>
             Settings
-        </div>
+        </DefaultCard>
     );
 };
 

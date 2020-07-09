@@ -14,6 +14,8 @@ import {makeStyles} from "@material-ui/core/styles";
 import PropTypes from "prop-types"
 import { useHistory } from "react-router-dom";
 import {useTranslation} from "react-i18next";
+import {useDispatch} from "react-redux";
+import {logoutAction} from "../redux/actions/authActions";
 
 const drawerWidth = 240;
 
@@ -23,10 +25,15 @@ const SideBarDrawer = (props) => {
 
     const classes = useStyles();
     const history = useHistory();
+    const dispatch = useDispatch();
     const {t} = useTranslation();
 
-    function handleRedirect(path) {
+    const handleRedirect = (path) => {
         history.push(path);
+    }
+
+    const handleLogout = () => {
+        logoutAction(dispatch,history);
     }
 
     const sideBarElements = [
@@ -66,7 +73,7 @@ const SideBarDrawer = (props) => {
                 </ListItem>)}
             </List>
             <Divider/>
-            <ListItem button>
+            <ListItem button onClick={handleLogout}>
                 <ListItemIcon>
                     <ExitToAppIcon/>
                 </ListItemIcon>

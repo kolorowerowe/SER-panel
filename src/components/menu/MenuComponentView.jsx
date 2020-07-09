@@ -1,19 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import DefaultCard from "../../generic/DefaultCard";
 
 const MenuComponentView = (props) => {
 
     const {response} = props
 
     return (
-        <div>
+        <DefaultCard>
             menu: {response}
-        </div>
+        </DefaultCard>
     );
 };
 
-MenuComponentView.propTypes = {
-
-};
+MenuComponentView.propTypes = {};
 
 export default MenuComponentView;
