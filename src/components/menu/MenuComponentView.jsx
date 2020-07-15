@@ -3,11 +3,21 @@ import DefaultCard from "../../generic/DefaultCard";
 
 const MenuComponentView = (props) => {
 
-    const {response} = props
+    const {
+        response: {
+            uuid,
+            email,
+            fullName,
+            phoneNumber,
+            lastSeen,
+            isEnabled,
+            shouldChangePassword
+        } = {}
+    } = props
 
     return (
         <DefaultCard>
-            menu: {response}
+            Hello, {fullName}!
         </DefaultCard>
     );
 };

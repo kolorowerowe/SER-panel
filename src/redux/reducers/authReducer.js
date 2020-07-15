@@ -1,8 +1,15 @@
-import {ATTEMPT_LOGIN, ATTEMPT_LOGIN_FAILURE, ATTEMPT_LOGIN_SUCCESS, LOGOUT} from "../types/authTypes";
+import {
+    ATTEMPT_LOGIN,
+    ATTEMPT_LOGIN_FAILURE,
+    ATTEMPT_LOGIN_SUCCESS,
+    DECODE_TOKEN_SUCCESS,
+    LOGOUT
+} from "../types/authTypes";
 
 const initState = {
     isLoggedIn: false,
     authToken: undefined,
+    auth: undefined,
     loading: false,
     error: null,
     errorResponse: undefined
@@ -29,6 +36,11 @@ export const authReducer = (state = initState, action) => { // (1)
                 loading: false,
                 error: action.payload,
                 errorResponse: action.payload.response
+            }
+        case DECODE_TOKEN_SUCCESS:
+            return {
+                ...state,
+                auth: action.payload
             }
         case LOGOUT:
             return {
