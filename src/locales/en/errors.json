@@ -1,0 +1,10 @@
+{
+  "0": "Unexpexted error occurred",
+  "100": "Session has expired, please login again",
+  "201": "No user for provided email",
+  "202": "Field username is missing",
+  "203": "Password is missing",
+  "204": "Password is incorrect",
+  "205": "User is inactive",
+  "206": "Login or password is incorrect"
+}

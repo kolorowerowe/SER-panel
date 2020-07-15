@@ -5,7 +5,7 @@ const initState = {
     authToken: undefined,
     loading: false,
     error: null,
-    errorCode: null
+    errorResponse: undefined
 }
 
 
@@ -28,7 +28,7 @@ export const authReducer = (state = initState, action) => { // (1)
                 ...state,
                 loading: false,
                 error: action.payload,
-                errorCode: action.payload.response
+                errorResponse: action.payload.response
             }
         case LOGOUT:
             return {
@@ -36,7 +36,7 @@ export const authReducer = (state = initState, action) => { // (1)
                 authToken: undefined,
                 loading: false,
                 error: null,
-                errorCode: null
+                errorResponse: undefined
             };
         default:
             return state

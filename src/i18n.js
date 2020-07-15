@@ -7,14 +7,24 @@ import sidebarPL from './locales/pl/sidebar.json'
 import generalEN from './locales/en/general.json'
 import generalPL from './locales/pl/general.json'
 
+import errorsEN from './locales/en/errors.json'
+import errorsPL from './locales/pl/errors.json'
+
+import authEN from './locales/en/auth.json'
+import authPL from './locales/pl/auth.json'
+
 const resources = {
     en: {
         sidebar: sidebarEN,
-        general: generalEN
+        general: generalEN,
+        errors: errorsEN,
+        auth: authEN
     },
     pl: {
         sidebar: sidebarPL,
-        general: generalPL
+        general: generalPL,
+        errors: errorsPL,
+        auth: authPL
     }
 };
 

@@ -1,11 +1,19 @@
 import React from 'react';
 import './App.css';
-import SERContainer from "./generic/SERContainer";
+import {MuiThemeProvider,} from '@material-ui/core/styles';
+import SERContainer from "./root/SERContainer";
+import {getTheme, lightTheme} from "./styles/theme";
+import {useSelector} from "react-redux";
 
 const App = () => {
 
+    const {theme} = useSelector(state => state.preferences);
+
+
     return (
-        <SERContainer/>
+        <MuiThemeProvider theme={getTheme(theme)}>
+            <SERContainer/>
+        </MuiThemeProvider>
     );
 }
 

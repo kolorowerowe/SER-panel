@@ -11,14 +11,17 @@ import AppBar from "@material-ui/core/AppBar";
 import {makeStyles} from "@material-ui/core/styles";
 import LanguageIcon from '@material-ui/icons/Translate';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
+import Brightness7Icon from '@material-ui/icons/Brightness7';
 
 import MenuItem from "@material-ui/core/MenuItem";
 import {useTranslation} from "react-i18next";
 import Button from "@material-ui/core/Button";
 import {useDispatch, useSelector} from "react-redux";
 import Menu from "@material-ui/core/Menu";
-import {changeLanguage} from "../redux/actions/generalActions";
+import {changeLanguage, changeTheme} from "../redux/actions/generalActions";
 import i18next from "i18next";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const drawerWidth = 240;
 
@@ -42,7 +45,7 @@ const TopBar = (props) => {
         }
     ];
 
-    const {languageCode} = useSelector((state) => state.preferences);
+    const {languageCode, theme} = useSelector((state) => state.preferences);
 
     const [languageMenu, setLanguageMenu] = React.useState(null);
 
@@ -54,6 +57,11 @@ const TopBar = (props) => {
         setLanguageMenu(null);
         i18next.changeLanguage(languageCode);
         changeLanguage(languageCode, dispatch);
+    };
+
+    const handleThemeChange = () => {
+        const newTheme = theme === 'light' ? 'dark' : 'light'
+        changeTheme(newTheme, dispatch);
     };
 
     return (
@@ -99,6 +107,15 @@ const TopBar = (props) => {
                         </MenuItem>
                     ))}
                 </Menu>
+
+                <Tooltip title={t('general:toggleTheme')} enterDelay={300}>
+                    <IconButton
+                        color="inherit"
+                        onClick={handleThemeChange}
+                    >
+                        {theme === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}
+                    </IconButton>
+                </Tooltip>
 
                 <IconButton color="inherit">
                     <Badge badgeContent={4} color="secondary">

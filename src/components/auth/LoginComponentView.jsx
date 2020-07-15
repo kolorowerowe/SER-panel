@@ -8,41 +8,48 @@ import Link from "@material-ui/core/Link";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import ValidatedTextField from "../../generic/ValidatedTextField";
 import {useTranslation} from "react-i18next";
+import ErrorAlert from "../../generic/ErrorAlert";
 
 const LoginComponentView = (props) => {
 
     const {
         onLoginSubmit,
         emailField,
-        passwordField
+        passwordField,
+        error,
+        errorResponse
     } = props;
 
     const classes = useStyles();
     const {t} = useTranslation();
+
+
 
     return (
         <div className={classes.loginContainer}>
 
             <Card className={classes.loginCard}>
                 <CardContent>
-                    <Typography component="h1" variant="h5">
-                        Sign in
+                    <Typography component="h1" variant="h5" className={classes.signInTitle}>
+                        {t('auth:signIn')}
                     </Typography>
                     <form className={classes.form} noValidate>
                         <ValidatedTextField
-                            label="Email Address"
+                            label={t('auth:email')}
                             name="email"
                             autocomplete="email"
                             field={emailField}
                             className={classes.formElement}
                         />
                         <ValidatedTextField
-                            label="Password"
+                            label={t('auth:password')}
                             name="password"
                             type="password"
                             field={passwordField}
                             className={classes.formElement}
                         />
+
+                        <ErrorAlert error={error} errorResponse={errorResponse} className={classes.formElement}/>
                         <Button
                             type="submit"
                             fullWidth
@@ -56,12 +63,12 @@ const LoginComponentView = (props) => {
                         <Grid container>
                             <Grid item xs>
                                 <Link href="#" variant="body2">
-                                    Forgot password?
+                                    {t('auth:forgotPassword')}
                                 </Link>
                             </Grid>
                             <Grid item>
                                 <Link href="#" variant="body2">
-                                    {"Don't have an account? Sign Up"}
+                                    {t('auth:signUp')}
                                 </Link>
                             </Grid>
                         </Grid>
@@ -85,6 +92,10 @@ const useStyles = makeStyles((theme) => ({
     },
     loginCard: {
         maxWidth: '600px',
+    },
+    signInTitle:{
+      display: 'flex',
+      justifyContent: 'center'
     },
     form: {
         width: '100%', // Fix IE 11 issue.

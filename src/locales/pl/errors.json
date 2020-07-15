@@ -1,0 +1,10 @@
+{
+  "0": "Wystąpił niespodziewany błąd",
+  "100": "Sesja wygasła, proszę zalogować sie ponownie",
+  "201": "Nie znaleziono użytkownika dla podanego adresu email",
+  "202": "Pole email jest puste",
+  "203": "Pole hasło jest puste",
+  "204": "Podane hasło jest nieprawidłowe",
+  "205": "Użytkownik jest nieaktywny",
+  "206": "Podane dane są nieprawidłowe"
+}

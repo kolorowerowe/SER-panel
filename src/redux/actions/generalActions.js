@@ -1,4 +1,10 @@
-import {CHANGE_LANGUAGE, FETCH_GREETING, FETCH_GREETING_FAILURE, FETCH_GREETING_SUCCESS} from "../types/generalTypes";
+import {
+    CHANGE_LANGUAGE,
+    CHANGE_THEME,
+    FETCH_GREETING,
+    FETCH_GREETING_FAILURE,
+    FETCH_GREETING_SUCCESS
+} from "../types/generalTypes";
 import axios from "axios";
 
 
@@ -29,5 +35,16 @@ export const changeLanguage = (languageCode, dispatch) => {
     });
 
     localStorage.setItem("languageCode", languageCode)
+
+}
+
+
+export const changeTheme = (theme, dispatch) => {
+    dispatch({
+        type: CHANGE_THEME,
+        payload: theme
+    });
+
+    localStorage.setItem("theme", theme)
 
 }

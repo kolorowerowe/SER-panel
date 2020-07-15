@@ -14,10 +14,10 @@ const LoginComponentContainer = () => {
     const emailField = useFieldValidation('', validateEmail);
     const passwordField = useFieldValidation('', validatePassword);
 
-    const {isLoggedIn} = useSelector(state => state.auth)
+    const {isLoggedIn, error, errorResponse} = useSelector(state => state.auth)
 
     useEffect(() => {
-        if(isLoggedIn){
+        if (isLoggedIn) {
             handleRedirectLoggedInUser()
         }
     }, [isLoggedIn])
@@ -39,7 +39,10 @@ const LoginComponentContainer = () => {
     return (
         <LoginComponentView emailField={emailField}
                             passwordField={passwordField}
-                            onLoginSubmit={onLoginSubmit}/>
+                            onLoginSubmit={onLoginSubmit}
+
+                            error={error}
+                            errorResponse={errorResponse}/>
     );
 };
 
