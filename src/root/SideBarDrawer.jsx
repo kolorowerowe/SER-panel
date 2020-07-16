@@ -9,7 +9,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Drawer from "@material-ui/core/Drawer";
-import {Dashboard, Settings} from "@material-ui/icons";
+import {Dashboard, Person} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/core/styles";
 import PropTypes from "prop-types"
 import { useHistory } from "react-router-dom";
@@ -43,9 +43,9 @@ const SideBarDrawer = (props) => {
             path: '/'
         },
         {
-            text: t('sidebar:settings'),
-            icon: <Settings/>,
-            path: '/settings'
+            text: t('sidebar:profile'),
+            icon: <Person/>,
+            path: '/profile'
         }
     ];
 

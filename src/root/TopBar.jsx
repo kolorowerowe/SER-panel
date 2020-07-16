@@ -116,12 +116,6 @@ const TopBar = (props) => {
                         {theme === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}
                     </IconButton>
                 </Tooltip>
-
-                <IconButton color="inherit">
-                    <Badge badgeContent={4} color="secondary">
-                        <PersonIcon/>
-                    </Badge>
-                </IconButton>
             </Toolbar>
         </AppBar>
     );

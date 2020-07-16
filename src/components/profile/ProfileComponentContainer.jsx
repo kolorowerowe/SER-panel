@@ -1,13 +1,13 @@
 import React from 'react';
 import DefaultCard from "../../generic/DefaultCard";
 
-const SettingsComponentContainer = () => {
+const ProfileComponentContainer = () => {
     return (
         <DefaultCard>
-            Settings
+            Your profile
         </DefaultCard>
     );
 };
 
 
-export default SettingsComponentContainer;
+export default ProfileComponentContainer;
