@@ -1,0 +1,2 @@
+export const ADD_STATUS = 'ADD_STATUS';
+export const DISMISS_STATUS = 'DISMISS_STATUS';

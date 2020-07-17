@@ -6,5 +6,7 @@
   "203": "Pole hasło jest puste",
   "204": "Podane hasło jest nieprawidłowe",
   "205": "Użytkownik jest nieaktywny",
-  "206": "Podane dane są nieprawidłowe"
+  "206": "Podane dane są nieprawidłowe",
+  "251": "Stare hasło jest nieprawidłowe",
+  "252": "Nowe hasło oraz powtórzone nowe hasło muszą się zgadzać"
 }

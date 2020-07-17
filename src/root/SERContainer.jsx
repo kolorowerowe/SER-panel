@@ -4,6 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import RouterProvider from "../routes/RouterProvider";
 import TopBar from "./TopBar";
 import SideBarDrawer from "./SideBarDrawer";
+import CustomSnackBar from "../generic/CustomSnackbar";
 
 
 const SERContainer = () => {
@@ -32,7 +33,10 @@ const SERContainer = () => {
             <main className={classes.content}>
                 <div className={classes.appBarSpacer}/>
                 <RouterProvider/>
+                <CustomSnackBar/>
+
             </main>
+
         </div>
     );
 }

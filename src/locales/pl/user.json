@@ -1,0 +1,14 @@
+{
+  "personalInfo": "Twoje dane",
+  "changePassword": "Zmiana hasła",
+  "passwordChanged": "Hasło zostało zmienione",
+  "details": "Szczegóły",
+  "userId": "ID użytkownika",
+  "role": "Rola",
+  "createdDate": "Data założenia konta",
+  "SYSTEM_ADMIN": "Admin systemu",
+  "ORGANIZER_EDITOR": "Edytor w organizacji",
+  "ORGANIZER_VIEWER": "Widz w organizacji",
+  "COMPANY_EDITOR": "Edytor w firmie",
+  "COMPANY_VIEWER": "Widz w firmie"
+}

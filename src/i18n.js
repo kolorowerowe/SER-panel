@@ -13,18 +13,23 @@ import errorsPL from './locales/pl/errors.json'
 import authEN from './locales/en/auth.json'
 import authPL from './locales/pl/auth.json'
 
+import userEN from './locales/en/user.json'
+import userPL from './locales/pl/user.json'
+
 const resources = {
     en: {
         sidebar: sidebarEN,
         general: generalEN,
         errors: errorsEN,
-        auth: authEN
+        auth: authEN,
+        user: userEN
     },
     pl: {
         sidebar: sidebarPL,
         general: generalPL,
         errors: errorsPL,
-        auth: authPL
+        auth: authPL,
+        user: userPL
     }
 };
 

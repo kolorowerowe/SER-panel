@@ -4,16 +4,16 @@ import {useSelector} from "react-redux";
 
 const MenuComponentContainer = () => {
 
-    const user = useSelector(state => state.activeUser)
+    const activeUser = useSelector(state => state.activeUser)
 
     const {
-        response,
+        user,
         error,
         loading
-    } = user;
+    } = activeUser;
 
     return (
-        <MenuComponentView response={response}/>
+        <MenuComponentView user={user}/>
     );
 };
 

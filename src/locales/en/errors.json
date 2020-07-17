@@ -6,5 +6,7 @@
   "203": "Password is missing",
   "204": "Password is incorrect",
   "205": "User is inactive",
-  "206": "Login or password is incorrect"
+  "206": "Login or password is incorrect",
+  "251": "Old password is invalid",
+  "252": "New password and repeat new password must be the same"
 }

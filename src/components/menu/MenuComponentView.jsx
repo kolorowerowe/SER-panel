@@ -4,7 +4,7 @@ import DefaultCard from "../../generic/DefaultCard";
 const MenuComponentView = (props) => {
 
     const {
-        response: {
+        user: {
             uuid,
             email,
             fullName,

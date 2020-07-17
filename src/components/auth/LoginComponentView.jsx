@@ -9,6 +9,7 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import ValidatedTextField from "../../generic/ValidatedTextField";
 import {useTranslation} from "react-i18next";
 import ErrorAlert from "../../generic/ErrorAlert";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 const LoginComponentView = (props) => {
 
@@ -16,13 +17,14 @@ const LoginComponentView = (props) => {
         onLoginSubmit,
         emailField,
         passwordField,
+
+        loading,
         error,
         errorResponse
     } = props;
 
     const classes = useStyles();
     const {t} = useTranslation();
-
 
 
     return (
@@ -49,7 +51,12 @@ const LoginComponentView = (props) => {
                             className={classes.formElement}
                         />
 
-                        <ErrorAlert error={error} errorResponse={errorResponse} className={classes.formElement}/>
+                        <ErrorAlert error={error}
+                                    errorResponse={errorResponse}
+                                    className={classes.formElement}/>
+
+                        {loading && <LinearProgress className={classes.formElement}/>}
+
                         <Button
                             type="submit"
                             fullWidth
@@ -57,6 +64,7 @@ const LoginComponentView = (props) => {
                             color="primary"
                             className={classes.submit}
                             onClick={onLoginSubmit}
+                            disabled={loading}
                         >
                             {t('auth:signIn')}
                         </Button>
@@ -93,9 +101,9 @@ const useStyles = makeStyles((theme) => ({
     loginCard: {
         maxWidth: '600px',
     },
-    signInTitle:{
-      display: 'flex',
-      justifyContent: 'center'
+    signInTitle: {
+        display: 'flex',
+        justifyContent: 'center'
     },
     form: {
         width: '100%', // Fix IE 11 issue.

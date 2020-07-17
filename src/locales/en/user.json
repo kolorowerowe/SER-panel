@@ -1,0 +1,14 @@
+{
+  "personalInfo": "Personal info",
+  "changePassword": "Change password",
+  "passwordChanged": "Password has been changed",
+  "details": "Details",
+  "userId": "User ID",
+  "role": "Role",
+  "createdDate": "Account creation date",
+  "SYSTEM_ADMIN": "System admin",
+  "ORGANIZER_EDITOR": "Organizer editor",
+  "ORGANIZER_VIEWER": "Organizer viewer",
+  "COMPANY_EDITOR": "Company editor",
+  "COMPANY_VIEWER": "Company viewer"
+}

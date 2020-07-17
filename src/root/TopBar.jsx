@@ -5,8 +5,6 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Typography from "@material-ui/core/Typography";
-import Badge from "@material-ui/core/Badge";
-import PersonIcon from '@material-ui/icons/Person';
 import AppBar from "@material-ui/core/AppBar";
 import {makeStyles} from "@material-ui/core/styles";
 import LanguageIcon from '@material-ui/icons/Translate';
@@ -22,6 +20,8 @@ import Menu from "@material-ui/core/Menu";
 import {changeLanguage, changeTheme} from "../redux/actions/generalActions";
 import i18next from "i18next";
 import Tooltip from "@material-ui/core/Tooltip";
+import moment from "moment";
+import "moment/locale/pl";
 
 const drawerWidth = 240;
 
@@ -46,6 +46,7 @@ const TopBar = (props) => {
     ];
 
     const {languageCode, theme} = useSelector((state) => state.preferences);
+    moment.locale(languageCode);
 
     const [languageMenu, setLanguageMenu] = React.useState(null);
 
@@ -113,7 +114,7 @@ const TopBar = (props) => {
                         color="inherit"
                         onClick={handleThemeChange}
                     >
-                        {theme === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}
+                        {theme === 'light' ? <Brightness4Icon/> : <Brightness7Icon/>}
                     </IconButton>
                 </Tooltip>
             </Toolbar>

@@ -14,7 +14,7 @@ const LoginComponentContainer = () => {
     const emailField = useFieldValidation('', validateEmail);
     const passwordField = useFieldValidation('', validatePassword);
 
-    const {isLoggedIn, error, errorResponse} = useSelector(state => state.auth)
+    const {isLoggedIn, error, errorResponse, loading} = useSelector(state => state.auth)
 
     useEffect(() => {
         if (isLoggedIn) {
@@ -41,6 +41,7 @@ const LoginComponentContainer = () => {
                             passwordField={passwordField}
                             onLoginSubmit={onLoginSubmit}
 
+                            loading={loading}
                             error={error}
                             errorResponse={errorResponse}/>
     );
