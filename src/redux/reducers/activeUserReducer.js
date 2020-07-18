@@ -1,4 +1,5 @@
 import {
+    CHANGE_PERSONAL_INFO, CHANGE_PERSONAL_INFO_FAILURE, CHANGE_PERSONAL_INFO_SUCCESS,
     CHANGE_USER_PASSWORD, CHANGE_USER_PASSWORD_FAILURE, CHANGE_USER_PASSWORD_SUCCESS,
     FETCH_ACTIVE_USER,
     FETCH_ACTIVE_USER_FAILURE,
@@ -18,6 +19,7 @@ const initState = {
 export const activeUserReducer = (state = initState, action) => { // (1)
     switch (action.type) {
         case FETCH_ACTIVE_USER:
+        case CHANGE_PERSONAL_INFO:
         case CHANGE_USER_PASSWORD:
             return {
                 ...state,
@@ -28,6 +30,7 @@ export const activeUserReducer = (state = initState, action) => { // (1)
                 errorPasswordResponse: undefined,
             };
         case FETCH_ACTIVE_USER_SUCCESS:
+        case CHANGE_PERSONAL_INFO_SUCCESS:
         case CHANGE_USER_PASSWORD_SUCCESS:
             return {
                 ...state,
@@ -35,6 +38,7 @@ export const activeUserReducer = (state = initState, action) => { // (1)
                 user: action.payload
             };
         case FETCH_ACTIVE_USER_FAILURE:
+        case CHANGE_PERSONAL_INFO_FAILURE:
             return {
                 ...state,
                 loading: false,

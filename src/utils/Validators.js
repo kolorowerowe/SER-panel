@@ -11,6 +11,20 @@ export const validateEmail = (email) => {
     return null;
 };
 
+export const validateFullName = (fullName) => {
+    if (!fullName) {
+        return new Error(i18n.t('user:fullNameRequiredError'));
+    }
+    return null;
+};
+
+export const validatePhoneNumber = (phoneNumber) => {
+    if (!phoneNumber) {
+        return new Error(i18n.t('user:phoneNumberRequiredError'));
+    }
+    return null;
+};
+
 
 export const validatePassword = (password) => {
     if (!password) {

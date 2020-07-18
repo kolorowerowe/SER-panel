@@ -1,5 +1,12 @@
 {
   "personalInfo": "Personal info",
+  "emailIsReadOnly": "You can't change email address",
+  "fullName": "Full name",
+  "fullNameRequiredError": "Full name is required",
+  "phoneNumber": "Phone number",
+  "phoneNumberRequiredError": "Phone number is required",
+  "savePersonalInfo": "Save personal info",
+  "personalInfoChanged": "Personal info has been changed",
   "changePassword": "Change password",
   "passwordChanged": "Password has been changed",
   "details": "Details",

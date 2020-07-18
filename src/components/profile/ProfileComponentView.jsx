@@ -21,12 +21,13 @@ const ProfileComponentView = (props) => {
 
         user: {
             uuid,
-            email,
-            fullName,
-            phoneNumber,
             role,
             userCreatedDate
         },
+        emailField,
+        fullNameField,
+        phoneNumberField,
+        onSavePersonalInfoSubmit,
 
         oldPasswordField,
         newPasswordField,
@@ -42,7 +43,52 @@ const ProfileComponentView = (props) => {
 
             <Grid item xs={12}>
                 <DefaultCard title={t('user:personalInfo')}>
-                    Personal Info
+                    <div className={classes.formContainer}>
+                        <form className={classes.form} noValidate>
+
+                            <ValidatedTextField
+                                label={t('auth:email')}
+                                name="email"
+                                field={emailField}
+                                className={classes.formElement}
+                                disabled
+                            />
+
+                            <ValidatedTextField
+                                label={t('user:fullName')}
+                                name="fullName"
+                                field={fullNameField}
+                                className={classes.formElement}
+                                disabled={loading}
+                            />
+
+                            <ValidatedTextField
+                                label={t('user:phoneNumber')}
+                                name="phoneNumber"
+                                field={phoneNumberField}
+                                className={classes.formElement}
+                                disabled={loading}
+                            />
+
+                            <ErrorAlert error={error}
+                                        errorResponse={errorResponse}
+                                        className={classes.formElement}/>
+
+                            {loading && <LinearProgress className={classes.formElement}/>}
+
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                color="primary"
+                                className={classes.submit}
+                                onClick={onSavePersonalInfoSubmit}
+                                disabled={loading}
+                            >
+                                {t('user:savePersonalInfo')}
+                            </Button>
+                        </form>
+                    </div>
                 </DefaultCard>
             </Grid>
 

@@ -1,5 +1,12 @@
 {
   "personalInfo": "Twoje dane",
+  "emailIsReadOnly": "Nie można zmienić adresu email",
+  "fullName": "Imię i nazwisko",
+  "fullNameRequiredError": "Imię i nazwisko jest wymagane",
+  "phoneNumber": "Numer telefonu",
+  "phoneNumberRequiredError": "Numer telefonu jest wymagany",
+  "savePersonalInfo": "Zapisz dane",
+  "personalInfoChanged": "Twoje dane zostały zapisane",
   "changePassword": "Zmiana hasła",
   "passwordChanged": "Hasło zostało zmienione",
   "details": "Szczegóły",
