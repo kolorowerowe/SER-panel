@@ -1,4 +1,8 @@
 {
   "header": "Panel Targów Pracy",
-  "toggleTheme": "Przełącz kolory"
+  "toggleTheme": "Przełącz kolory",
+  "cancel": "Anuluj",
+  "add": "Dodaj",
+  "delete": "Usuń",
+  "save": "Zapisz"
 }

@@ -3,20 +3,19 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import Grid from "@material-ui/core/Grid";
-import Link from "@material-ui/core/Link";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import ValidatedTextField from "../../generic/ValidatedTextField";
+import ValidatedTextField from "../../../generic/ValidatedTextField";
 import {useTranslation} from "react-i18next";
-import ErrorAlert from "../../generic/ErrorAlert";
+import ErrorAlert from "../../../generic/ErrorAlert";
 import LinearProgress from "@material-ui/core/LinearProgress";
+import ActivateAccountStepper from "../ActivateAccountStepper";
 
-const LoginComponentView = (props) => {
+const SetupPasswordComponentView = (props) => {
 
     const {
-        onLoginSubmit,
-        emailField,
+        onSetupPasswordSubmit,
         passwordField,
+        repeatPasswordField,
 
         loading,
         error,
@@ -29,25 +28,30 @@ const LoginComponentView = (props) => {
 
     return (
         <div className={classes.loginContainer}>
+            <ActivateAccountStepper activeStep={1} className={classes.loginCard}/>
 
             <Card className={classes.loginCard}>
                 <CardContent>
                     <Typography component="h1" variant="h5" className={classes.signInTitle}>
-                        {t('auth:signIn')}
+                        {t('auth:setUpYourPassword')}
+                    </Typography>
+                    <Typography className={classes.signInDesc}>
+                        {t('auth:setupPasswordDesc')}
                     </Typography>
                     <form className={classes.form} noValidate>
                         <ValidatedTextField
-                            label={t('auth:email')}
-                            name="email"
-                            autocomplete="email"
-                            field={emailField}
-                            className={classes.formElement}
-                        />
-                        <ValidatedTextField
-                            label={t('auth:password')}
+                            label={t('auth:newPassword')}
                             name="password"
                             type="password"
                             field={passwordField}
+                            className={classes.formElement}
+                        />
+
+                        <ValidatedTextField
+                            label={t('auth:repeatNewPassword')}
+                            name="password"
+                            type="password"
+                            field={repeatPasswordField}
                             className={classes.formElement}
                         />
 
@@ -63,23 +67,11 @@ const LoginComponentView = (props) => {
                             variant="contained"
                             color="primary"
                             className={classes.submit}
-                            onClick={onLoginSubmit}
+                            onClick={onSetupPasswordSubmit}
                             disabled={loading}
                         >
-                            {t('auth:signIn')}
+                            {t('general:save')}
                         </Button>
-                        <Grid container>
-                            <Grid item xs>
-                                <Link href="#" variant="body2">
-                                    {t('auth:forgotPassword')}
-                                </Link>
-                            </Grid>
-                            <Grid item>
-                                <Link href="#" variant="body2">
-                                    {t('auth:signUp')}
-                                </Link>
-                            </Grid>
-                        </Grid>
                     </form>
                 </CardContent>
             </Card>
@@ -88,22 +80,26 @@ const LoginComponentView = (props) => {
     );
 };
 
-LoginComponentView.propTypes = {};
+SetupPasswordComponentView.propTypes = {};
 
-export default LoginComponentView;
+export default SetupPasswordComponentView;
 
 const useStyles = makeStyles((theme) => ({
     loginContainer: {
         width: '100%',
-        display: 'flex',
-        justifyContent: 'center'
     },
     loginCard: {
         maxWidth: '600px',
+        width: '100%',
+        margin: 'auto',
     },
     signInTitle: {
         display: 'flex',
         justifyContent: 'center'
+    },
+    signInDesc: {
+        color: theme.palette.text.secondary,
+        marginTop: theme.spacing(2)
     },
     form: {
         width: '100%', // Fix IE 11 issue.

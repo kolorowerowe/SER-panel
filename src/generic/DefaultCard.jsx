@@ -8,6 +8,7 @@ const DefaultCard = props => {
 
     const {
         title,
+        buttonComponent,
         children
     } = props;
 
@@ -15,9 +16,13 @@ const DefaultCard = props => {
 
     return (
         <Card className={classes.card}>
-            {!!title && <Typography className={classes.title}>
-                {title}
-            </Typography>}
+            <div className={classes.header}>
+                {!!title && <Typography className={classes.title}>
+                    {title}
+                </Typography>}
+                {!!buttonComponent && buttonComponent}
+            </div>
+
             {children}
         </Card>
 
@@ -25,7 +30,8 @@ const DefaultCard = props => {
 };
 
 DefaultCard.propTypes = {
-    title: PropTypes.string
+    title: PropTypes.string.isRequired,
+    buttonComponent: PropTypes.object
 };
 
 export default DefaultCard;
@@ -34,8 +40,13 @@ const useStyles = makeStyles((theme) => ({
     card: {
         padding: theme.spacing(2)
     },
-    title:{
-        color: theme.palette.text.primary,
+    header: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
         marginBottom: theme.spacing(2)
+    },
+    title: {
+        color: theme.palette.text.primary,
     }
 }))

@@ -17,5 +17,10 @@
   "ORGANIZER_EDITOR": "Organizer editor",
   "ORGANIZER_VIEWER": "Organizer viewer",
   "COMPANY_EDITOR": "Company editor",
-  "COMPANY_VIEWER": "Company viewer"
+  "COMPANY_VIEWER": "Company viewer",
+  "allUsers": "All users",
+  "addNewUser": "Add new user",
+  "isActivated": "Activated",
+  "activated": "User has been activated",
+  "notActivated": "New user? Activate account!"
 }

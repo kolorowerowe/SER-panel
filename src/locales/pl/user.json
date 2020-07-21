@@ -17,5 +17,11 @@
   "ORGANIZER_EDITOR": "Edytor w organizacji",
   "ORGANIZER_VIEWER": "Widz w organizacji",
   "COMPANY_EDITOR": "Edytor w firmie",
-  "COMPANY_VIEWER": "Widz w firmie"
+  "COMPANY_VIEWER": "Widz w firmie",
+  "allUsers": "Wszyscy użytkownicy",
+  "addNewUser": "Dodaj użytkownika",
+  "isActivated": "Aktywowany",
+  "activated": "Użytkownik został aktywowany",
+  "notActivated": "Użytkownik nie został jeszcze aktywowany"
+
 }

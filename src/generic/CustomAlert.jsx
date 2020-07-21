@@ -19,7 +19,7 @@ const CustomAlert = props => {
 
 CustomAlert.propTypes = {
     severity: PropTypes.oneOf(['error', 'warning', 'info', 'success']),
-    message: PropTypes.string.isRequired
+    message: PropTypes.string
 };
 
 export default CustomAlert;

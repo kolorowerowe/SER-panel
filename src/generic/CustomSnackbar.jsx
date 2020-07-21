@@ -7,9 +7,9 @@ import {closeSnackbarAction} from "../redux/actions/snackbarActions";
 const CustomSnackBar = () => {
 
     const {
-        open = false,
-        message = '',
-        severity = ''
+        open,
+        message,
+        severity
     } = useSelector(state => state.snackbar);
 
     const dispatch = useDispatch();

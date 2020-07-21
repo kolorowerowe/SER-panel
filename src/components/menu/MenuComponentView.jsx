@@ -16,8 +16,7 @@ const MenuComponentView = (props) => {
     } = props
 
     return (
-        <DefaultCard>
-            Hello, {fullName}!
+        <DefaultCard title={`Hello, ${fullName}!`}>
         </DefaultCard>
     );
 };

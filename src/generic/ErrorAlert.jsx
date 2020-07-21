@@ -17,8 +17,6 @@ const ErrorAlert = props => {
 
     const {t} = useTranslation();
 
-    console.log(errorCode)
-
     return (
         error ? <CustomAlert severity={'error'} message={t(`errors:${errorCode}`)} {...other}/> : <div/>
     );

@@ -1,4 +1,8 @@
 {
   "header": "Job Fair Panel",
-  "toggleTheme": "Toggle theme"
+  "toggleTheme": "Toggle theme",
+  "cancel": "Cancel",
+  "add": "Add",
+  "delete": "Delete",
+  "save": "Save"
 }

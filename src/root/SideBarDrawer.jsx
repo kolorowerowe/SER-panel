@@ -9,12 +9,12 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Drawer from "@material-ui/core/Drawer";
-import {Dashboard, Person} from "@material-ui/icons";
+import {Dashboard, Group, Person} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/core/styles";
 import PropTypes from "prop-types"
-import { useHistory } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import {useTranslation} from "react-i18next";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {logoutAction} from "../redux/actions/authActions";
 
 const drawerWidth = 240;
@@ -22,6 +22,11 @@ const drawerWidth = 240;
 const SideBarDrawer = (props) => {
 
     const {open, handleDrawerClose} = props;
+    const {auth, isLoggedIn} = useSelector(state => state.auth);
+    const {
+        role = ''
+    } = auth || {}
+
 
     const classes = useStyles();
     const history = useHistory();
@@ -33,19 +38,29 @@ const SideBarDrawer = (props) => {
     }
 
     const handleLogout = () => {
-        logoutAction(dispatch,history);
+        logoutAction(dispatch, history);
     }
+
+    const isAdminOrOrganizer = ["ROLE_SYSTEM_ADMIN", "ROLE_ORGANIZER_EDITOR", "ROLE_ORGANIZER_VIEWER"].includes(role);
 
     const sideBarElements = [
         {
             text: t('sidebar:startPage'),
             icon: <Dashboard/>,
-            path: '/'
+            path: '/',
+            visible: true
         },
         {
             text: t('sidebar:profile'),
             icon: <Person/>,
-            path: '/profile'
+            path: '/profile',
+            visible: isLoggedIn
+        },
+        {
+            text: t('sidebar:users'),
+            icon: <Group/>,
+            path: '/users',
+            visible: isLoggedIn && isAdminOrOrganizer
         }
     ];
 
@@ -65,12 +80,18 @@ const SideBarDrawer = (props) => {
             </div>
             <Divider/>
             <List>
-                {sideBarElements.map(({text, icon, path}, index) => <ListItem key={index} button onClick={()=>handleRedirect(path)}>
-                    <ListItemIcon>
-                        {icon}
-                    </ListItemIcon>
-                    <ListItemText primary={text}/>
-                </ListItem>)}
+                {sideBarElements
+                    .filter(x => !!x.visible)
+                    .map(({text, icon, path}, index) => (
+                        <ListItem key={index}
+                                  button
+                                  onClick={() => handleRedirect(path)}>
+                            <ListItemIcon>
+                                {icon}
+                            </ListItemIcon>
+                            <ListItemText primary={text}/>
+                        </ListItem>)
+                    )}
             </List>
             <Divider/>
             <ListItem button onClick={handleLogout}>
@@ -80,7 +101,7 @@ const SideBarDrawer = (props) => {
                 <ListItemText primary={t('sidebar:signOut')}/>
             </ListItem>
         </Drawer>
-);
+    );
 };
 
 SideBarDrawer.propTypes = {
@@ -93,30 +114,30 @@ export default SideBarDrawer;
 
 const useStyles = makeStyles((theme) => ({
     drawerPaper: {
-    position: 'relative',
-    whiteSpace: 'nowrap',
-    width: drawerWidth,
-    transition: theme.transitions.create('width', {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.enteringScreen,
-}),
-},
+        position: 'relative',
+        whiteSpace: 'nowrap',
+        width: drawerWidth,
+        transition: theme.transitions.create('width', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+    },
     drawerPaperClose: {
-    overflowX: 'hidden',
-    transition: theme.transitions.create('width', {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-}),
-    width: theme.spacing(7),
-    [theme.breakpoints.up('sm')]: {
-    width: theme.spacing(9),
-},
-},
+        overflowX: 'hidden',
+        transition: theme.transitions.create('width', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
+        width: theme.spacing(7),
+        [theme.breakpoints.up('sm')]: {
+            width: theme.spacing(9),
+        },
+    },
     toolbarIcon: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: '0 8px',
-    ...theme.mixins.toolbar,
-},
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        padding: '0 8px',
+        ...theme.mixins.toolbar,
+    },
 }));

@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import LoginComponentView from "./LoginComponentView";
 import {useDispatch, useSelector} from "react-redux";
-import {loginAction} from "../../redux/actions/authActions";
-import useFieldValidation from "../../utils/useFieldValidation";
-import {validateEmail, validatePassword} from "../../utils/Validators";
+import {loginAction} from "../../../redux/actions/authActions";
+import useFieldValidation from "../../../utils/useFieldValidation";
+import {validateEmail, validatePassword} from "../../../utils/Validators";
 import {useHistory} from "react-router";
 
 const LoginComponentContainer = () => {
@@ -26,6 +26,10 @@ const LoginComponentContainer = () => {
         history.push('/')
     }
 
+    const handleRedirectToActivateAccount = () => {
+        history.push('/activate')
+    }
+
     const onLoginSubmit = (event) => {
         event.preventDefault();
 
@@ -40,6 +44,7 @@ const LoginComponentContainer = () => {
         <LoginComponentView emailField={emailField}
                             passwordField={passwordField}
                             onLoginSubmit={onLoginSubmit}
+                            handleRedirectToActivateAccount={handleRedirectToActivateAccount}
 
                             loading={loading}
                             error={error}
