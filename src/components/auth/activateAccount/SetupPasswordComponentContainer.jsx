@@ -16,13 +16,19 @@ const SetupPasswordComponentContainer = () => {
 
 
     const {isLoggedIn} = useSelector(state => state.auth)
-    const {setupNewPassword, userId, tempAuthToken, loading, error, errorResponse} = useSelector(state => state.activateUserProcess)
+    const {verifiedCode, setupNewPassword, userId, tempAuthToken, loading, error, errorResponse} = useSelector(state => state.activateUserProcess)
 
     useEffect(() => {
         if (isLoggedIn) {
             handleRedirectLoggedInUser()
         }
     }, [isLoggedIn])
+
+    useEffect(() => {
+        if (verifiedCode === false) {
+            handleRedirectBack()
+        }
+    }, [verifiedCode])
 
     useEffect(() => {
         if (setupNewPassword) {
@@ -32,6 +38,10 @@ const SetupPasswordComponentContainer = () => {
 
     const handleRedirectLoggedInUser = () => {
         history.push('/')
+    }
+
+    const handleRedirectBack = () => {
+        history.push('/activate/email')
     }
 
     const handleRedirectActivationDone = () => {

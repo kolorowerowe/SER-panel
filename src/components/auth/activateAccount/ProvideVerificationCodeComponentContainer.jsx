@@ -14,7 +14,7 @@ const ProvideVerificationCodeComponentContainer = () => {
     const verificationCodeField = useFieldValidation('', validateVerificationCode);
 
     const {isLoggedIn} = useSelector(state => state.auth)
-    const {email, verifiedCode, loading, error, errorResponse} = useSelector(state => state.activateUserProcess)
+    const {sentVerificationCode, email, verifiedCode, loading, error, errorResponse} = useSelector(state => state.activateUserProcess)
 
     useEffect(() => {
         if (isLoggedIn) {
@@ -28,8 +28,19 @@ const ProvideVerificationCodeComponentContainer = () => {
         }
     }, [verifiedCode])
 
+    useEffect(() => {
+        if (sentVerificationCode === false) {
+            handleRedirectBack()
+        }
+    }, [sentVerificationCode])
+
+
     const handleRedirectLoggedInUser = () => {
         history.push('/')
+    }
+
+    const handleRedirectBack = () => {
+        history.push('/activate/email')
     }
 
     const handleRedirectVerifyCode = () => {

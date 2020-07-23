@@ -11,14 +11,11 @@ import {useHistory} from "react-router";
 const UserRow = props => {
 
     const {
-        index,
         user: {
             uuid,
             email,
             fullName,
-            phoneNumber,
             lastSeenDate,
-            userCreatedDate,
             isActivated,
             role
         },

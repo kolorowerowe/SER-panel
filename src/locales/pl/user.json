@@ -13,6 +13,7 @@
   "userId": "ID użytkownika",
   "role": "Rola",
   "createdDate": "Data założenia konta",
+  "lastSeen": "Ostatnie logowanie",
   "SYSTEM_ADMIN": "Admin systemu",
   "ORGANIZER_EDITOR": "Edytor w organizacji",
   "ORGANIZER_VIEWER": "Widz w organizacji",
@@ -20,8 +21,15 @@
   "COMPANY_VIEWER": "Widz w firmie",
   "allUsers": "Wszyscy użytkownicy",
   "addNewUser": "Dodaj użytkownika",
+  "userAdded" : "Użytkownik został dodany",
   "isActivated": "Aktywowany",
   "activated": "Użytkownik został aktywowany",
-  "notActivated": "Użytkownik nie został jeszcze aktywowany"
+  "notActivated": "Użytkownik nie został jeszcze aktywowany",
+  "userDetails": "Szczegóły użytkownika",
+  "userDetailsChanged": "Szczegóły użytkownika zostały zapisane",
+  "saveUser": "Zapisz użytkownika",
+  "deleteUser": "Usuń użytkownika",
+  "deleteUserTooltip": "Nie możesz usunąć admina systemu oraz samego siebie",
+  "userDeleted": "Użytkownik został usunięty"
 
 }

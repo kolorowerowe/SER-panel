@@ -10,6 +10,7 @@ import ProvideVerificationCodeComponentContainer
     from "../components/auth/activateAccount/ProvideVerificationCodeComponentContainer";
 import SetupPasswordComponentContainer from "../components/auth/activateAccount/SetupPasswordComponentContainer";
 import ActivationCompletedComponent from "../components/auth/activateAccount/ActivationCompletedComponent";
+import UserDetailsComponentContainer from "../components/users/UserDetailsComponentContainer";
 
 const RouterProvider = () => {
 
@@ -34,6 +35,10 @@ const RouterProvider = () => {
 
             <Route path="/activate/done"
                    component={ActivationCompletedComponent}
+            />
+
+            <ProtectedRoute path="/users/:userId"
+                            component={UserDetailsComponentContainer}
             />
 
             <ProtectedRoute path="/users"

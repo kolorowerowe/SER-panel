@@ -13,6 +13,7 @@
   "userId": "User ID",
   "role": "Role",
   "createdDate": "Account creation date",
+  "lastSeen": "Last seen",
   "SYSTEM_ADMIN": "System admin",
   "ORGANIZER_EDITOR": "Organizer editor",
   "ORGANIZER_VIEWER": "Organizer viewer",
@@ -20,7 +21,15 @@
   "COMPANY_VIEWER": "Company viewer",
   "allUsers": "All users",
   "addNewUser": "Add new user",
+  "userAdded" : "User have been added",
   "isActivated": "Activated",
   "activated": "User has been activated",
-  "notActivated": "New user? Activate account!"
+  "notActivated": "New user? Activate account!",
+  "userDetails": "User details",
+  "userDetailsChanged": "User details have been changed",
+  "saveUser": "Save user",
+  "deleteUser": "Delete user",
+  "deleteUserTooltip": "You cannot delete system admin and yourself",
+  "userDeleted": "User have been deleted"
+
 }

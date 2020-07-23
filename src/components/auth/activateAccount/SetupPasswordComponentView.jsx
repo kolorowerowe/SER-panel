@@ -7,8 +7,8 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import ValidatedTextField from "../../../generic/ValidatedTextField";
 import {useTranslation} from "react-i18next";
 import ErrorAlert from "../../../generic/ErrorAlert";
-import LinearProgress from "@material-ui/core/LinearProgress";
 import ActivateAccountStepper from "../ActivateAccountStepper";
+import ProgressBar from "../../../generic/ProgressBar";
 
 const SetupPasswordComponentView = (props) => {
 
@@ -28,7 +28,7 @@ const SetupPasswordComponentView = (props) => {
 
     return (
         <div className={classes.loginContainer}>
-            <ActivateAccountStepper activeStep={1} className={classes.loginCard}/>
+            <ActivateAccountStepper activeStep={2} className={classes.loginCard}/>
 
             <Card className={classes.loginCard}>
                 <CardContent>
@@ -59,7 +59,7 @@ const SetupPasswordComponentView = (props) => {
                                     errorResponse={errorResponse}
                                     className={classes.formElement}/>
 
-                        {loading && <LinearProgress className={classes.formElement}/>}
+                        <ProgressBar loading={loading} className={classes.formElement}/>
 
                         <Button
                             type="submit"

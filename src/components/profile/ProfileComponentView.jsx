@@ -8,7 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import ValidatedTextField from "../../generic/ValidatedTextField";
 import ErrorAlert from "../../generic/ErrorAlert";
 import Button from "@material-ui/core/Button";
-import LinearProgress from "@material-ui/core/LinearProgress";
+import ProgressBar from "../../generic/ProgressBar";
 
 const ProfileComponentView = (props) => {
 
@@ -72,9 +72,10 @@ const ProfileComponentView = (props) => {
 
                             <ErrorAlert error={error}
                                         errorResponse={errorResponse}
-                                        className={classes.formElement}/>
+                                        className={classes.formElement} displayGrid/>
 
-                            {loading && <LinearProgress className={classes.formElement}/>}
+                            <ProgressBar loading={loading} className={classes.formElement}/>
+
 
                             <Button
                                 type="submit"
@@ -121,11 +122,11 @@ const ProfileComponentView = (props) => {
                                 className={classes.formElement}
                             />
 
-                            <ErrorAlert error={errorPassword}
-                                        errorResponse={errorPasswordResponse}
+                            <ErrorAlert error={error}
+                                        errorResponse={errorResponse}
                                         className={classes.formElement}/>
 
-                            {loading && <LinearProgress className={classes.formElement}/>}
+                            <ProgressBar loading={loading} className={classes.formElement}/>
 
                             <Button
                                 type="submit"

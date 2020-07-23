@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import UsersComponentView from "./UsersComponentView";
 import {useDispatch, useSelector} from "react-redux";
 import {useSnackbar} from "../../utils/useSnackbar";
-import {fetchUsersAction} from "../../redux/actions/usersActions";
+import {addNewUserAction, fetchUsersAction} from "../../redux/actions/usersActions";
 
 const UsersComponentContainer = () => {
 
@@ -13,6 +13,12 @@ const UsersComponentContainer = () => {
     const snackbar = useSnackbar();
 
     const [addNewUserDialogOpen, setAddNewUserDialogOpen] = useState(false);
+
+    const handleAddNewUserSubmit = (userBody) => {
+
+        addNewUserAction(userBody, authToken, dispatch, snackbar);
+        setAddNewUserDialogOpen(false);
+    }
 
     useEffect(() => {
         fetchUsersAction(authToken, dispatch);
@@ -26,6 +32,7 @@ const UsersComponentContainer = () => {
 
                             addNewUserDialogOpen={addNewUserDialogOpen}
                             setAddNewUserDialogOpen={setAddNewUserDialogOpen}
+                            handleAddNewUserSubmit={handleAddNewUserSubmit}
         />
     );
 };

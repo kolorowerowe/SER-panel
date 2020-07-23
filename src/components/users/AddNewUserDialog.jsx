@@ -11,12 +11,15 @@ import {validateEmail} from "../../utils/Validators";
 import ValidatedTextField from "../../generic/ValidatedTextField";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Grid from "@material-ui/core/Grid";
+import SelectComponent from "../../generic/SelectComponent";
+import {POSSIBLE_ROLES} from "../../utils/constans";
 
 const AddNewUserDialog = props => {
 
     const {
         addNewUserDialogOpen,
-        setAddNewUserDialogOpen
+        setAddNewUserDialogOpen,
+        handleAddNewUserSubmit
     } = props;
 
     const {t} = useTranslation();
@@ -25,9 +28,22 @@ const AddNewUserDialog = props => {
     const emailField = useFieldValidation('', validateEmail);
     const [fullName, setFullName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
+    const [role, setRole] = useState('');
 
 
     const handleSubmit = () => {
+
+        if (emailField.validate() == null && role !== '') {
+
+            const userBody = {
+                email: emailField.value,
+                fullName,
+                phoneNumber,
+                role
+            };
+
+            handleAddNewUserSubmit(userBody);
+        }
 
     }
 
@@ -41,17 +57,21 @@ const AddNewUserDialog = props => {
             </DialogTitle>
             <DialogContent>
                 <Grid container spacing={2}>
-                    <Grid item xs={12}>
+                    <Grid item xs={9}>
                         <ValidatedTextField
                             label={t('auth:email')}
                             name="email"
                             field={emailField}
-                            className={classes.formElement}
                             variant={'standard'}
-
                         />
                     </Grid>
-
+                    <Grid item xs={3} className={classes.gridItem}>
+                        <SelectComponent label={t('user:role')}
+                                         value={role}
+                                         onChange={e => setRole(e.target.value)}
+                                         possibleValues={POSSIBLE_ROLES}
+                        />
+                    </Grid>
                     <Grid item xs={6}>
                         <TextField
                             label={t('user:fullName')}
@@ -85,6 +105,7 @@ const AddNewUserDialog = props => {
                 <Button onClick={handleSubmit}
                         color="primary"
                         variant="contained"
+                        disabled={role === ''}
                 >
                     {t('general:add')}
                 </Button>
@@ -96,8 +117,8 @@ const AddNewUserDialog = props => {
 export default AddNewUserDialog;
 
 const useStyles = makeStyles((theme) => ({
-    formElement: {
-        marginTop: 20
+    gridItem: {
+        display: 'grid'
     }
 }));
 

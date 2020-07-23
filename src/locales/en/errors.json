@@ -7,6 +7,7 @@
   "204": "Password is incorrect",
   "205": "User is inactive",
   "206": "Login or password is incorrect",
+  "207": "Provided code is invalid",
   "251": "Old password is invalid",
   "252": "New password and repeat new password must be the same"
 }

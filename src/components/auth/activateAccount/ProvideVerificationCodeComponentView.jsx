@@ -7,8 +7,8 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import ValidatedTextField from "../../../generic/ValidatedTextField";
 import {useTranslation} from "react-i18next";
 import ErrorAlert from "../../../generic/ErrorAlert";
-import LinearProgress from "@material-ui/core/LinearProgress";
 import ActivateAccountStepper from "../ActivateAccountStepper";
+import ProgressBar from "../../../generic/ProgressBar";
 
 const ProvideVerificationCodeComponentView = (props) => {
 
@@ -50,7 +50,8 @@ const ProvideVerificationCodeComponentView = (props) => {
                                     errorResponse={errorResponse}
                                     className={classes.formElement}/>
 
-                        {loading && <LinearProgress className={classes.formElement}/>}
+
+                        <ProgressBar loading={loading} className={classes.formElement}/>
 
                         <Button
                             type="submit"
