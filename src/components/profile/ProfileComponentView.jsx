@@ -122,8 +122,8 @@ const ProfileComponentView = (props) => {
                                 className={classes.formElement}
                             />
 
-                            <ErrorAlert error={error}
-                                        errorResponse={errorResponse}
+                            <ErrorAlert error={errorPassword}
+                                        errorResponse={errorPasswordResponse}
                                         className={classes.formElement}/>
 
                             <ProgressBar loading={loading} className={classes.formElement}/>

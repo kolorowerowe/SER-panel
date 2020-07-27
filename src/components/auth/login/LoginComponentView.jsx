@@ -17,7 +17,6 @@ const LoginComponentView = (props) => {
         onLoginSubmit,
         emailField,
         passwordField,
-        handleRedirectToActivateAccount,
 
         loading,
         error,

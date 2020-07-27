@@ -54,10 +54,10 @@ const TopBar = (props) => {
         setLanguageMenu(event.currentTarget);
     };
 
-    const handleLanguageMenuChange = (languageCode) => {
+    const handleLanguageMenuChange = (code) => {
         setLanguageMenu(null);
-        i18next.changeLanguage(languageCode);
-        changeLanguage(languageCode, dispatch);
+        i18next.changeLanguage(code);
+        changeLanguage(code, dispatch);
     };
 
     const handleThemeChange = () => {

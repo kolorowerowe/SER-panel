@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import CheckIcon from '@material-ui/icons/Check';
@@ -6,7 +6,6 @@ import CloseIcon from '@material-ui/icons/Close';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Tooltip from "@material-ui/core/Tooltip";
 import {useTranslation} from "react-i18next";
-import {useHistory} from "react-router";
 
 const UserRow = props => {
 

@@ -14,11 +14,6 @@ import {
     FETCH_USERS_SUCCESS
 } from "../types/usersTypes";
 import axios from "axios";
-import {
-    CHANGE_PERSONAL_INFO,
-    CHANGE_PERSONAL_INFO_FAILURE,
-    CHANGE_PERSONAL_INFO_SUCCESS
-} from "../types/activeUserTypes";
 import i18n from "../../i18n";
 
 

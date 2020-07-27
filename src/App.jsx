@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import {MuiThemeProvider,} from '@material-ui/core/styles';
 import SERContainer from "./root/SERContainer";
-import {getTheme, lightTheme} from "./styles/theme";
+import {getTheme} from "./styles/theme";
 import {useSelector} from "react-redux";
 
 const App = () => {

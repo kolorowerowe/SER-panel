@@ -26,10 +26,6 @@ const LoginComponentContainer = () => {
         history.push('/')
     }
 
-    const handleRedirectToActivateAccount = () => {
-        history.push('/activate')
-    }
-
     const onLoginSubmit = (event) => {
         event.preventDefault();
 
@@ -44,7 +40,6 @@ const LoginComponentContainer = () => {
         <LoginComponentView emailField={emailField}
                             passwordField={passwordField}
                             onLoginSubmit={onLoginSubmit}
-                            handleRedirectToActivateAccount={handleRedirectToActivateAccount}
 
                             loading={loading}
                             error={error}
