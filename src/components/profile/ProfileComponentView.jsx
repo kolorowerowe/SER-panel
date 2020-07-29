@@ -20,7 +20,7 @@ const ProfileComponentView = (props) => {
         errorPasswordResponse,
 
         user: {
-            uuid,
+            id,
             role,
             userCreatedDate
         },
@@ -148,7 +148,7 @@ const ProfileComponentView = (props) => {
             <Grid item xs={12}>
                 <DefaultCard title={t('user:details')}>
                     <Typography className={classes.secondaryField}>
-                        {t('user:userId')}: {uuid}
+                        {t('user:userId')}: {id}
                     </Typography>
                     <Typography className={classes.secondaryField}>
                         {t('user:role')}: {t(`user:${role}`)}

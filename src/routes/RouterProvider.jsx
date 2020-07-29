@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Switch} from "react-router-dom";
 import LoginComponentContainer from "../components/auth/login/LoginComponentContainer";
-import MenuComponentContainer from "../components/menu/MenuComponentContainer";
+import HomeComponentContainer from "../components/home/HomeComponentContainer";
 import ProfileComponentContainer from "../components/profile/ProfileComponentContainer";
 import ProtectedRoute from "./ProtectedRoute";
 import UsersComponentContainer from "../components/allUsers/UsersComponentContainer";
@@ -60,7 +60,7 @@ const RouterProvider = () => {
             />
 
             <ProtectedRoute path="/"
-                            component={MenuComponentContainer}
+                            component={HomeComponentContainer}
             />
         </Switch>
     );

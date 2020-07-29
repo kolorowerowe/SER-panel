@@ -25,7 +25,7 @@ const UserDetailsComponentView = (props) => {
         onDeleteUserSubmit,
         canDeleteUser,
         user: {
-            uuid,
+            id,
             lastSeen,
             userCreatedDate,
             isActivated
@@ -52,7 +52,7 @@ const UserDetailsComponentView = (props) => {
 
                 <Grid item xs={12}>
                     <Typography className={classes.secondaryField}>
-                        {t('user:userId')}: {uuid}
+                        {t('user:userId')}: {id}
                     </Typography>
                 </Grid>
                 <Grid item xs={12}>

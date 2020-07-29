@@ -11,7 +11,7 @@ const UserRow = props => {
 
     const {
         user: {
-            uuid,
+            id,
             email,
             fullName,
             lastSeen,
@@ -26,7 +26,7 @@ const UserRow = props => {
     const {t} = useTranslation();
 
     return (
-        <TableRow hover onClick={() => handleOpenUser(uuid)}>
+        <TableRow hover onClick={() => handleOpenUser(id)}>
             <TableCell component="th" scope="row">
                 {email}
             </TableCell>

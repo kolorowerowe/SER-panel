@@ -21,8 +21,8 @@ const UsersTable = props => {
     const history = useHistory();
 
 
-    const handleOpenUser = (uuid) => {
-        history.push(`/user/${uuid}`)
+    const handleOpenUser = (userId) => {
+        history.push(`/user/${userId}`)
     }
 
     return (
@@ -39,7 +39,7 @@ const UsersTable = props => {
                 </TableHead>
                 <TableBody>
                     {users.map((user, index) => (
-                        <UserRow key={user.uuid} user={user} index={index} handleOpenUser={handleOpenUser}/>
+                        <UserRow key={user.id} user={user} index={index} handleOpenUser={handleOpenUser}/>
                     ))}
                 </TableBody>
             </Table>

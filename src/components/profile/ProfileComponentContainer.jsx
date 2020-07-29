@@ -47,7 +47,7 @@ const ProfileComponentContainer = () => {
             phoneNumber: phoneNumberField.value,
         }
 
-        changePersonalInfoAction(user.uuid, savePersonalInfoBody, authToken, dispatch, snackbar);
+        changePersonalInfoAction(user.id, savePersonalInfoBody, authToken, dispatch, snackbar);
     }
 
     const onChangePasswordSubmit = (event) => {
@@ -59,7 +59,7 @@ const ProfileComponentContainer = () => {
             repeatNewPassword: repeatNewPasswordField.value
         }
 
-        changeUserPasswordAction(user.uuid, changePasswordBody, authToken, dispatch, snackbar);
+        changeUserPasswordAction(user.id, changePasswordBody, authToken, dispatch, snackbar);
     }
 
     return (

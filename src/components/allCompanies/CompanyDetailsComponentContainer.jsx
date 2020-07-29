@@ -27,7 +27,7 @@ const CompanyDetailsComponentContainer = () => {
             taxId: taxIdField.value,
         }
 
-        changeCompanyDetailsAction(company.uuid, saveCompanyDetailsBody, authToken, dispatch, snackbar);
+        changeCompanyDetailsAction(company.id, saveCompanyDetailsBody, authToken, dispatch, snackbar);
 
     };
 

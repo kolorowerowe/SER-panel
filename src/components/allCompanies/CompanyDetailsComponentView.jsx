@@ -19,7 +19,7 @@ const CompanyDetailsComponentView = (props) => {
         taxIdField,
         onSaveCompanySubmit,
         company: {
-            uuid,
+            id,
             primaryUserId,
             companyCreatedDate
         } = {},
@@ -45,7 +45,7 @@ const CompanyDetailsComponentView = (props) => {
 
                 <Grid item xs={12}>
                     <Typography className={classes.secondaryField}>
-                        {t('company:companyId')}: {uuid}
+                        {t('company:companyId')}: {id}
                     </Typography>
                 </Grid>
                 <Grid item xs={12}>

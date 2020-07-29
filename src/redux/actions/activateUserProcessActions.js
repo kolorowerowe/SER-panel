@@ -1,8 +1,12 @@
 import {
     SEND_VERIFICATION_CODE,
     SEND_VERIFICATION_CODE_FAILURE,
-    SEND_VERIFICATION_CODE_SUCCESS, SETUP_PASSWORD, SETUP_PASSWORD_FAILURE, SETUP_PASSWORD_SUCCESS,
-    VERIFY_CODE, VERIFY_CODE_FAILURE,
+    SEND_VERIFICATION_CODE_SUCCESS,
+    SETUP_PASSWORD,
+    SETUP_PASSWORD_FAILURE,
+    SETUP_PASSWORD_SUCCESS,
+    VERIFY_CODE,
+    VERIFY_CODE_FAILURE,
     VERIFY_CODE_SUCCESS
 } from "../types/activateUserProcessTypes";
 import axios from "axios";
@@ -49,7 +53,7 @@ export const verifyCodeAction = (email, code, dispatch) => {
             dispatch({
                 type: VERIFY_CODE_SUCCESS,
                 authToken: data.authToken,
-                userId: data.user.uuid
+                userId: data.user.id
             });
         })
         .catch(err => {

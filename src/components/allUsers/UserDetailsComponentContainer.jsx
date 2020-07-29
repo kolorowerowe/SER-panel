@@ -11,7 +11,7 @@ const UserDetailsComponentContainer = () => {
 
     const {user, loading, error, errorResponse} = useSelector(state => state.users);
     const {authToken} = useSelector(state => state.auth);
-    const {user: {uuid : loggedInUserUuid}} = useSelector(state => state.activeUser);
+    const {user: {id : loggedInUserId}} = useSelector(state => state.activeUser);
     const {userId} = useParams()
     const dispatch = useDispatch();
     const snackbar = useSnackbar();
@@ -28,15 +28,15 @@ const UserDetailsComponentContainer = () => {
             phoneNumber: phoneNumberField.value,
         }
 
-        changeUserDetailsAction(user.uuid, saveUserBody, authToken, dispatch, snackbar);
+        changeUserDetailsAction(user.id, saveUserBody, authToken, dispatch, snackbar);
 
     };
 
-    const {uuid, role} = user || {};
-    const canDeleteUser = (loggedInUserUuid !== uuid) && (role !== 'SYSTEM_ADMIN');
+    const {id, role} = user || {};
+    const canDeleteUser = (loggedInUserId !== id) && (role !== 'SYSTEM_ADMIN');
 
     const onDeleteUserSubmit = () => {
-        deleteUserAction(user.uuid, authToken, dispatch, snackbar, history);
+        deleteUserAction(user.id, authToken, dispatch, snackbar, history);
     }
 
     const emailField = useFieldValidation('', validateEmail);

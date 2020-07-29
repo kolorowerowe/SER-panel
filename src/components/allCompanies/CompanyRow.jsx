@@ -8,7 +8,7 @@ const CompanyRow = props => {
 
     const {
         company: {
-            uuid,
+            id,
             primaryUserId,
             name,
             contactPhone,
@@ -21,7 +21,7 @@ const CompanyRow = props => {
     const {t} = useTranslation();
 
     return (
-        <TableRow hover onClick={() => handleOpenCompany(uuid)}>
+        <TableRow hover onClick={() => handleOpenCompany(id)}>
             <TableCell component="th" scope="row">
                 {name}
             </TableCell>

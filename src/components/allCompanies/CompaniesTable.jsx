@@ -21,8 +21,8 @@ const CompaniesTable = props => {
     const history = useHistory();
 
 
-    const handleOpenCompany = (uuid) => {
-        history.push(`/company/${uuid}`)
+    const handleOpenCompany = (companyId) => {
+        history.push(`/company/${companyId}`)
     }
 
     return (
@@ -36,7 +36,7 @@ const CompaniesTable = props => {
                 </TableHead>
                 <TableBody>
                     {companies.map(company => (
-                        <CompanyRow key={company.uuid} company={company} handleOpenCompany={handleOpenCompany}/>
+                        <CompanyRow key={company.id} company={company} handleOpenCompany={handleOpenCompany}/>
                     ))}
                 </TableBody>
             </Table>
