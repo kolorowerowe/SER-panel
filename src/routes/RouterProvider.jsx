@@ -4,13 +4,15 @@ import LoginComponentContainer from "../components/auth/login/LoginComponentCont
 import MenuComponentContainer from "../components/menu/MenuComponentContainer";
 import ProfileComponentContainer from "../components/profile/ProfileComponentContainer";
 import ProtectedRoute from "./ProtectedRoute";
-import UsersComponentContainer from "../components/users/UsersComponentContainer";
+import UsersComponentContainer from "../components/allUsers/UsersComponentContainer";
 import ActivateAccountComponentContainer from "../components/auth/activateAccount/ActivateAccountComponentContainer";
 import ProvideVerificationCodeComponentContainer
     from "../components/auth/activateAccount/ProvideVerificationCodeComponentContainer";
 import SetupPasswordComponentContainer from "../components/auth/activateAccount/SetupPasswordComponentContainer";
 import ActivationCompletedComponent from "../components/auth/activateAccount/ActivationCompletedComponent";
-import UserDetailsComponentContainer from "../components/users/UserDetailsComponentContainer";
+import UserDetailsComponentContainer from "../components/allUsers/UserDetailsComponentContainer";
+import CompanyDetailsComponentContainer from "../components/allCompanies/CompanyDetailsComponentContainer";
+import CompaniesComponentContainer from "../components/allCompanies/CompaniesComponentContainer";
 
 const RouterProvider = () => {
 
@@ -37,16 +39,26 @@ const RouterProvider = () => {
                    component={ActivationCompletedComponent}
             />
 
-            <ProtectedRoute path="/users/:userId"
+            <ProtectedRoute path="/user/:userId"
                             component={UserDetailsComponentContainer}
             />
 
-            <ProtectedRoute path="/users"
+            <ProtectedRoute path="/user"
                             component={UsersComponentContainer}
             />
+
+            <ProtectedRoute path="/company/:companyId"
+                            component={CompanyDetailsComponentContainer}
+            />
+
+            <ProtectedRoute path="/company"
+                            component={CompaniesComponentContainer}
+            />
+
             <ProtectedRoute path="/profile"
                             component={ProfileComponentContainer}
             />
+
             <ProtectedRoute path="/"
                             component={MenuComponentContainer}
             />

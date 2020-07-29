@@ -12,6 +12,7 @@
   "details": "Szczegóły",
   "userId": "ID użytkownika",
   "role": "Rola",
+  "companies": "Firmy",
   "createdDate": "Data założenia konta",
   "lastSeen": "Ostatnie logowanie",
   "SYSTEM_ADMIN": "Admin systemu",

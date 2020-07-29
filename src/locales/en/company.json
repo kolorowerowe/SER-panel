@@ -1,0 +1,13 @@
+{
+ "company": "Company",
+ "allCompanies": "All companies",
+ "companyDetails": "Company details",
+ "companyId": "Company ID",
+ "primaryUserId": "Company registrator ID",
+ "createdDate": "Company registration date",
+ "companyName": "Company name",
+ "contactPhone": "Contact phone",
+ "taxId": "Tax ID",
+ "saveCompany": "Save company",
+ "companyDetailsChanged": "Company details have been changed"
+}

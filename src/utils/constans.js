@@ -22,3 +22,5 @@ export const ALL_ROLES = [
         value: 'SYSTEM_ADMIN'
     }
 ]
+
+export const ADMINISTRATIVE_ROLES = ["ROLE_SYSTEM_ADMIN", "ROLE_ORGANIZER_EDITOR", "ROLE_ORGANIZER_VIEWER"];

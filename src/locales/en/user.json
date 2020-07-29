@@ -12,6 +12,7 @@
   "details": "Details",
   "userId": "User ID",
   "role": "Role",
+  "companies": "Companies",
   "createdDate": "Account creation date",
   "lastSeen": "Last seen",
   "SYSTEM_ADMIN": "System admin",

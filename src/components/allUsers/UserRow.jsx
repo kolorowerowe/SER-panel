@@ -1,11 +1,11 @@
 import React from 'react';
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
-import CheckIcon from '@material-ui/icons/Check';
 import CloseIcon from '@material-ui/icons/Close';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Tooltip from "@material-ui/core/Tooltip";
 import {useTranslation} from "react-i18next";
+import moment from "moment";
 
 const UserRow = props => {
 
@@ -14,29 +14,16 @@ const UserRow = props => {
             uuid,
             email,
             fullName,
-            lastSeenDate,
+            lastSeen,
             isActivated,
-            role
+            role,
+            companyAccessList
         },
         handleOpenUser
     } = props;
 
     const classes = useStyles();
     const {t} = useTranslation();
-
-
-
-    const activatedIcon = (
-        <Tooltip title={t('user:activated')}>
-            <CheckIcon className={classes.ok}/>
-        </Tooltip>
-    )
-
-    const notActivatedIcon = (
-        <Tooltip title={t('user:notActivated')}>
-            <CloseIcon className={classes.error}/>
-        </Tooltip>
-    )
 
     return (
         <TableRow hover onClick={() => handleOpenUser(uuid)}>
@@ -45,7 +32,18 @@ const UserRow = props => {
             </TableCell>
             <TableCell align="center">{fullName}</TableCell>
             <TableCell align="center">{role}</TableCell>
-            <TableCell align="center">{isActivated ? activatedIcon : notActivatedIcon}</TableCell>
+            <TableCell align="center">
+                {companyAccessList.map(({companyName}) => companyName).join('\n')}
+            </TableCell>
+            <TableCell align="center">
+                {isActivated ?
+                    (moment(lastSeen).format('LLL'))
+                    :
+                    <Tooltip title={t('user:notActivated')}>
+                        <CloseIcon className={classes.error}/>
+                    </Tooltip>
+                }
+            </TableCell>
         </TableRow>
     );
 };

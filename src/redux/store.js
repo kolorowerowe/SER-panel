@@ -5,11 +5,13 @@ import {authReducer} from "./reducers/authReducer";
 import {snackbarReducer} from "./reducers/snackbarReducer";
 import {usersReducer} from "./reducers/usersReducer";
 import {activateUserProcessReducer} from "./reducers/activateUserProcessReducer";
+import {companiesReducer} from "./reducers/companiesReducer";
 
 export const store = createStore(combineReducers({
     auth: authReducer,
     activeUser: activeUserReducer,
     activateUserProcess: activateUserProcessReducer,
+    companies: companiesReducer,
     preferences: preferencesReducer,
     snackbar: snackbarReducer,
     users: usersReducer

@@ -1,21 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import UserRow from "./UserRow";
+import CompanyRow from "./CompanyRow";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
 import TableHead from "@material-ui/core/TableHead";
 import Table from "@material-ui/core/Table";
 import TableContainer from "@material-ui/core/TableContainer";
-import Paper from "@material-ui/core/Paper";
 import {useTranslation} from "react-i18next";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {useHistory} from "react-router";
 
-const UsersTable = props => {
+const CompaniesTable = props => {
 
     const {
-        users = []
+        companies = []
     } = props;
 
     const {t} = useTranslation();
@@ -23,8 +21,8 @@ const UsersTable = props => {
     const history = useHistory();
 
 
-    const handleOpenUser = (uuid) => {
-        history.push(`/users/${uuid}`)
+    const handleOpenCompany = (uuid) => {
+        history.push(`/company/${uuid}`)
     }
 
     return (
@@ -32,15 +30,13 @@ const UsersTable = props => {
             <Table>
                 <TableHead >
                     <TableRow>
-                        <TableCell className={classes.header}>{t('auth:email')}</TableCell>
-                        <TableCell align="center" className={classes.header}>{t('user:fullName')}</TableCell>
-                        <TableCell align="center" className={classes.header}>{t('user:role')}</TableCell>
-                        <TableCell align="center" className={classes.header}>{t('user:isActivated')}</TableCell>
+                        <TableCell className={classes.header}>{t('company:companyName')}</TableCell>
+                        <TableCell align="center" className={classes.header}>{t('company:taxId')}</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {users.map((user, index) => (
-                        <UserRow key={user.uuid} user={user} index={index} handleOpenUser={handleOpenUser}/>
+                    {companies.map(company => (
+                        <CompanyRow key={company.uuid} company={company} handleOpenCompany={handleOpenCompany}/>
                     ))}
                 </TableBody>
             </Table>
@@ -48,11 +44,11 @@ const UsersTable = props => {
     );
 };
 
-UsersTable.propTypes = {
+CompaniesTable.propTypes = {
 
 };
 
-export default UsersTable;
+export default CompaniesTable;
 
 const useStyles = makeStyles(theme => ({
     header: {

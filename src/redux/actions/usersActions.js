@@ -1,5 +1,7 @@
 import {
-    ADD_NEW_USER, ADD_NEW_USER_FAILURE, ADD_NEW_USER_SUCCESS,
+    ADD_NEW_USER,
+    ADD_NEW_USER_FAILURE,
+    ADD_NEW_USER_SUCCESS,
     CHANGE_USER_DETAILS,
     CHANGE_USER_DETAILS_FAILURE,
     CHANGE_USER_DETAILS_SUCCESS,
@@ -101,7 +103,7 @@ export const deleteUserAction = (userId, authToken, dispatch, snackbar, history)
                 payload: data
             });
             snackbar.addSuccess(i18n.t('user:userDeleted'));
-            history.push('/users');
+            history.push('/user');
         })
         .catch(err => {
             dispatch({

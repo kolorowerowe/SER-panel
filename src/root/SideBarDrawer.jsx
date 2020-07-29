@@ -9,13 +9,14 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Drawer from "@material-ui/core/Drawer";
-import {Dashboard, Group, Person} from "@material-ui/icons";
+import {Business, Dashboard, Group, Person} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/core/styles";
 import PropTypes from "prop-types"
 import {useHistory} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
 import {logoutAction} from "../redux/actions/authActions";
+import {ADMINISTRATIVE_ROLES} from "../utils/constans";
 
 const drawerWidth = 240;
 
@@ -41,7 +42,7 @@ const SideBarDrawer = (props) => {
         logoutAction(dispatch, history);
     }
 
-    const isAdminOrOrganizer = ["ROLE_SYSTEM_ADMIN", "ROLE_ORGANIZER_EDITOR", "ROLE_ORGANIZER_VIEWER"].includes(role);
+    const isAdminOrOrganizer = ADMINISTRATIVE_ROLES.includes(role);
 
     const sideBarElements = [
         {
@@ -57,9 +58,15 @@ const SideBarDrawer = (props) => {
             visible: isLoggedIn
         },
         {
+            text: t('sidebar:companies'),
+            icon: <Business/>,
+            path: '/company',
+            visible: isLoggedIn && isAdminOrOrganizer
+        },
+        {
             text: t('sidebar:users'),
             icon: <Group/>,
-            path: '/users',
+            path: '/user',
             visible: isLoggedIn && isAdminOrOrganizer
         }
     ];

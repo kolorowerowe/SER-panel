@@ -45,3 +45,5 @@ export const validateVerificationCode = (verificationCode) => {
     }
     return null;
 };
+
+export const noValidate = () => null;

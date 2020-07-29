@@ -1,0 +1,13 @@
+{
+ "company": "Firma",
+ "allCompanies": "Wszystkie firmy",
+ "companyDetails": "Szczegóły firmy",
+ "companyId": "ID firmy",
+ "primaryUserId": "ID założyciela firmy",
+ "createdDate": "Data rejestracji firmy",
+ "companyName": "Nazwa firmy",
+ "contactPhone": "Telefon kontaktowy",
+ "taxId": "NIP",
+ "saveCompany": "Zapisz firmę",
+ "companyDetailsChanged": "Szczegy firmy zostay zapisane"
+}
