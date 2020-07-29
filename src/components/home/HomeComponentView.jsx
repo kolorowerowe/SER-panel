@@ -10,6 +10,8 @@ const HomeComponentView = (props) => {
         error,
         errorResponse,
         loading,
+        isOrganizer,
+        isCompany,
         user: {
             fullName,
             role,
@@ -24,18 +26,21 @@ const HomeComponentView = (props) => {
                 </DefaultCard>
             </Grid>
 
-            {!!companyAccessList &&
-            companyAccessList.length > 0 ?
+            {isCompany && !!companyAccessList && (companyAccessList.length > 0 ?
                 companyAccessList.map(({companyId}) =>
                     <Grid item xs={12} key={companyId}>
-                        <CompanyTileComponentContainer  companyId={companyId}/>
+                        <CompanyTileComponentContainer companyId={companyId}/>
                     </Grid>) :
                 <Grid item xs={12}>
                     <Typography>
-                        "Nie ma jeszcze"
+                        Nie masz jeszcze firmy, zarejestruj ją
                     </Typography>
-                </Grid>
+                </Grid>)
             }
+
+            {isOrganizer && <Typography>
+                Jesteś adminem
+            </Typography>}
         </Grid>
 
     );

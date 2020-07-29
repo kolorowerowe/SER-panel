@@ -4,20 +4,25 @@ import {useSelector} from "react-redux";
 
 const HomeComponentContainer = () => {
 
-    const activeUser = useSelector(state => state.activeUser)
+    const activeUser = useSelector(state => state.activeUser);
+    const {isOrganizer, isCompany} = useSelector(state => state.auth);
 
     const {
         user,
         error,
         errorResponse,
-        loading
+        loading,
     } = activeUser;
+
+
 
     return (
         <HomeComponentView user={user}
                            error={error}
                            errorResponse={errorResponse}
-                           loading={loading}/>
+                           loading={loading}
+                           isOrganizer={isOrganizer}
+                           isCompany={isCompany}/>
     );
 };
 

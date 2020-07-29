@@ -10,6 +10,7 @@ import {
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 import {fetchActiveUserAction} from "./activeUserActions";
+import {ADMINISTRATOR_ROLES, COMPANY_ROLES, EDIT_RIGHTS_ROLES, ORGANIZER_ROLES} from "../../utils/constans";
 
 
 const baseUrl = process.env.REACT_APP_BACK_END_URL;
@@ -43,16 +44,25 @@ export const decodeTokenAction = (jwtToken, dispatch) => {
 
     try {
         const decoded = jwtDecode(jwtToken);
+        const role = decoded.rol.substring(5);
 
         const prettyDecode = {
             email: decoded.sub,
-            role: decoded.rol,
+            role: role,
             expired: decoded.exp
+        }
+
+        const permissions = {
+            isAdmin: ADMINISTRATOR_ROLES.includes(role),
+            isOrganizer: ORGANIZER_ROLES.includes(role),
+            isCompany: COMPANY_ROLES.includes(role),
+            hasEditRight: EDIT_RIGHTS_ROLES.includes(role)
         }
 
         dispatch({
             type: DECODE_TOKEN_SUCCESS,
-            payload: prettyDecode
+            payload: prettyDecode,
+            permissions
         });
 
         fetchActiveUserAction(prettyDecode.email, jwtToken, dispatch);

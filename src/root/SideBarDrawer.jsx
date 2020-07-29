@@ -16,17 +16,18 @@ import {useHistory} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
 import {logoutAction} from "../redux/actions/authActions";
-import {ADMINISTRATIVE_ROLES} from "../utils/constans";
 
 const drawerWidth = 240;
 
 const SideBarDrawer = (props) => {
 
     const {open, handleDrawerClose} = props;
-    const {auth, isLoggedIn} = useSelector(state => state.auth);
+    const {auth, isLoggedIn, isOrganizer, isCompany} = useSelector(state => state.auth);
     const {
-        role = ''
-    } = auth || {}
+        user: {
+            companyAccessList = []
+        } = {}
+    } = useSelector(state => state.activeUser);
 
 
     const classes = useStyles();
@@ -42,7 +43,12 @@ const SideBarDrawer = (props) => {
         logoutAction(dispatch, history);
     }
 
-    const isAdminOrOrganizer = ADMINISTRATIVE_ROLES.includes(role);
+    const getSideBarCompanies = companyAccessList.map(({companyId, companyName}) => ({
+        text: companyName,
+        icon: <Business/>,
+        path: `company/${companyId}`,
+        visible: isCompany
+    }))
 
     const sideBarElements = [
         {
@@ -51,6 +57,7 @@ const SideBarDrawer = (props) => {
             path: '/',
             visible: true
         },
+        ...getSideBarCompanies,
         {
             text: t('sidebar:profile'),
             icon: <Person/>,
@@ -61,13 +68,13 @@ const SideBarDrawer = (props) => {
             text: t('sidebar:companies'),
             icon: <Business/>,
             path: '/company',
-            visible: isLoggedIn && isAdminOrOrganizer
+            visible: isLoggedIn && isOrganizer
         },
         {
             text: t('sidebar:users'),
             icon: <Group/>,
             path: '/user',
-            visible: isLoggedIn && isAdminOrOrganizer
+            visible: isLoggedIn && isOrganizer
         }
     ];
 

@@ -10,6 +10,9 @@ const initState = {
     isLoggedIn: false,
     authToken: undefined,
     auth: undefined,
+    isAdmin: false,
+    isOrganizer: false,
+    hasEditRight: false,
     loading: false,
     error: null,
     errorResponse: undefined
@@ -40,16 +43,14 @@ export const authReducer = (state = initState, action) => { // (1)
         case DECODE_TOKEN_SUCCESS:
             return {
                 ...state,
-                auth: action.payload
+                auth: action.payload,
+                isAdmin: action.permissions.isAdmin,
+                isOrganizer: action.permissions.isOrganizer,
+                isCompany: action.permissions.isCompany,
+                hasEditRight: action.permissions.hasEditRight
             }
         case LOGOUT:
-            return {
-                isLoggedIn: false,
-                authToken: undefined,
-                loading: false,
-                error: null,
-                errorResponse: undefined
-            };
+            return initState;
         default:
             return state
     }
