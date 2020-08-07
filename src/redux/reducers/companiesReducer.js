@@ -2,6 +2,9 @@ import {
     CHANGE_COMPANY_DETAILS,
     CHANGE_COMPANY_DETAILS_FAILURE,
     CHANGE_COMPANY_DETAILS_SUCCESS,
+    CREATE_COMPANY,
+    CREATE_COMPANY_FAILURE,
+    CREATE_COMPANY_SUCCESS,
     FETCH_COMPANIES,
     FETCH_COMPANIES_FAILURE,
     FETCH_COMPANIES_SUCCESS,
@@ -24,6 +27,7 @@ export const companiesReducer = (state = initState, action) => { // (1)
         case FETCH_COMPANIES:
         case FETCH_COMPANY_DETAILS:
         case CHANGE_COMPANY_DETAILS:
+        case CREATE_COMPANY:
             return {
                 ...state,
                 loading: true,
@@ -43,9 +47,15 @@ export const companiesReducer = (state = initState, action) => { // (1)
                 company: action.payload,
                 loading: false
             };
+        case CREATE_COMPANY_SUCCESS:
+            return {
+                ...state,
+                loading: false
+            };
         case FETCH_COMPANIES_FAILURE:
         case FETCH_COMPANY_DETAILS_FAILURE:
         case CHANGE_COMPANY_DETAILS_FAILURE:
+        case CREATE_COMPANY_FAILURE:
             return {
                 ...state,
                 loading: false,

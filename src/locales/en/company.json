@@ -9,5 +9,12 @@
  "contactPhone": "Contact phone",
  "taxId": "Tax ID",
  "saveCompany": "Save company",
- "companyDetailsChanged": "Company details have been changed"
+ "companyDetailsChanged": "Company details have been changed",
+ "dontHaveCompany": "You don't belong to any registered company in our system. You should register new one.",
+ "registerCompany": "Register company",
+ "registerCompanyDescription": "Please fill the fields below. Once you will submit the form you can't change the name of the company on panel.",
+ "companyRegisteredSuccess": "Company has been registered",
+ "companyRegisteredFailure": "Error encountered during company registration. Try again later",
+ "pastePhone": "Paste your phone number"
+
 }

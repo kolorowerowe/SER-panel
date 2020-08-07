@@ -3,6 +3,7 @@ import DefaultCard from "../../generic/DefaultCard";
 import Grid from "@material-ui/core/Grid";
 import CompanyTileComponentContainer from "./CompanyTileComponentContainer";
 import Typography from "@material-ui/core/Typography";
+import RegisterCompanyComponentContainer from "./RegisterCompanyComponentContainer";
 
 const HomeComponentView = (props) => {
 
@@ -32,9 +33,7 @@ const HomeComponentView = (props) => {
                         <CompanyTileComponentContainer companyId={companyId}/>
                     </Grid>) :
                 <Grid item xs={12}>
-                    <Typography>
-                        Nie masz jeszcze firmy, zarejestruj ją
-                    </Typography>
+                    <RegisterCompanyComponentContainer/>
                 </Grid>)
             }
 

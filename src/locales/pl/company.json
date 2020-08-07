@@ -9,5 +9,11 @@
  "contactPhone": "Telefon kontaktowy",
  "taxId": "NIP",
  "saveCompany": "Zapisz firmę",
- "companyDetailsChanged": "Szczegy firmy zostay zapisane"
+ "companyDetailsChanged": "Szczegy firmy zostay zapisane",
+ "dontHaveCompany": "Nie należysz do żadnej zarejestrowanej firmy w tym systemie. Zarejestruj swoją firmę teraz.",
+ "registerCompany": "Zarejestruj firmę",
+ "registerCompanyDescription": "Wypenij pola poniżej. Po przesłaniu formularza nie ma możliwości zmiany nazwy firmy widocznej w panelu.",
+ "companyRegisteredSuccess": "Firma została zarejestrowana",
+ "companyRegisteredFailure": "Wystąpił błąd w trakcie rejestracji firmy. Spróbuj ponownie później.",
+ "pastePhone": "Wklej twój numer telefonu"
 }

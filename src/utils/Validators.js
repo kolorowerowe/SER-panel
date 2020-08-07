@@ -39,7 +39,7 @@ export const validatePassword = (password) => {
 export const validateVerificationCode = (verificationCode) => {
     if (!verificationCode) {
         return new Error(i18n.t('auth:verificationCodeRequiredError'));
-    } else if (verificationCode.length != 6) {
+    } else if (verificationCode.length !== 6) {
         return new Error(i18n.t('auth:verificationCodeNeedToHave6Digits'));
 
     }

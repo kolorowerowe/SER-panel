@@ -2,6 +2,9 @@ import {
     CHANGE_COMPANY_DETAILS,
     CHANGE_COMPANY_DETAILS_FAILURE,
     CHANGE_COMPANY_DETAILS_SUCCESS,
+    CREATE_COMPANY,
+    CREATE_COMPANY_FAILURE,
+    CREATE_COMPANY_SUCCESS,
     FETCH_COMPANIES,
     FETCH_COMPANIES_FAILURE,
     FETCH_COMPANIES_SUCCESS,
@@ -11,6 +14,7 @@ import {
 } from "../types/companyTypes";
 import axios from "axios";
 import i18n from "../../i18n";
+import {fetchActiveUserAction} from "./activeUserActions";
 
 
 const baseUrl = process.env.REACT_APP_BACK_END_URL;
@@ -80,5 +84,30 @@ export const changeCompanyDetailsAction = (companyId, changeCompanyDetailsBody, 
                 type: CHANGE_COMPANY_DETAILS_FAILURE,
                 payload: err
             });
+        });
+};
+
+export const createCompanyAction = (createCompanyBody, userEmail, authToken, dispatch, snackbar) => {
+    dispatch({type: CREATE_COMPANY});
+
+    axios.post(`${baseUrl}/company`, createCompanyBody, {
+        headers: {
+            "Authorization": `Bearer ${authToken}`
+        }
+    })
+        .then(({data}) => {
+            dispatch({
+                type: CREATE_COMPANY_SUCCESS,
+                payload: data
+            });
+            fetchActiveUserAction(userEmail, authToken, dispatch);
+            snackbar.addSuccess(i18n.t('company:companyRegisteredSuccess'));
+        })
+        .catch(err => {
+            dispatch({
+                type: CREATE_COMPANY_FAILURE,
+                payload: err
+            });
+            snackbar.addError(new Error(i18n.t('company:companyRegisteredFailure')));
         });
 };
