@@ -8,15 +8,19 @@ import RegisterCompanyComponentContainer from "./RegisterCompanyComponentContain
 const HomeComponentView = (props) => {
 
     const {
-        error,
-        errorResponse,
-        loading,
         isOrganizer,
         isCompany,
-        user: {
-            fullName,
-            role,
-            companyAccessList
+        activeUser: {
+            user: {
+                fullName,
+                role,
+            } = {},
+            loading,
+            error,
+            errorResponse
+        } = {},
+        companies: {
+            companies
         } = {}
     } = props
 
@@ -27,10 +31,10 @@ const HomeComponentView = (props) => {
                 </DefaultCard>
             </Grid>
 
-            {isCompany && !!companyAccessList && (companyAccessList.length > 0 ?
-                companyAccessList.map(({companyId}) =>
-                    <Grid item xs={12} key={companyId}>
-                        <CompanyTileComponentContainer companyId={companyId}/>
+            {isCompany && !!companies && (companies.length > 0 ?
+                companies.map((company) =>
+                    <Grid item xs={12} key={company.id}>
+                        <CompanyTileComponentContainer company={company}/>
                     </Grid>) :
                 <Grid item xs={12}>
                     <RegisterCompanyComponentContainer/>

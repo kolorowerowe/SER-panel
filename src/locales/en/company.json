@@ -8,6 +8,11 @@
  "companyName": "Company name",
  "contactPhone": "Contact phone",
  "taxId": "Tax ID",
+ "street": "Street",
+ "buildingNumber": "Building number",
+ "flatNumber": "Flat number",
+ "postalCode": "Postal code",
+ "city": "City",
  "saveCompany": "Save company",
  "companyDetailsChanged": "Company details have been changed",
  "dontHaveCompany": "You don't belong to any registered company in our system. You should register new one.",
@@ -16,5 +21,4 @@
  "companyRegisteredSuccess": "Company has been registered",
  "companyRegisteredFailure": "Error encountered during company registration. Try again later",
  "pastePhone": "Paste your phone number"
-
 }

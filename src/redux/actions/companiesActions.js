@@ -7,6 +7,9 @@ import {
     CREATE_COMPANY_SUCCESS,
     FETCH_COMPANIES,
     FETCH_COMPANIES_FAILURE,
+    FETCH_COMPANIES_FOR_USER,
+    FETCH_COMPANIES_FOR_USER_FAILURE,
+    FETCH_COMPANIES_FOR_USER_SUCCESS,
     FETCH_COMPANIES_SUCCESS,
     FETCH_COMPANY_DETAILS,
     FETCH_COMPANY_DETAILS_FAILURE,
@@ -41,6 +44,30 @@ export const fetchCompaniesAction = (authToken, dispatch) => {
         });
 };
 
+export const fetchCompaniesForUserAction = (userId, authToken, dispatch) => {
+    dispatch({type: FETCH_COMPANIES_FOR_USER});
+
+    axios.get(`${baseUrl}/company`, {
+        params: {
+            userId: userId
+        },
+        headers: {
+            "Authorization": `Bearer ${authToken}`
+        }
+    })
+        .then(({data}) => {
+            dispatch({
+                type: FETCH_COMPANIES_FOR_USER_SUCCESS,
+                payload: data.companyList
+            });
+        })
+        .catch(err => {
+            dispatch({
+                type: FETCH_COMPANIES_FOR_USER_FAILURE,
+                payload: err
+            });
+        });
+};
 
 export const fetchCompanyDetailsAction = (companyId, authToken, dispatch) => {
     dispatch({type: FETCH_COMPANY_DETAILS});

@@ -1,7 +1,9 @@
 {
   "0": "Unexpexted error occurred",
+  "1": "An error occurred when sending an email. Pleasy try again.",
   "100": "Session has expired, please login again",
-  "201": "No user for provided email",
+  "200": "No user found for provided id",
+  "201": "No user found for provided email",
   "202": "Field username is missing",
   "203": "Password is missing",
   "204": "Password is incorrect",
@@ -9,5 +11,6 @@
   "206": "Login or password is incorrect",
   "207": "Provided code is invalid",
   "251": "Old password is invalid",
-  "252": "New password and repeat new password must be the same"
+  "252": "New password and repeat new password must be the same",
+  "300": "No company found for this id"
 }

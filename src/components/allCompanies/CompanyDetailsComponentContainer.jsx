@@ -4,7 +4,16 @@ import {useSnackbar} from "../../utils/useSnackbar";
 import CompanyDetailsComponentView from "./CompanyDetailsComponentView";
 import {useHistory, useParams} from "react-router";
 import useFieldValidation from "../../utils/useFieldValidation";
-import {noValidate} from "../../utils/Validators";
+import {
+    validateBuildingNumber,
+    validateCity,
+    validateCompanyName,
+    validateFlatNumber,
+    validatePhoneNumber,
+    validatePostalCode,
+    validateStreet,
+    validateTaxId
+} from "../../utils/Validators";
 import {changeCompanyDetailsAction, fetchCompanyDetailsAction} from "../../redux/actions/companiesActions";
 
 const CompanyDetailsComponentContainer = () => {
@@ -19,28 +28,68 @@ const CompanyDetailsComponentContainer = () => {
 
     useEffect(() => {
         fetchCompanyDetailsAction(companyId, authToken, dispatch);
-    }, []);
+    }, [companyId]);
 
     const onSaveCompanySubmit = () => {
-        const saveCompanyDetailsBody = {
-            contactPhone: contactPhoneField.value,
-            taxId: taxIdField.value,
+
+        const allFields = [contactPhoneField, taxIdField, streetField, buildingNumberField, flatNumberField, cityField, postalCodeField];
+        const isError = allFields.reduce((currentError, x) => (currentError || !!x.validate()), false);
+
+
+        if (!isError){
+            const saveCompanyDetailsBody = {
+                contactPhone: contactPhoneField.value,
+                taxId: taxIdField.value,
+                address: {
+                    street: streetField.value,
+                    buildingNumber: buildingNumberField.value,
+                    flatNumber: flatNumberField.value,
+                    city: cityField.value,
+                    postalCode: postalCodeField.value
+                }
+            }
+
+            changeCompanyDetailsAction(company.id, saveCompanyDetailsBody, authToken, dispatch, snackbar);
         }
 
-        changeCompanyDetailsAction(company.id, saveCompanyDetailsBody, authToken, dispatch, snackbar);
 
     };
 
-    const nameField = useFieldValidation('', noValidate);
-    const contactPhoneField = useFieldValidation('', noValidate);
-    const taxIdField = useFieldValidation('', noValidate);
+    const companyNameField = useFieldValidation('', validateCompanyName);
+    const contactPhoneField = useFieldValidation('', validatePhoneNumber);
+    const taxIdField = useFieldValidation('', validateTaxId);
+
+    const streetField = useFieldValidation('', validateStreet);
+    const buildingNumberField = useFieldValidation('', validateBuildingNumber);
+    const flatNumberField = useFieldValidation('', validateFlatNumber);
+    const cityField = useFieldValidation('', validateCity);
+    const postalCodeField = useFieldValidation('', validatePostalCode);
+
 
     useEffect(() => {
-        if (!!company) {
-            nameField.setValue(company.name);
-            contactPhoneField.setValue(company.contactPhone);
-            taxIdField.setValue(company.taxId);
-        }
+        const {
+            name,
+            contactPhone,
+            taxId,
+            address: {
+                street,
+                buildingNumber,
+                flatNumber,
+                city,
+                postalCode
+            } = {}
+        } = company || {}
+
+        companyNameField.setValue(name);
+        contactPhoneField.setValue(contactPhone);
+        taxIdField.setValue(taxId);
+
+        streetField.setValue(street);
+        buildingNumberField.setValue(buildingNumber);
+        flatNumberField.setValue(flatNumber);
+        cityField.setValue(city);
+        postalCodeField.setValue(postalCode);
+
     }, [company])
 
     return (
@@ -49,11 +98,18 @@ const CompanyDetailsComponentContainer = () => {
                                      error={error}
                                      errorResponse={errorResponse}
 
-                                     nameField={nameField}
+                                     companyNameField={companyNameField}
                                      contactPhoneField={contactPhoneField}
                                      taxIdField={taxIdField}
 
+                                     streetField={streetField}
+                                     buildingNumberField={buildingNumberField}
+                                     flatNumberField={flatNumberField}
+                                     cityField={cityField}
+                                     postalCodeField={postalCodeField}
+
                                      onSaveCompanySubmit={onSaveCompanySubmit}
+
         />
     );
 };

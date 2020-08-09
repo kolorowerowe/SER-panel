@@ -11,7 +11,16 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogActions from "@material-ui/core/DialogActions";
 import useFieldValidation from "../../utils/useFieldValidation";
-import {noValidate} from "../../utils/Validators";
+import {
+    validateBuildingNumber,
+    validateCity,
+    validateCompanyName,
+    validateFlatNumber,
+    validatePhoneNumber,
+    validatePostalCode,
+    validateStreet,
+    validateTaxId
+} from "../../utils/Validators";
 import ValidatedTextField from "../../generic/ValidatedTextField";
 import {createCompanyAction} from "../../redux/actions/companiesActions";
 import {useSnackbar} from "../../utils/useSnackbar";
@@ -30,7 +39,7 @@ const RegisterCompanyComponentContainer = (props) => {
             id,
             email,
             phoneNumber
-        }
+        } = {}
     } = useSelector(state => state.activeUser);
 
     const dispatch = useDispatch();
@@ -40,9 +49,16 @@ const RegisterCompanyComponentContainer = (props) => {
 
     const [openRegisterCompanyDialog, setOpenRegisterCompanyDialog] = useState(false);
 
-    const nameField = useFieldValidation('', noValidate);
-    const contactPhoneField = useFieldValidation('', noValidate);
-    const taxIdField = useFieldValidation('', noValidate);
+    const companyNameField = useFieldValidation('', validateCompanyName);
+    const contactPhoneField = useFieldValidation('', validatePhoneNumber);
+    const taxIdField = useFieldValidation('', validateTaxId);
+
+    const streetField = useFieldValidation('', validateStreet);
+    const buildingNumberField = useFieldValidation('', validateBuildingNumber);
+    const flatNumberField = useFieldValidation('', validateFlatNumber);
+    const cityField = useFieldValidation('', validateCity);
+    const postalCodeField = useFieldValidation('', validatePostalCode);
+
 
     const pastePhone = () => {
         contactPhoneField.setValue(phoneNumber);
@@ -50,14 +66,23 @@ const RegisterCompanyComponentContainer = (props) => {
 
     const submitForm = () => {
 
-        const isError = [nameField, contactPhoneField, taxIdField].reduce((currentError, x) => (currentError || !!x.validate()), false);
+        const allFields = [companyNameField, contactPhoneField, taxIdField, streetField, buildingNumberField, flatNumberField, cityField, postalCodeField];
+
+        const isError = allFields.reduce((currentError, x) => (currentError || !!x.validate()), false);
 
         if (!isError) {
             const createCompanyBody = {
-                name: nameField.value,
+                name: companyNameField.value,
                 contactPhone: contactPhoneField.value,
                 taxId: taxIdField.value,
-                primaryUserId: id
+                primaryUserId: id,
+                address: {
+                    street: streetField.value,
+                    buildingNumber: buildingNumberField.value,
+                    flatNumber: flatNumberField.value,
+                    city: cityField.value,
+                    postalCode: postalCodeField.value
+                }
             }
 
             createCompanyAction(createCompanyBody, email, authToken, dispatch, snackbar);
@@ -86,15 +111,18 @@ const RegisterCompanyComponentContainer = (props) => {
                     <DialogContentText>
                         {t('company:registerCompanyDescription')}
                     </DialogContentText>
-                    <ValidatedTextField
-                        label={t('company:companyName')}
-                        name="companyName"
-                        field={nameField}
-                        className={classes.formElement}
-                        variant={'standard'}
-                    />
+                    <Grid container spacing={3}>
 
-                    <Grid container className={classes.formElement}>
+                        <Grid item xs={12}>
+
+                            <ValidatedTextField
+                                label={t('company:companyName')}
+                                name="companyName"
+                                field={companyNameField}
+                                variant={'standard'}
+                            />
+                        </Grid>
+
                         <Grid item xs={11}>
                             <ValidatedTextField
                                 label={t('company:contactPhone')}
@@ -112,17 +140,56 @@ const RegisterCompanyComponentContainer = (props) => {
                                     <PhoneIphoneIcon/>
                                 </IconButton>
                             </Tooltip>
+                        </Grid>
 
+                        <Grid item xs={12}>
+                            <ValidatedTextField
+                                label={t('company:taxId')}
+                                name="taxId"
+                                field={taxIdField}
+                                variant={'standard'}
+                            />
+                        </Grid>
+
+                        <Grid item xs={12}/>
+
+                        <Grid item xs={12}>
+                            <ValidatedTextField
+                                label={t('company:street')}
+                                name="street"
+                                field={streetField}
+                            />
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                            <ValidatedTextField
+                                label={t('company:buildingNumber')}
+                                name="buildingNumber"
+                                field={buildingNumberField}
+                            />
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                            <ValidatedTextField
+                                label={t('company:flatNumber')}
+                                name="flatNumber"
+                                field={flatNumberField}
+                            />
+                        </Grid>
+                        <Grid item xs={12} md={4}>
+                            <ValidatedTextField
+                                label={t('company:postalCode')}
+                                name="postalCode"
+                                field={postalCodeField}
+                            />
+                        </Grid>
+                        <Grid item xs={12} md={8}>
+                            <ValidatedTextField
+                                label={t('company:city')}
+                                name="city"
+                                field={cityField}
+                            />
                         </Grid>
                     </Grid>
 
-                    <ValidatedTextField
-                        label={t('company:taxId')}
-                        name="taxId"
-                        field={taxIdField}
-                        className={classes.formElement}
-                        variant={'standard'}
-                    />
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={() => setOpenRegisterCompanyDialog(false)} color="primary" variant="outlined">

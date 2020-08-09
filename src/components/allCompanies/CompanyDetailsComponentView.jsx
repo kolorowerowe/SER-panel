@@ -14,9 +14,14 @@ import moment from "moment";
 const CompanyDetailsComponentView = (props) => {
 
     const {
-        nameField,
+        companyNameField,
         contactPhoneField,
         taxIdField,
+        streetField,
+        buildingNumberField,
+        flatNumberField,
+        cityField,
+        postalCodeField,
         onSaveCompanySubmit,
         company: {
             id,
@@ -65,31 +70,75 @@ const CompanyDetailsComponentView = (props) => {
                             <ValidatedTextField
                                 label={t('company:companyName')}
                                 name="companyName"
-                                field={nameField}
+                                field={companyNameField}
                                 className={classes.formElement}
-                                variant={'standard'}
                                 disabled
                             />
                         </Grid>
 
-                        <Grid item xs={12}>
+                        <Grid item xs={12} md={6}>
                             <ValidatedTextField
                                 label={t('company:contactPhone')}
                                 name="contactPhone"
                                 field={contactPhoneField}
                                 className={classes.formElement}
                                 disabled={loading}
-                                variant={'standard'}
                             />
                         </Grid>
-                        <Grid item xs={12}>
-
+                        <Grid item xs={12} md={6}>
                             <ValidatedTextField
                                 label={t('company:taxId')}
                                 name="taxId"
                                 field={taxIdField}
                                 className={classes.formElement}
-                                variant={'standard'}
+                                disabled={loading}
+                            />
+                        </Grid>
+
+                        <Grid item xs={12}/>
+
+                        <Grid item xs={12}>
+                            <ValidatedTextField
+                                label={t('company:street')}
+                                name="street"
+                                field={streetField}
+                                className={classes.formElement}
+                                disabled={loading}
+                            />
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                            <ValidatedTextField
+                                label={t('company:buildingNumber')}
+                                name="buildingNumber"
+                                field={buildingNumberField}
+                                className={classes.formElement}
+                                disabled={loading}
+                            />
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                            <ValidatedTextField
+                                label={t('company:flatNumber')}
+                                name="flatNumber"
+                                field={flatNumberField}
+                                className={classes.formElement}
+                                disabled={loading}
+                            />
+                        </Grid>
+                        <Grid item xs={12} md={4}>
+                            <ValidatedTextField
+                                label={t('company:postalCode')}
+                                name="postalCode"
+                                field={postalCodeField}
+                                className={classes.formElement}
+                                disabled={loading}
+                            />
+                        </Grid>
+                        <Grid item xs={12} md={8}>
+                            <ValidatedTextField
+                                label={t('company:city')}
+                                name="city"
+                                field={cityField}
+                                className={classes.formElement}
                                 disabled={loading}
                             />
                         </Grid>

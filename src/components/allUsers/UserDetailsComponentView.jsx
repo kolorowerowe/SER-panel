@@ -74,7 +74,6 @@ const UserDetailsComponentView = (props) => {
                                 name="email"
                                 field={emailField}
                                 className={classes.formElement}
-                                variant={'standard'}
                                 disabled
                             />
                         </Grid>
@@ -86,7 +85,6 @@ const UserDetailsComponentView = (props) => {
                                 field={fullNameField}
                                 className={classes.formElement}
                                 disabled={loading}
-                                variant={'standard'}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -96,7 +94,6 @@ const UserDetailsComponentView = (props) => {
                                 name="phoneNumber"
                                 field={phoneNumberField}
                                 className={classes.formElement}
-                                variant={'standard'}
                                 disabled={loading}
                             />
                         </Grid>
@@ -117,7 +114,7 @@ const UserDetailsComponentView = (props) => {
                                     <Button
                                         fullWidth
                                         variant="outlined"
-                                        color={"secondary"}
+                                        color="secondary"
                                         className={classes.formElement}
                                         onClick={onDeleteUserSubmit}
                                         disabled={loading || !canDeleteUser}

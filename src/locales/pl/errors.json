@@ -1,6 +1,8 @@
 {
   "0": "Wystąpił niespodziewany błąd",
+  "1": "Wystąpił błąd w trakcie wysyłania maila. Proszę spróbować później.",
   "100": "Sesja wygasła, proszę zalogować sie ponownie",
+  "200": "Nie znaleziono użytkownika dla podanego id",
   "201": "Nie znaleziono użytkownika dla podanego adresu email",
   "202": "Pole email jest puste",
   "203": "Pole hasło jest puste",
@@ -9,5 +11,6 @@
   "206": "Podane dane są nieprawidłowe",
   "207": "Podany kod weryfikacyjny jest nieprawidłowy",
   "251": "Stare hasło jest nieprawidłowe",
-  "252": "Nowe hasło oraz powtórzone nowe hasło muszą się zgadzać"
+  "252": "Nowe hasło oraz powtórzone nowe hasło muszą się zgadzać",
+  "300": "Nie znaleziono firmy dla podanego id"
 }

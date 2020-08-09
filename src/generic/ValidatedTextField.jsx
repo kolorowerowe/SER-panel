@@ -20,7 +20,7 @@ const ValidatedTextField = props => {
             error={!!error}
             onBlur={handleBlur}
             helperText={(error && error.message) || ''}
-            variant={'outlined'}
+            variant={'standard'}
             fullWidth
             {...props}
         />

@@ -42,12 +42,14 @@ const LoginComponentView = (props) => {
                             autoComplete="email"
                             field={emailField}
                             className={classes.formElement}
+                            variant={'outlined'}
                         />
                         <ValidatedTextField
                             label={t('auth:password')}
                             name="password"
                             type="password"
                             field={passwordField}
+                            variant={'outlined'}
                             className={classes.formElement}
                         />
 

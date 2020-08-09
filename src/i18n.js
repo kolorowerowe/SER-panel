@@ -19,6 +19,9 @@ import userPL from './locales/pl/user.json'
 import companyEN from './locales/en/company.json'
 import companyPL from './locales/pl/company.json'
 
+import validationEN from './locales/en/validation.json'
+import validationPL from './locales/pl/validation.json'
+
 
 const resources = {
     en: {
@@ -27,7 +30,8 @@ const resources = {
         errors: errorsEN,
         auth: authEN,
         user: userEN,
-        company: companyEN
+        company: companyEN,
+        validation: validationEN
     },
     pl: {
         sidebar: sidebarPL,
@@ -35,7 +39,8 @@ const resources = {
         errors: errorsPL,
         auth: authPL,
         user: userPL,
-        company: companyPL
+        company: companyPL,
+        validation: validationPL
     }
 };
 

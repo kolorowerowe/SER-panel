@@ -2,9 +2,7 @@
   "personalInfo": "Twoje dane",
   "emailIsReadOnly": "Nie można zmienić adresu email",
   "fullName": "Imię i nazwisko",
-  "fullNameRequiredError": "Imię i nazwisko jest wymagane",
   "phoneNumber": "Numer telefonu",
-  "phoneNumberRequiredError": "Numer telefonu jest wymagany",
   "savePersonalInfo": "Zapisz dane",
   "personalInfoChanged": "Twoje dane zostały zapisane",
   "changePassword": "Zmiana hasła",
@@ -32,5 +30,4 @@
   "deleteUser": "Usuń użytkownika",
   "deleteUserTooltip": "Nie możesz usunąć admina systemu oraz samego siebie",
   "userDeleted": "Użytkownik został usunięty"
-
 }

@@ -46,7 +46,7 @@ const SideBarDrawer = (props) => {
     const getSideBarCompanies = companyAccessList.map(({companyId, companyName}) => ({
         text: companyName,
         icon: <Business/>,
-        path: `company/${companyId}`,
+        path: `/company/${companyId}`,
         visible: isCompany
     }))
 

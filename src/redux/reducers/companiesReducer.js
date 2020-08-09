@@ -7,6 +7,9 @@ import {
     CREATE_COMPANY_SUCCESS,
     FETCH_COMPANIES,
     FETCH_COMPANIES_FAILURE,
+    FETCH_COMPANIES_FOR_USER,
+    FETCH_COMPANIES_FOR_USER_FAILURE,
+    FETCH_COMPANIES_FOR_USER_SUCCESS,
     FETCH_COMPANIES_SUCCESS,
     FETCH_COMPANY_DETAILS,
     FETCH_COMPANY_DETAILS_FAILURE,
@@ -25,7 +28,7 @@ const initState = {
 export const companiesReducer = (state = initState, action) => { // (1)
     switch (action.type) {
         case FETCH_COMPANIES:
-        case FETCH_COMPANY_DETAILS:
+        case FETCH_COMPANIES_FOR_USER:
         case CHANGE_COMPANY_DETAILS:
         case CREATE_COMPANY:
             return {
@@ -34,7 +37,16 @@ export const companiesReducer = (state = initState, action) => { // (1)
                 error: null,
                 errorResponse: undefined,
             };
+        case FETCH_COMPANY_DETAILS:
+            return {
+                ...state,
+                company: undefined,
+                loading: true,
+                error: null,
+                errorResponse: undefined,
+            };
         case FETCH_COMPANIES_SUCCESS:
+        case FETCH_COMPANIES_FOR_USER_SUCCESS:
             return {
                 ...state,
                 companies: action.payload,
@@ -53,6 +65,7 @@ export const companiesReducer = (state = initState, action) => { // (1)
                 loading: false
             };
         case FETCH_COMPANIES_FAILURE:
+        case FETCH_COMPANIES_FOR_USER_FAILURE:
         case FETCH_COMPANY_DETAILS_FAILURE:
         case CHANGE_COMPANY_DETAILS_FAILURE:
         case CREATE_COMPANY_FAILURE:
