@@ -4,13 +4,12 @@ import Typography from "@material-ui/core/Typography";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Grid from "@material-ui/core/Grid";
 
-const DataDisplay = props => {
-
-    const {
-        label,
-        value,
-        displayGrid
-    } = props;
+type Props = {
+    value: string,
+    label: string,
+    displayGrid: boolean
+}
+const DataDisplay = ({label, value, displayGrid}: Props) => {
 
     const classes = useStyles();
 
