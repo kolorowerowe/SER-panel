@@ -10,9 +10,14 @@ import ProvideVerificationCodeComponentContainer
     from "../components/auth/activateAccount/ProvideVerificationCodeComponentContainer";
 import SetupPasswordComponentContainer from "../components/auth/activateAccount/SetupPasswordComponentContainer";
 import ActivationCompletedComponent from "../components/auth/activateAccount/ActivationCompletedComponent";
-import UserDetailsComponentContainer from "../components/allUsers/UserDetailsComponentContainer";
-import CompanyDetailsComponentContainer from "../components/allCompanies/CompanyDetailsComponentContainer";
+import UserDetailsComponentContainer from "../components/allUsers/userDetails/UserDetailsComponentContainer";
+import CompanyDetailsComponentContainer
+    from "../components/allCompanies/companyDetails/CompanyDetailsComponentContainer";
 import CompaniesComponentContainer from "../components/allCompanies/CompaniesComponentContainer";
+import SponsorshipPackagesComponentContainer
+    from "../components/sponsorshipPackages/SponsorshipPackagesComponentContainer";
+import SponsorshipPackageDetailsComponentContainer
+    from "../components/sponsorshipPackages/sponsorshipPackageDetails/SponsorshipPackageDetailsComponentContainer";
 
 const RouterProvider = () => {
 
@@ -53,6 +58,14 @@ const RouterProvider = () => {
 
             <ProtectedRoute path="/company"
                             component={CompaniesComponentContainer}
+            />
+
+            <ProtectedRoute path="/sponsorship-packages/:sponsorshipPackageId"
+                            component={SponsorshipPackageDetailsComponentContainer}
+            />
+
+            <ProtectedRoute path="/sponsorship-packages"
+                            component={SponsorshipPackagesComponentContainer}
             />
 
             <ProtectedRoute path="/profile"

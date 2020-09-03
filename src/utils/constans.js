@@ -1,5 +1,29 @@
 import i18n from "../i18n";
 
+export const EVENT_DATE_TIME = '2021-03-10T10:00'
+
+export const POSSIBLE_TRANSLATIONS = [
+    {
+        name: 'pl',
+        value: 'Polski'
+    },
+    {
+        name: 'en',
+        value: 'English'
+    }
+];
+
+export const POSSIBLE_CURRENCIES = [
+    {
+        name: 'PLN',
+        value: 'PLN'
+    },
+    {
+        name: 'EUR',
+        value: 'EUR'
+    }
+];
+
 export const POSSIBLE_ROLES = [
     {
         name: i18n.t('user:ORGANIZER_EDITOR'),
@@ -13,7 +37,7 @@ export const POSSIBLE_ROLES = [
         name: i18n.t('user:COMPANY_EDITOR'),
         value: 'COMPANY_EDITOR'
     }
-]
+];
 
 export const ALL_ROLES = [
     ...POSSIBLE_ROLES,
@@ -21,7 +45,7 @@ export const ALL_ROLES = [
         name: i18n.t('user:SYSTEM_ADMIN'),
         value: 'SYSTEM_ADMIN'
     }
-]
+];
 
 export const ADMINISTRATOR_ROLES = ["SYSTEM_ADMIN"];
 export const ORGANIZER_ROLES = ["SYSTEM_ADMIN", "ORGANIZER_EDITOR", "ORGANIZER_VIEWER"];

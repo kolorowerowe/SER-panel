@@ -8,10 +8,10 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import {useTranslation} from "react-i18next";
 import useFieldValidation from "../../utils/useFieldValidation";
 import {validateEmail} from "../../utils/Validators";
-import ValidatedTextField from "../../generic/ValidatedTextField";
+import ValidatedTextField from "../../generic/input/ValidatedTextField";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Grid from "@material-ui/core/Grid";
-import SelectComponent from "../../generic/SelectComponent";
+import SelectComponent from "../../generic/input/SelectComponent";
 import {POSSIBLE_ROLES} from "../../utils/constans";
 
 const AddNewUserDialog = props => {

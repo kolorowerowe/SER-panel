@@ -1,17 +1,17 @@
 import React from 'react';
-import DefaultCard from "../../generic/DefaultCard";
+import DefaultCard from "../../../generic/DefaultCard";
 import {useTranslation} from "react-i18next";
 import Grid from "@material-ui/core/Grid";
-import ValidatedTextField from "../../generic/ValidatedTextField";
-import ErrorAlert from "../../generic/ErrorAlert";
+import ValidatedTextField from "../../../generic/input/ValidatedTextField";
+import ErrorAlert from "../../../generic/ErrorAlert";
 import Button from "@material-ui/core/Button";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import SelectComponent from "../../generic/SelectComponent";
-import {ALL_ROLES} from "../../utils/constans";
-import Typography from "@material-ui/core/Typography";
+import SelectComponent from "../../../generic/input/SelectComponent";
+import {ALL_ROLES} from "../../../utils/constans";
 import moment from "moment";
-import ProgressBar from "../../generic/ProgressBar";
+import ProgressBar from "../../../generic/ProgressBar";
 import Tooltip from "@material-ui/core/Tooltip";
+import DataDisplay from "../../../generic/DataDisplay";
 
 const UserDetailsComponentView = (props) => {
 
@@ -50,19 +50,18 @@ const UserDetailsComponentView = (props) => {
                 <ProgressBar loading={loading} displayGrid/>
 
 
-                <Grid item xs={12}>
-                    <Typography className={classes.secondaryField}>
-                        {t('user:userId')}: {id}
-                    </Typography>
-                </Grid>
-                <Grid item xs={12}>
-                    <Typography className={classes.secondaryField}>
-                        {t('user:lastSeen')}: {isActivated ? (moment(lastSeen).format('LLL') + " " + moment(lastSeen).fromNow()) : t('user:notActivated')}
-                    </Typography>
-                    <Typography className={classes.secondaryField}>
-                        {t('user:createdDate')}: {moment(userCreatedDate).format('LL')} ({moment(userCreatedDate).fromNow()})
-                    </Typography>
-                </Grid>
+                <DataDisplay label={t('user:userId')}
+                             value={id}
+                             displayGrid/>
+
+                <DataDisplay label={t('user:lastSeen')}
+                             value={ isActivated ? (moment(lastSeen).format('LLL') + " (" + moment(lastSeen).fromNow()) : t('user:notActivated') + ")"}
+                             displayGrid/>
+
+                <DataDisplay label={t('user:createdDate')}
+                             value={moment(userCreatedDate).format('LL') + " (" + moment(userCreatedDate).fromNow() + ")"}
+                             displayGrid/>
+
 
                 <Grid item xs={12}/>
 

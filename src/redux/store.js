@@ -6,6 +6,7 @@ import {snackbarReducer} from "./reducers/snackbarReducer";
 import {usersReducer} from "./reducers/usersReducer";
 import {activateUserProcessReducer} from "./reducers/activateUserProcessReducer";
 import {companiesReducer} from "./reducers/companiesReducer";
+import {sponsorshipPackagesReducer} from "./reducers/sponsorshipPackageReducer";
 
 export const store = createStore(combineReducers({
     auth: authReducer,
@@ -14,5 +15,6 @@ export const store = createStore(combineReducers({
     companies: companiesReducer,
     preferences: preferencesReducer,
     snackbar: snackbarReducer,
+    sponsorshipPackages: sponsorshipPackagesReducer,
     users: usersReducer
 }), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

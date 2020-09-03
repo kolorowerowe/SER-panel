@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {useSnackbar} from "../../utils/useSnackbar";
+import {useSnackbar} from "../../../utils/useSnackbar";
 import CompanyDetailsComponentView from "./CompanyDetailsComponentView";
 import {useHistory, useParams} from "react-router";
-import useFieldValidation from "../../utils/useFieldValidation";
+import useFieldValidation from "../../../utils/useFieldValidation";
 import {
     validateBuildingNumber,
     validateCity,
@@ -13,8 +13,8 @@ import {
     validatePostalCode,
     validateStreet,
     validateTaxId
-} from "../../utils/Validators";
-import {changeCompanyDetailsAction, fetchCompanyDetailsAction} from "../../redux/actions/companiesActions";
+} from "../../../utils/Validators";
+import {changeCompanyDetailsAction, fetchCompanyDetailsAction} from "../../../redux/actions/companiesActions";
 
 const CompanyDetailsComponentContainer = () => {
 

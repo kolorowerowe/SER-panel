@@ -1,7 +1,10 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import HomeComponentView from "./HomeComponentView";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchCompaniesForUserAction} from "../../redux/actions/companiesActions";
+import moment from "moment";
+import {EVENT_DATE_TIME} from "../../utils/constans";
+import {formatCountDown} from "../../utils/DateTimeUtils";
 
 const HomeComponentContainer = () => {
 
@@ -10,6 +13,8 @@ const HomeComponentContainer = () => {
     const companies = useSelector(state => state.companies);
 
     const dispatch = useDispatch();
+
+    const [timeLeftToEvent, setTimeLeftToEvent] = useState('')
 
     const {
         user: {
@@ -24,11 +29,29 @@ const HomeComponentContainer = () => {
         }
     }, [userId, companyAccessList]);
 
+    useEffect(() => {
+        const eventDateTime = moment(EVENT_DATE_TIME).valueOf();
+
+        const interval = setInterval(() => {
+            const currentTime = moment().valueOf();
+            const diffTimeSeconds = eventDateTime - currentTime;
+            const duration = moment.duration(diffTimeSeconds, 'milliseconds');
+
+            setTimeLeftToEvent(formatCountDown(duration))
+        }, 1000);
+
+        return () => clearInterval(interval);
+
+
+    }, [])
+
+
     return (
         <HomeComponentView activeUser={activeUser}
                            companies={companies}
                            isOrganizer={isOrganizer}
-                           isCompany={isCompany}/>
+                           isCompany={isCompany}
+                           timeLeftToEvent={timeLeftToEvent}/>
     );
 };
 

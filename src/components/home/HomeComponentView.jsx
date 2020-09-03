@@ -21,13 +21,15 @@ const HomeComponentView = (props) => {
         } = {},
         companies: {
             companies
-        } = {}
+        } = {},
+        timeLeftToEvent
     } = props
 
     return (
         <Grid container spacing={2}>
             <Grid item xs={12}>
                 <DefaultCard title={`Hello, ${fullName}!`}>
+                    {timeLeftToEvent}
                 </DefaultCard>
             </Grid>
 

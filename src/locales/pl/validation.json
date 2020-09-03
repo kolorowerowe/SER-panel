@@ -1,17 +1,8 @@
 {
-  "emailRequired": "Adres email jest wymagany",
+  "fieldRequired": "Pole jest wymagane",
   "emailInvalid": "Adres email jest nieprawidłowy",
-  "fullNameRequired": "Imię i nazwisko jest wymagane",
-  "phoneNumberRequired": "Numer telefonu jest wymagany",
-  "passwordRequired": "Hasło jest wymagane",
   "passwordTooShort": "Hasło jest za krótkie",
   "verificationCodeRequired": "Kod weryfikacyjny jest wymagany",
   "verificationCodeNeedToHave6Digits": "Kod weryfikacyjny składa się z 6 cyfr",
-  "companyNameRequired": "Nazwa firmy jest wymagana",
-  "companyNameTooShort": "Nazwa firmy jest zbyt krótka",
-  "taxIdRequired":"Numer NIP jest wymagany",
-  "streetRequired": "Ulica jest wymagana",
-  "buildingNumberRequired": "Numer budynku jest wymagany",
-  "cityRequired": "Miasto jest wymagane",
-  "postalCodeRequired": "Kod pocztowy jest wymagany"
+  "companyNameTooShort": "Nazwa firmy jest zbyt krótka"
 }

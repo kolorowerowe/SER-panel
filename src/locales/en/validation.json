@@ -1,17 +1,7 @@
 {
-  "emailRequired": "Email address is required",
+  "fieldRequired": "Field is required",
   "emailInvalid": "Email address is invalid",
-  "fullNameRequired": "Full name is required",
-  "phoneNumberRequired": "Phone number is required",
-  "passwordRequired": "Password is required",
   "passwordTooShort": "Password is too short",
-  "verificationCodeRequired": "Verification code is required",
   "verificationCodeNeedToHave6Digits": "Verification code has 6 digits",
-  "companyNameRequired": "Company name is required",
-  "companyNameTooShort": "Company name is too short",
-  "taxIdRequired":"Tax ID is required",
-  "streetRequired": "Street is required",
-  "buildingNumberRequired": "Building number is required",
-  "cityRequired": "City is required",
-  "postalCodeRequired": "Postal code is required"
+  "companyNameTooShort": "Company name is too short"
 }

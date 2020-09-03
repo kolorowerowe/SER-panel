@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {useSnackbar} from "../../utils/useSnackbar";
-import {changeUserDetailsAction, deleteUserAction, fetchUserDetailsAction} from "../../redux/actions/usersActions";
+import {useSnackbar} from "../../../utils/useSnackbar";
+import {changeUserDetailsAction, deleteUserAction, fetchUserDetailsAction} from "../../../redux/actions/usersActions";
 import UserDetailsComponentView from "./UserDetailsComponentView";
 import {useHistory, useParams} from "react-router";
-import useFieldValidation from "../../utils/useFieldValidation";
-import {validateEmail, validateFullName, validatePhoneNumber} from "../../utils/Validators";
+import useFieldValidation from "../../../utils/useFieldValidation";
+import {validateEmail, validateFullName, validatePhoneNumber} from "../../../utils/Validators";
 
 const UserDetailsComponentContainer = () => {
 

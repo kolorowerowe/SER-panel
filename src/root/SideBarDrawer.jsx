@@ -9,7 +9,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Drawer from "@material-ui/core/Drawer";
-import {Business, Dashboard, Group, Person} from "@material-ui/icons";
+import {AllInbox, Business, Dashboard, Group, Person} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/core/styles";
 import PropTypes from "prop-types"
 import {useHistory} from "react-router-dom";
@@ -68,6 +68,12 @@ const SideBarDrawer = (props) => {
             text: t('sidebar:companies'),
             icon: <Business/>,
             path: '/company',
+            visible: isLoggedIn && isOrganizer
+        },
+        {
+            text: t('sidebar:sponsorshipPackages'),
+            icon: <AllInbox/>,
+            path: '/sponsorship-packages',
             visible: isLoggedIn && isOrganizer
         },
         {

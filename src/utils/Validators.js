@@ -3,7 +3,7 @@ import isEmail from "validator/es/lib/isEmail";
 
 export const validateEmail = (email) => {
     if (!email) {
-        return new Error(i18n.t('validation:emailRequired'));
+        return new Error(i18n.t('validation:fieldRequired'));
     } else if (!isEmail(email)) {
         return new Error(i18n.t('validation:emailInvalid'));
 
@@ -13,14 +13,14 @@ export const validateEmail = (email) => {
 
 export const validateFullName = (fullName) => {
     if (!fullName) {
-        return new Error(i18n.t('validation:fullNameRequired'));
+        return new Error(i18n.t('validation:fieldRequired'));
     }
     return null;
 };
 
 export const validatePhoneNumber = (phoneNumber) => {
     if (!phoneNumber) {
-        return new Error(i18n.t('validation:phoneNumberRequired'));
+        return new Error(i18n.t('validation:fieldRequired'));
     }
     return null;
 };
@@ -28,7 +28,7 @@ export const validatePhoneNumber = (phoneNumber) => {
 
 export const validatePassword = (password) => {
     if (!password) {
-        return new Error(i18n.t('validation:passwordRequired'));
+        return new Error(i18n.t('validation:fieldRequired'));
     } else if (password.length < 5) {
         return new Error(i18n.t('validation:passwordTooShort'));
 
@@ -38,7 +38,7 @@ export const validatePassword = (password) => {
 
 export const validateVerificationCode = (verificationCode) => {
     if (!verificationCode) {
-        return new Error(i18n.t('validation:verificationCodeRequired'));
+        return new Error(i18n.t('validation:fieldRequired'));
     } else if (verificationCode.length !== 6) {
         return new Error(i18n.t('validation:verificationCodeNeedToHave6Digits'));
 
@@ -48,7 +48,7 @@ export const validateVerificationCode = (verificationCode) => {
 
 export const validateCompanyName = (companyName) => {
     if (!companyName) {
-        return new Error(i18n.t('validation:companyNameRequired'));
+        return new Error(i18n.t('validation:fieldRequired'));
     } else if (companyName.length < 3) {
         return new Error(i18n.t('validation:companyNameTooShort'));
 
@@ -58,7 +58,7 @@ export const validateCompanyName = (companyName) => {
 
 export const validateTaxId = (taxId) => {
     if (!taxId) {
-        return new Error(i18n.t('validation:taxIdRequired'));
+        return new Error(i18n.t('validation:fieldRequired'));
     }
     //TODO: validate format of tax id
     return null;
@@ -66,14 +66,14 @@ export const validateTaxId = (taxId) => {
 
 export const validateStreet = (street) => {
     if (!street) {
-        return new Error(i18n.t('validation:streetRequired'));
+        return new Error(i18n.t('validation:fieldRequired'));
     }
     return null;
 };
 
 export const validateBuildingNumber = (buildingNumber) => {
     if (!buildingNumber) {
-        return new Error(i18n.t('validation:buildingNumberRequired'));
+        return new Error(i18n.t('validation:fieldRequired'));
     }
     return null;
 }
@@ -85,14 +85,35 @@ export const validateFlatNumber = (flatNumber) => {
 
 export const validateCity = (city) => {
     if (!city) {
-        return new Error(i18n.t('validation:cityRequired'));
+        return new Error(i18n.t('validation:fieldRequired'));
     }
     return null;
 }
 
 export const validatePostalCode = (postalCode) => {
     if (!postalCode) {
-        return new Error(i18n.t('validation:postalCodeRequired'));
+        return new Error(i18n.t('validation:fieldRequired'));
+    }
+    return null;
+}
+
+export const validateSponsorshipPackageType = (sponsorshipPackageType) => {
+    if (!sponsorshipPackageType) {
+        return new Error(i18n.t('validation:fieldRequired'));
+    }
+    return null;
+}
+
+export const validatePriceValue = (price) => {
+    if (!price) {
+        return new Error(i18n.t('validation:priceRequired'));
+    }
+    return null;
+}
+
+export const validateStandSize = (standSize) => {
+    if (!standSize) {
+        return new Error(i18n.t('validation:fieldRequired'));
     }
     return null;
 }

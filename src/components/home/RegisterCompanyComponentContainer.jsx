@@ -21,7 +21,7 @@ import {
     validateStreet,
     validateTaxId
 } from "../../utils/Validators";
-import ValidatedTextField from "../../generic/ValidatedTextField";
+import ValidatedTextField from "../../generic/input/ValidatedTextField";
 import {createCompanyAction} from "../../redux/actions/companiesActions";
 import {useSnackbar} from "../../utils/useSnackbar";
 import IconButton from "@material-ui/core/IconButton";

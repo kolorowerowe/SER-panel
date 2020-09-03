@@ -1,14 +1,14 @@
 import React from 'react';
-import DefaultCard from "../../generic/DefaultCard";
+import DefaultCard from "../../../generic/DefaultCard";
 import {useTranslation} from "react-i18next";
 import Grid from "@material-ui/core/Grid";
-import ValidatedTextField from "../../generic/ValidatedTextField";
-import ErrorAlert from "../../generic/ErrorAlert";
+import ValidatedTextField from "../../../generic/input/ValidatedTextField";
+import ErrorAlert from "../../../generic/ErrorAlert";
 import Button from "@material-ui/core/Button";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import Typography from "@material-ui/core/Typography";
-import ProgressBar from "../../generic/ProgressBar";
+import ProgressBar from "../../../generic/ProgressBar";
 import moment from "moment";
+import DataDisplay from "../../../generic/DataDisplay";
 
 
 const CompanyDetailsComponentView = (props) => {
@@ -48,19 +48,16 @@ const CompanyDetailsComponentView = (props) => {
                 <ProgressBar loading={loading} displayGrid/>
 
 
-                <Grid item xs={12}>
-                    <Typography className={classes.secondaryField}>
-                        {t('company:companyId')}: {id}
-                    </Typography>
-                </Grid>
-                <Grid item xs={12}>
-                    <Typography className={classes.secondaryField}>
-                        {t('company:primaryUserId')}: {primaryUserId}
-                    </Typography>
-                    <Typography className={classes.secondaryField}>
-                        {t('company:createdDate')}: {moment(companyCreatedDate).format('LL')} ({moment(companyCreatedDate).fromNow()})
-                    </Typography>
-                </Grid>
+                <DataDisplay label={t('company:companyId')}
+                             value={id}
+                             displayGrid/>
+
+                <DataDisplay label={t('company:primaryUserId')}
+                             value={primaryUserId}
+                             displayGrid/>
+                <DataDisplay label={t('company:createdDate')}
+                             value={moment(companyCreatedDate).format('LL') + " " + moment(companyCreatedDate).fromNow()}
+                             displayGrid/>
 
                 <Grid item xs={12}/>
 

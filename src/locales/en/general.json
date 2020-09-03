@@ -5,5 +5,9 @@
   "add": "Add",
   "delete": "Delete",
   "save": "Save",
-  "submit": "Submit"
+  "submit": "Submit",
+  "eventHaveStarted": "Event have started!",
+  "standSize": "Stand size in m^2",
+  "price": "Price",
+  "priceInCurrency": "Price in ${currency}"
 }

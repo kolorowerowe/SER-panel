@@ -33,7 +33,7 @@ const UserRow = props => {
             <TableCell align="center">{fullName}</TableCell>
             <TableCell align="center">{role}</TableCell>
             <TableCell align="center">
-                {companyAccessList.map(({companyName}) => companyName).join('\n')}
+                {companyAccessList.map(({companyName}) => companyName).join(', ')}
             </TableCell>
             <TableCell align="center">
                 {isActivated ?
