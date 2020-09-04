@@ -53,5 +53,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/material-ui": "^0.21.8",
+    "@types/react-router-dom": "^5.1.5",
+    "@types/redux": "^3.6.0"
   }
 }

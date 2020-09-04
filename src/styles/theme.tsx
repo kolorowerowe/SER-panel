@@ -1,10 +1,5 @@
-import {createMuiTheme} from '@material-ui/core/styles';
+import {createMuiTheme, Theme} from '@material-ui/core/styles';
 import orange from "@material-ui/core/colors/orange";
-
-
-export const getTheme = (theme) => {
-    return theme === 'light' ? lightTheme : darkTheme;
-}
 
 const lightTheme = createMuiTheme({
     palette: {
@@ -24,3 +19,7 @@ const darkTheme = createMuiTheme({
         }
     }
 });
+
+export const getTheme = (theme: string): Theme => {
+    return theme === 'light' ? lightTheme : darkTheme;
+}

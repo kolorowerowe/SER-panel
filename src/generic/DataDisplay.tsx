@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from "prop-types"
 import Typography from "@material-ui/core/Typography";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Grid from "@material-ui/core/Grid";
@@ -40,13 +39,6 @@ const DataDisplay: React.FunctionComponent<DataDisplayProps> = ({label, value, d
                 </Typography>
             </div>
     );
-};
-
-
-DataDisplay.propTypes = {
-    label: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    displayGrid: PropTypes.bool
 };
 
 export default DataDisplay;
