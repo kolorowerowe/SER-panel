@@ -3,12 +3,8 @@ import DefaultCard from "../../../generic/DefaultCard";
 import {useTranslation} from "react-i18next";
 import Grid from "@material-ui/core/Grid";
 import ValidatedTextField from "../../../generic/input/ValidatedTextField";
-import ErrorAlert from "../../../generic/ErrorAlert";
 import Button from "@material-ui/core/Button";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import ProgressBar from "../../../generic/ProgressBar";
-import moment from "moment";
-import DataDisplay from "../../../generic/DataDisplay";
 
 
 const CompanyDetailsComponentView = (props) => {
@@ -28,9 +24,7 @@ const CompanyDetailsComponentView = (props) => {
             primaryUserId,
             companyCreatedDate
         } = {},
-        loading,
-        error,
-        errorResponse,
+        loading
     } = props;
 
     const {t} = useTranslation();
@@ -38,29 +32,9 @@ const CompanyDetailsComponentView = (props) => {
 
 
     return (
-        <DefaultCard title={t('company:companyDetails')}>
+        <DefaultCard title={t('company:companyData')}
+                     divider>
             <Grid container spacing={2}>
-
-                <ErrorAlert error={error}
-                            errorResponse={errorResponse}
-                            className={classes.formElement} displayGrid/>
-
-                <ProgressBar loading={loading} displayGrid/>
-
-
-                <DataDisplay label={t('company:companyId')}
-                             value={id}
-                             displayGrid/>
-
-                <DataDisplay label={t('company:primaryUserId')}
-                             value={primaryUserId}
-                             displayGrid/>
-                <DataDisplay label={t('company:createdDate')}
-                             value={moment(companyCreatedDate).format('LL') + " (" + moment(companyCreatedDate).fromNow() + ")"}
-                             displayGrid/>
-
-                <Grid item xs={12}/>
-
                 <Grid item xs={12} className={classes.editDataGrid}>
                     <Grid container spacing={2} className={classes.editDataContainer}>
                         <Grid item xs={12}>

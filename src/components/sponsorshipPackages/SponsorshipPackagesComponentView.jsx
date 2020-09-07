@@ -1,12 +1,10 @@
 import React from 'react';
 import DefaultCard from "../../generic/DefaultCard";
 import {useTranslation} from "react-i18next";
-import {makeStyles} from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import AddSponsorshipPackageDialog from "./AddSponsorshipPackageDialog";
-import Divider from "@material-ui/core/Divider";
 import SponsorshipPackagesTable from "./SponsorshipPackagesTable";
+import makeStyles from "@material-ui/core/styles/makeStyles";
 
 const SponsorshipPackagesComponentView = (props) => {
 
@@ -36,20 +34,20 @@ const SponsorshipPackagesComponentView = (props) => {
 
 
     return (
-        <Grid container spacing={2}>
-            <Grid item xs={12}>
-                <AddSponsorshipPackageDialog {...props}/>
 
-                <DefaultCard title={t('sponsorshipPackage:allSponsorshipPackages')}
-                             buttonComponent={<NewSponsorshipPackageButton/>}
-                >
-                    <Divider className={classes.divider}/>
-                    <SponsorshipPackagesTable sponsorshipPackages={sponsorshipPackages}/>
-                </DefaultCard>
-            </Grid>
-        </Grid>
+        <DefaultCard title={t('sponsorshipPackage:allSponsorshipPackages')}
+                     buttonComponent={<NewSponsorshipPackageButton/>}
+                     divider
+                     loading={loading}
+                     error={error}
+                     errorResponse={errorResponse}
+        >
+            <AddSponsorshipPackageDialog {...props}/>
+            <SponsorshipPackagesTable sponsorshipPackages={sponsorshipPackages}/>
+        </DefaultCard>
 
-    );
+    )
+        ;
 };
 
 

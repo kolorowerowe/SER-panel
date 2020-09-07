@@ -5,9 +5,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import moment from "moment";
 import Grid from "@material-ui/core/Grid";
 import ValidatedTextField from "../../generic/input/ValidatedTextField";
-import ErrorAlert from "../../generic/ErrorAlert";
 import Button from "@material-ui/core/Button";
-import ProgressBar from "../../generic/ProgressBar";
 import DataDisplay from "../../generic/DataDisplay";
 
 const ProfileComponentView = (props) => {
@@ -42,7 +40,11 @@ const ProfileComponentView = (props) => {
         <Grid container spacing={2}>
 
             <Grid item xs={12}>
-                <DefaultCard title={t('user:personalInfo')}>
+                <DefaultCard title={t('user:personalInfo')}
+                             divider
+                             loading={loading}
+                             error={error}
+                             errorResponse={errorResponse}>
                     <div className={classes.formContainer}>
                         <form className={classes.form} noValidate>
 
@@ -50,7 +52,6 @@ const ProfileComponentView = (props) => {
                                 label={t('auth:email')}
                                 name="email"
                                 field={emailField}
-                                className={classes.formElement}
                                 disabled
                             />
 
@@ -70,13 +71,6 @@ const ProfileComponentView = (props) => {
                                 disabled={loading}
                             />
 
-                            <ErrorAlert error={error}
-                                        errorResponse={errorResponse}
-                                        className={classes.formElement} displayGrid/>
-
-                            <ProgressBar loading={loading} className={classes.formElement}/>
-
-
                             <Button
                                 type="submit"
                                 fullWidth
@@ -94,7 +88,11 @@ const ProfileComponentView = (props) => {
             </Grid>
 
             <Grid item xs={12}>
-                <DefaultCard title={t('user:changePassword')}>
+                <DefaultCard title={t('user:changePassword')}
+                             divider
+                             loading={loading}
+                             error={errorPassword}
+                             errorResponse={errorPasswordResponse}>
                     <div className={classes.formContainer}>
                         <form className={classes.form} noValidate>
 
@@ -103,7 +101,6 @@ const ProfileComponentView = (props) => {
                                 name="password"
                                 type="password"
                                 field={oldPasswordField}
-                                className={classes.formElement}
                             />
 
                             <ValidatedTextField
@@ -121,12 +118,6 @@ const ProfileComponentView = (props) => {
                                 field={repeatNewPasswordField}
                                 className={classes.formElement}
                             />
-
-                            <ErrorAlert error={errorPassword}
-                                        errorResponse={errorPasswordResponse}
-                                        className={classes.formElement}/>
-
-                            <ProgressBar loading={loading} className={classes.formElement}/>
 
                             <Button
                                 type="submit"
@@ -146,11 +137,13 @@ const ProfileComponentView = (props) => {
             </Grid>
 
             <Grid item xs={12}>
-                <DefaultCard title={t('user:details')}>
+                <DefaultCard title={t('user:details')}
+                             divider>
                     <Grid container spacing={2}>
                         <DataDisplay value={id} label={t('user:userId')} displayGrid/>
                         <DataDisplay value={t(`user:${role}`)} label={t('user:role')} displayGrid/>
-                        <DataDisplay value={moment(userCreatedDate).format('LL')} label={t('user:createdDate')} displayGrid/>
+                        <DataDisplay value={moment(userCreatedDate).format('LL')} label={t('user:createdDate')}
+                                     displayGrid/>
 
                     </Grid>
                 </DefaultCard>

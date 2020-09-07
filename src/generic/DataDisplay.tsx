@@ -4,7 +4,7 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import Grid from "@material-ui/core/Grid";
 
 type DataDisplayProps = {
-    value: string;
+    value?: string;
     label: string;
     displayGrid?: boolean;
 }
@@ -27,7 +27,7 @@ const DataDisplay: React.FunctionComponent<DataDisplayProps> = ({label, value, d
                     {label}
                 </Typography>
                 <Typography>
-                    {value}
+                    {value == undefined ? '-' : value}
                 </Typography>
             </Grid> :
             <div>
@@ -35,7 +35,7 @@ const DataDisplay: React.FunctionComponent<DataDisplayProps> = ({label, value, d
                     {label}
                 </Typography>
                 <Typography>
-                    {value}
+                    {value == undefined ? '-' : value}
                 </Typography>
             </div>
     );

@@ -1,7 +1,9 @@
 {
  "company": "Firma",
  "allCompanies": "Wszystkie firmy",
+ "checklist": "Lista rzeczy do zrobienia",
  "companyDetails": "Szczegóły firmy",
+ "companyData": "Dane firmy",
  "companyId": "ID firmy",
  "primaryUserId": "ID założyciela firmy",
  "createdDate": "Data rejestracji firmy",

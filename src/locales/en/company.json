@@ -1,7 +1,9 @@
 {
  "company": "Company",
  "allCompanies": "All companies",
+ "checklist": "Checklist to do",
  "companyDetails": "Company details",
+ "companyData": "Company data",
  "companyId": "Company ID",
  "primaryUserId": "Company registrator ID",
  "createdDate": "Company registration date",

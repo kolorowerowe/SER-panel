@@ -22,6 +22,7 @@ export type Company = {
     name: string;
     contactPhone: string;
     taxId: string;
+    companyCreatedDate: string;
     sponsorshipPackageId?: string;
 }
 

@@ -14,20 +14,14 @@ import {
     validateStreet,
     validateTaxId
 } from "../../../utils/Validators";
-import {changeCompanyDetailsAction, fetchCompanyDetailsAction} from "../../../redux/actions/companiesActions";
+import {changeCompanyDetailsAction} from "../../../redux/actions/companiesActions";
 
-const CompanyDetailsComponentContainer = ({companyId}) => {
+const CompanyDetailsComponentContainer = ({companyId, company, loading}) => {
 
-    const {company, loading, error, errorResponse} = useSelector(state => state.companies);
     const {authToken} = useSelector(state => state.auth);
     const dispatch = useDispatch();
     const snackbar = useSnackbar();
     const navigate = useNavigate();
-
-
-    useEffect(() => {
-        fetchCompanyDetailsAction(companyId, authToken, dispatch);
-    }, [companyId]);
 
     const onSaveCompanySubmit = () => {
 
@@ -94,8 +88,6 @@ const CompanyDetailsComponentContainer = ({companyId}) => {
     return (
         <CompanyDetailsComponentView company={company}
                                      loading={loading}
-                                     error={error}
-                                     errorResponse={errorResponse}
 
                                      companyNameField={companyNameField}
                                      contactPhoneField={contactPhoneField}

@@ -21,12 +21,12 @@ const ErrorAlert = props => {
 
     return (
         displayGrid ?
-            error && <Grid item xs={12}>
+            (error ? <Grid item xs={12}>
                 <CustomAlert severity={'error'} message={t(`errors:${errorCode}`)} {...other}/>
-            </Grid>
+            </Grid> : <></>)
             :
-            error && <CustomAlert severity={'error'} message={t(`errors:${errorCode}`)} {...other}/>
-
+            (error ? <CustomAlert severity={'error'} message={t(`errors:${errorCode}`)} {...other}/> : <></>
+            )
     );
 };
 
