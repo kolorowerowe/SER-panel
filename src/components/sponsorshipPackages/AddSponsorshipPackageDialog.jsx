@@ -64,6 +64,7 @@ const AddSponsorshipPackageDialog = props => {
                         <ValidatedTextField
                             label={t('general:standSize')}
                             field={standSizeField}
+                            type="number"
                         />
                     </Grid>
                     <Grid item xs={12}>

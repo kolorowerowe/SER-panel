@@ -2,14 +2,14 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import useFieldValidation from "../../../utils/useFieldValidation";
 import {validatePassword,} from "../../../utils/Validators";
-import {useHistory} from "react-router";
+import {useNavigate} from "react-router";
 import {setupNewPasswordAction} from "../../../redux/actions/activateUserProcessActions";
 import SetupPasswordComponentView from "./SetupPasswordComponentView";
 
 const SetupPasswordComponentContainer = () => {
 
     const dispatch = useDispatch();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const passwordField = useFieldValidation('', validatePassword);
     const repeatPasswordField = useFieldValidation('', validatePassword);
@@ -37,15 +37,15 @@ const SetupPasswordComponentContainer = () => {
     }, [setupNewPassword])
 
     const handleRedirectLoggedInUser = () => {
-        history.push('/')
+        navigate('/')
     }
 
     const handleRedirectBack = () => {
-        history.push('/activate/email')
+        navigate('/activate/email')
     }
 
     const handleRedirectActivationDone = () => {
-        history.push('/activate/done')
+        navigate('/activate/done')
     }
 
     const onSetupPasswordSubmit = (event) => {

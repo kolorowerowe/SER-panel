@@ -20,5 +20,6 @@
  "registerCompanyDescription": "Wypenij pola poniżej. Po przesłaniu formularza nie ma możliwości zmiany nazwy firmy widocznej w panelu.",
  "companyRegisteredSuccess": "Firma została zarejestrowana",
  "companyRegisteredFailure": "Wystąpił błąd w trakcie rejestracji firmy. Spróbuj ponownie później.",
- "pastePhone": "Wklej twój numer telefonu"
+ "pastePhone": "Wklej twój numer telefonu",
+ "companySummary": "Podsumowanie firmy"
 }

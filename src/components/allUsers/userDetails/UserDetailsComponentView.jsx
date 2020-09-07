@@ -166,7 +166,7 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'center'
     },
     editDataContainer: {
-        maxWidth: 600,
+        maxWidth: 500,
     },
     deleteButton: {
         marginTop: 20,

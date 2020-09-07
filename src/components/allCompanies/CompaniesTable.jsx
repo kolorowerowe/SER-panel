@@ -8,7 +8,7 @@ import Table from "@material-ui/core/Table";
 import TableContainer from "@material-ui/core/TableContainer";
 import {useTranslation} from "react-i18next";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {useHistory} from "react-router";
+import {useNavigate} from "react-router";
 
 const CompaniesTable = props => {
 
@@ -18,11 +18,11 @@ const CompaniesTable = props => {
 
     const {t} = useTranslation();
     const classes = useStyles();
-    const history = useHistory();
+    const navigate = useNavigate();
 
 
     const handleOpenCompany = (companyId) => {
-        history.push(`/company/${companyId}`)
+        navigate(`/company/${companyId}`)
     }
 
     return (
@@ -31,7 +31,7 @@ const CompaniesTable = props => {
                 <TableHead >
                     <TableRow>
                         <TableCell className={classes.header}>{t('company:companyName')}</TableCell>
-                        <TableCell align="center" className={classes.header}>{t('company:taxId')}</TableCell>
+                        <TableCell align="center" className={classes.header}>{t('sponsorshipPackage:sponsorshipPackageName')}</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>

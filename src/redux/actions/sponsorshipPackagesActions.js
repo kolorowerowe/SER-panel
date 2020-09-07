@@ -109,7 +109,7 @@ export const saveSponsorshipPackageAction = (sponsorshipPackageId, saveSponsorsh
         });
 };
 
-export const deleteSponsorshipPackageAction = (sponsorshipPackageId, authToken, dispatch, snackbar, history) => {
+export const deleteSponsorshipPackageAction = (sponsorshipPackageId, authToken, dispatch, snackbar, navigate) => {
     dispatch({type: DELETE_SPONSORSHIP_PACKAGE});
 
     axios.delete(`${baseUrl}/sponsorship-package/${sponsorshipPackageId}`, {
@@ -123,7 +123,7 @@ export const deleteSponsorshipPackageAction = (sponsorshipPackageId, authToken, 
                 payload: data
             });
             snackbar.addSuccess(i18n.t('sponsorshipPackage:sponsorshipPackageDeleted'));
-            history.push("/sponsorship-packages");
+            navigate("/sponsorship-packages");
         })
         .catch(err => {
             dispatch({

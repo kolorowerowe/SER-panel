@@ -12,7 +12,7 @@ import Drawer from "@material-ui/core/Drawer";
 import {AllInbox, Business, Dashboard, Group, Person} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/core/styles";
 import PropTypes from "prop-types"
-import {useHistory} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
 import {logoutAction} from "../redux/actions/authActions";
@@ -31,16 +31,16 @@ const SideBarDrawer = (props) => {
 
 
     const classes = useStyles();
-    const history = useHistory();
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const {t} = useTranslation();
 
     const handleRedirect = (path) => {
-        history.push(path);
+        navigate(path);
     }
 
     const handleLogout = () => {
-        logoutAction(dispatch, history);
+        logoutAction(dispatch, navigate);
     }
 
     const getSideBarCompanies = companyAccessList.map(({companyId, companyName}) => ({

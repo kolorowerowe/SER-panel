@@ -1,7 +1,8 @@
 {
+  "sponsorshipPackage": "Pakiet sponsorski",
   "allSponsorshipPackages" : "Wszystkie pakiety sposorskie",
   "addNewSponsorshipPackage": "Dodaj nowy pakiet sponsorski",
-  "sponsorshipPackageType": "Rodzaj pakietu sponsorskiego",
+  "sponsorshipPackageName": "Nazwa pakietu sponsorskiego",
   "name": "Nazwa",
   "description": "Opis",
   "isAvailable": "Dostępne do zakupu",
@@ -11,5 +12,7 @@
   "sponsorshipPackageId": "ID pakietu sponsorskiego",
   "deleteSponsorshipPackage": "Usuń pakiet sponsorski",
   "saveSponsorshipPackage": "Zapisz pakiet sponsorski",
-  "sponsorshipPackageDeleted": "Pakiet sponsorski zosta usunięty."
+  "sponsorshipPackageDeleted": "Pakiet sponsorski zosta usunięty.",
+  "notChosenYet": "Pakiet sponsorski nie został jeszcze wybrany."
+
 }

@@ -4,12 +4,12 @@ import {useDispatch, useSelector} from "react-redux";
 import {loginAction} from "../../../redux/actions/authActions";
 import useFieldValidation from "../../../utils/useFieldValidation";
 import {validateEmail, validatePassword} from "../../../utils/Validators";
-import {useHistory} from "react-router";
+import {useNavigate} from "react-router";
 
 const LoginComponentContainer = () => {
 
     const dispatch = useDispatch();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const emailField = useFieldValidation('', validateEmail);
     const passwordField = useFieldValidation('', validatePassword);
@@ -23,7 +23,7 @@ const LoginComponentContainer = () => {
     }, [isLoggedIn])
 
     const handleRedirectLoggedInUser = () => {
-        history.push('/')
+        navigate('/')
     }
 
     const onLoginSubmit = (event) => {

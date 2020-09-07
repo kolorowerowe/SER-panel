@@ -4,7 +4,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import IconButton from "@material-ui/core/IconButton";
-import {useHistory} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 type DefaultCardProps = {
     title: string;
@@ -44,13 +44,13 @@ const DefaultCard: React.FunctionComponent<DefaultCardProps> = (props: DefaultCa
     } = props;
 
     const classes = useStyles();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     return (
         <Card className={classes.card}>
             <div className={classes.header}>
                 <div className={classes.leftHeader}>
-                    {!!backButton && <IconButton onClick={() => history.go(-1)}>
+                    {!!backButton && <IconButton onClick={() => navigate(-1)}>
                         <ArrowBackIcon/>
                     </IconButton>}
                     {!!title && <Typography className={classes.title}>

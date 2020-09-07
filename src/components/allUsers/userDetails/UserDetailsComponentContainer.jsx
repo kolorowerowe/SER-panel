@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useSnackbar} from "../../../utils/useSnackbar";
 import {changeUserDetailsAction, deleteUserAction, fetchUserDetailsAction} from "../../../redux/actions/usersActions";
 import UserDetailsComponentView from "./UserDetailsComponentView";
-import {useHistory, useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
 import useFieldValidation from "../../../utils/useFieldValidation";
 import {validateEmail, validateFullName, validatePhoneNumber} from "../../../utils/Validators";
 
@@ -15,7 +15,7 @@ const UserDetailsComponentContainer = () => {
     const {userId} = useParams()
     const dispatch = useDispatch();
     const snackbar = useSnackbar();
-    const history = useHistory();
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -36,7 +36,7 @@ const UserDetailsComponentContainer = () => {
     const canDeleteUser = (loggedInUserId !== id) && (role !== 'SYSTEM_ADMIN');
 
     const onDeleteUserSubmit = () => {
-        deleteUserAction(user.id, authToken, dispatch, snackbar, history);
+        deleteUserAction(user.id, authToken, dispatch, snackbar, navigate);
     }
 
     const emailField = useFieldValidation('', validateEmail);

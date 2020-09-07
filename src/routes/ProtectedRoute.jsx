@@ -1,13 +1,13 @@
 import React from 'react';
 import {useSelector} from "react-redux";
-import {Redirect} from "react-router";
+import {Navigate} from "react-router";
 import {Route} from "react-router-dom";
 
 const ProtectedRoute = (props) => {
 
 
     const {
-        component: Component,
+        element: Component,
         path,
         ...rest
     } = props;
@@ -16,10 +16,11 @@ const ProtectedRoute = (props) => {
 
     return (
         <Route path={path}
-               {...rest}
-               render={() => (
-                   isLoggedIn ? <Component {...props}/> : <Redirect to={{pathname: '/login'}}/>
-               )}
+               element={
+                   isLoggedIn ?
+                       <Component {...props}/> :
+                       <Navigate to={{pathname: '/login'}}/>
+               }
         />
     );
 };

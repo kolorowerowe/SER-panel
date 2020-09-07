@@ -42,14 +42,12 @@ const LoginComponentView = (props) => {
                             autoComplete="email"
                             field={emailField}
                             className={classes.formElement}
-                            variant={'outlined'}
                         />
                         <ValidatedTextField
                             label={t('auth:password')}
                             name="password"
                             type="password"
                             field={passwordField}
-                            variant={'outlined'}
                             className={classes.formElement}
                         />
 
@@ -101,8 +99,9 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'center'
     },
     loginCard: {
-        maxWidth: '600px',
+        maxWidth: '500px',
         width: '100%',
+        padding: theme.spacing(1)
     },
     signInTitle: {
         display: 'flex',

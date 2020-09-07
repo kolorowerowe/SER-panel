@@ -8,7 +8,7 @@ import Table from "@material-ui/core/Table";
 import TableContainer from "@material-ui/core/TableContainer";
 import {useTranslation} from "react-i18next";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {useHistory} from "react-router";
+import {useNavigate} from "react-router";
 
 const UsersTable = props => {
 
@@ -18,11 +18,11 @@ const UsersTable = props => {
 
     const {t} = useTranslation();
     const classes = useStyles();
-    const history = useHistory();
+    const navigate = useNavigate();
 
 
     const handleOpenUser = (userId) => {
-        history.push(`/user/${userId}`)
+        navigate(`/user/${userId}`)
     }
 
     return (

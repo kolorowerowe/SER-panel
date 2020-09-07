@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {useSnackbar} from "../../../utils/useSnackbar";
-import {useHistory, useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
 import useFieldValidation from "../../../utils/useFieldValidation";
 import {validateStandSize} from "../../../utils/Validators";
 import {
@@ -20,7 +20,7 @@ const SponsorshipPackageDetailsComponentContainer = () => {
     const {sponsorshipPackageId} = useParams()
     const dispatch = useDispatch();
     const snackbar = useSnackbar();
-    const history = useHistory();
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -41,7 +41,7 @@ const SponsorshipPackageDetailsComponentContainer = () => {
     };
 
     const onDeleteSponsorshipPackageSubmit = () => {
-        deleteSponsorshipPackageAction(sponsorshipPackageId, authToken, dispatch, snackbar, history);
+        deleteSponsorshipPackageAction(sponsorshipPackageId, authToken, dispatch, snackbar, navigate);
     }
 
     const sponsorshipPackageTranslationFields = useSponsorshipPackageTranslationFields();

@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {useSnackbar} from "../../../utils/useSnackbar";
 import CompanyDetailsComponentView from "./CompanyDetailsComponentView";
-import {useHistory, useParams} from "react-router";
+import {useNavigate} from "react-router";
 import useFieldValidation from "../../../utils/useFieldValidation";
 import {
     validateBuildingNumber,
@@ -16,14 +16,13 @@ import {
 } from "../../../utils/Validators";
 import {changeCompanyDetailsAction, fetchCompanyDetailsAction} from "../../../redux/actions/companiesActions";
 
-const CompanyDetailsComponentContainer = () => {
+const CompanyDetailsComponentContainer = ({companyId}) => {
 
     const {company, loading, error, errorResponse} = useSelector(state => state.companies);
     const {authToken} = useSelector(state => state.auth);
-    const {companyId} = useParams()
     const dispatch = useDispatch();
     const snackbar = useSnackbar();
-    const history = useHistory();
+    const navigate = useNavigate();
 
 
     useEffect(() => {

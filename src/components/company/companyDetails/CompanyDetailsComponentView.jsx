@@ -38,7 +38,7 @@ const CompanyDetailsComponentView = (props) => {
 
 
     return (
-        <DefaultCard title={t('company:companyDetails')} backButton>
+        <DefaultCard title={t('company:companyDetails')}>
             <Grid container spacing={2}>
 
                 <ErrorAlert error={error}
@@ -56,7 +56,7 @@ const CompanyDetailsComponentView = (props) => {
                              value={primaryUserId}
                              displayGrid/>
                 <DataDisplay label={t('company:createdDate')}
-                             value={moment(companyCreatedDate).format('LL') + " " + moment(companyCreatedDate).fromNow()}
+                             value={moment(companyCreatedDate).format('LL') + " (" + moment(companyCreatedDate).fromNow() + ")"}
                              displayGrid/>
 
                 <Grid item xs={12}/>

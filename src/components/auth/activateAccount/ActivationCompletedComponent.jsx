@@ -6,17 +6,17 @@ import Button from "@material-ui/core/Button";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {useTranslation} from "react-i18next";
 import ActivateAccountStepper from "../ActivateAccountStepper";
-import {useHistory} from "react-router";
+import {useNavigate} from "react-router";
 
 const ActivationCompletedComponent = (props) => {
 
 
     const classes = useStyles();
     const {t} = useTranslation();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const handleRedirectToLogin = () => {
-        history.push('/login')
+        navigate('/login')
     }
 
     return (

@@ -75,7 +75,7 @@ export const decodeTokenAction = (jwtToken, dispatch) => {
     }
 };
 
-export const logoutAction = (dispatch, history) => {
+export const logoutAction = (dispatch, navigate) => {
     dispatch({type: LOGOUT});
-    history.push('/')
+    navigate('/')
 };

@@ -1,7 +1,8 @@
 {
+  "sponsorshipPackage": "Sponsorship package",
   "allSponsorshipPackages": "All sponsorship packages",
   "addNewSponsorshipPackage": "Add new sponsorship package",
-  "sponsorshipPackageType": "Sponsorship package type",
+  "sponsorshipPackageName": "Sponsorship package name",
   "name": "Name",
   "description": "Description",
   "isAvailable": "Available to buy",
@@ -11,5 +12,6 @@
   "sponsorshipPackageId": "Sponsorship package ID",
   "deleteSponsorshipPackage": "Delete sponsorship package",
   "saveSponsorshipPackage": "Save sponsorship package",
-  "sponsorshipPackageDeleted": "Sponsorship package has been deleted."
+  "sponsorshipPackageDeleted": "Sponsorship package has been deleted.",
+  "notChosenYet": "Sponsorship package haven't been chosen yet."
 }

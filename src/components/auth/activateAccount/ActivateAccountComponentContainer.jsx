@@ -2,14 +2,14 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import useFieldValidation from "../../../utils/useFieldValidation";
 import {validateEmail,} from "../../../utils/Validators";
-import {useHistory} from "react-router";
+import {useNavigate} from "react-router";
 import ActivateAccountComponentView from "./ActivateAccountComponentView";
 import {sendVerificationCodeAction} from "../../../redux/actions/activateUserProcessActions";
 
 const ActivateAccountComponentContainer = () => {
 
     const dispatch = useDispatch();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const emailField = useFieldValidation('', validateEmail);
 
@@ -29,11 +29,11 @@ const ActivateAccountComponentContainer = () => {
     }, [sentVerificationCode])
 
     const handleRedirectLoggedInUser = () => {
-        history.push('/')
+        navigate('/');
     }
 
     const handleRedirectPassVerificationCode = () => {
-        history.push('/activate/verify')
+        navigate('/activate/verify');
     }
 
     const onSendVerificationCodeSubmit = (event) => {

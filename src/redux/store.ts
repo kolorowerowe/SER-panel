@@ -8,7 +8,7 @@ import {activateUserProcessReducer} from "./reducers/activateUserProcessReducer"
 import {companiesReducer} from "./reducers/companiesReducer";
 import {sponsorshipPackagesReducer} from "./reducers/sponsorshipPackageReducer";
 
-export const store = createStore(combineReducers({
+const rootReducer = combineReducers({
     auth: authReducer,
     activeUser: activeUserReducer,
     activateUserProcess: activateUserProcessReducer,
@@ -17,4 +17,10 @@ export const store = createStore(combineReducers({
     snackbar: snackbarReducer,
     sponsorshipPackages: sponsorshipPackagesReducer,
     users: usersReducer
-}), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+});
+export type RootState = ReturnType<typeof rootReducer>
+
+
+const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__();
+
+export const store = createStore(rootReducer, composeEnhancers);

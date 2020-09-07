@@ -1,21 +1,24 @@
-import React from 'react';
+import React, {SyntheticEvent} from 'react';
 import CustomAlert from "./CustomAlert";
 import {useDispatch, useSelector} from "react-redux";
 import Snackbar from "@material-ui/core/Snackbar";
 import {closeSnackbarAction} from "../redux/actions/snackbarActions";
+import {RootState} from "../redux/store";
 
-const CustomSnackBar = () => {
+const CustomSnackBar: React.FC = () => {
+
+
 
     const {
         open,
         message,
         severity
-    } = useSelector(state => state.snackbar);
+    } = useSelector((state: RootState) => state.snackbar);
 
     const dispatch = useDispatch();
 
 
-    const handleClose = (event, reason) => {
+    const handleClose = (event: SyntheticEvent, reason: string): void => {
         if (reason === 'clickaway') {
             return;
         }

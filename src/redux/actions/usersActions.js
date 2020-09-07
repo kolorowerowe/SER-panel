@@ -89,7 +89,7 @@ export const changeUserDetailsAction = (userId, changeUSerDetailsBody, authToken
         });
 };
 
-export const deleteUserAction = (userId, authToken, dispatch, snackbar, history) => {
+export const deleteUserAction = (userId, authToken, dispatch, snackbar, navigate) => {
     dispatch({type: DELETE_USER});
 
     axios.delete(`${baseUrl}/user/${userId}`, {
@@ -103,7 +103,7 @@ export const deleteUserAction = (userId, authToken, dispatch, snackbar, history)
                 payload: data
             });
             snackbar.addSuccess(i18n.t('user:userDeleted'));
-            history.push('/user');
+            navigate('/user');
         })
         .catch(err => {
             dispatch({

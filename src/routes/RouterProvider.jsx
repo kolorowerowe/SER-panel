@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Switch} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import LoginComponentContainer from "../components/auth/login/LoginComponentContainer";
 import HomeComponentContainer from "../components/home/HomeComponentContainer";
 import ProfileComponentContainer from "../components/profile/ProfileComponentContainer";
@@ -7,75 +7,74 @@ import ProtectedRoute from "./ProtectedRoute";
 import UsersComponentContainer from "../components/allUsers/UsersComponentContainer";
 import ActivateAccountComponentContainer from "../components/auth/activateAccount/ActivateAccountComponentContainer";
 import ProvideVerificationCodeComponentContainer
-    from "../components/auth/activateAccount/ProvideVerificationCodeComponentContainer";
+        from "../components/auth/activateAccount/ProvideVerificationCodeComponentContainer";
 import SetupPasswordComponentContainer from "../components/auth/activateAccount/SetupPasswordComponentContainer";
 import ActivationCompletedComponent from "../components/auth/activateAccount/ActivationCompletedComponent";
 import UserDetailsComponentContainer from "../components/allUsers/userDetails/UserDetailsComponentContainer";
-import CompanyDetailsComponentContainer
-    from "../components/allCompanies/companyDetails/CompanyDetailsComponentContainer";
 import CompaniesComponentContainer from "../components/allCompanies/CompaniesComponentContainer";
 import SponsorshipPackagesComponentContainer
-    from "../components/sponsorshipPackages/SponsorshipPackagesComponentContainer";
+        from "../components/sponsorshipPackages/SponsorshipPackagesComponentContainer";
 import SponsorshipPackageDetailsComponentContainer
-    from "../components/sponsorshipPackages/sponsorshipPackageDetails/SponsorshipPackageDetailsComponentContainer";
+        from "../components/sponsorshipPackages/sponsorshipPackageDetails/SponsorshipPackageDetailsComponentContainer";
+import CompanyComponent from "../components/company/CompanyComponent";
 
 const RouterProvider = () => {
 
 
     return (
-        <Switch>
+        <Routes>
             <Route path="/login"
-                   component={LoginComponentContainer}
+                   element={<LoginComponentContainer/>}
             />
 
             <Route path="/activate/email"
-                   component={ActivateAccountComponentContainer}
+                   element={<ActivateAccountComponentContainer/>}
             />
 
             <Route path="/activate/verify"
-                   component={ProvideVerificationCodeComponentContainer}
+                   element={<ProvideVerificationCodeComponentContainer/>}
             />
 
             <Route path="/activate/password"
-                   component={SetupPasswordComponentContainer}
+                   element={<SetupPasswordComponentContainer/>}
             />
 
             <Route path="/activate/done"
-                   component={ActivationCompletedComponent}
+                   element={<ActivationCompletedComponent/>}
             />
 
             <ProtectedRoute path="/user/:userId"
-                            component={UserDetailsComponentContainer}
+                            element={UserDetailsComponentContainer}
             />
 
             <ProtectedRoute path="/user"
-                            component={UsersComponentContainer}
+                            element={UsersComponentContainer}
             />
 
-            <ProtectedRoute path="/company/:companyId"
-                            component={CompanyDetailsComponentContainer}
+            <ProtectedRoute path="/company/:companyId/*"
+                            element={CompanyComponent}
             />
 
             <ProtectedRoute path="/company"
-                            component={CompaniesComponentContainer}
+                            element={CompaniesComponentContainer}
             />
 
             <ProtectedRoute path="/sponsorship-packages/:sponsorshipPackageId"
-                            component={SponsorshipPackageDetailsComponentContainer}
+                            element={SponsorshipPackageDetailsComponentContainer}
             />
 
             <ProtectedRoute path="/sponsorship-packages"
-                            component={SponsorshipPackagesComponentContainer}
+                            element={SponsorshipPackagesComponentContainer}
             />
 
             <ProtectedRoute path="/profile"
-                            component={ProfileComponentContainer}
+                            element={ProfileComponentContainer}
             />
 
             <ProtectedRoute path="/"
-                            component={HomeComponentContainer}
+                            element={HomeComponentContainer}
             />
-        </Switch>
+        </Routes>
     );
 };
 

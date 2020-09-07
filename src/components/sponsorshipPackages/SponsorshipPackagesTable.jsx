@@ -7,7 +7,7 @@ import Table from "@material-ui/core/Table";
 import TableContainer from "@material-ui/core/TableContainer";
 import {useTranslation} from "react-i18next";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {useHistory} from "react-router";
+import {useNavigate} from "react-router";
 import SponsorshipPackageRow from "./SponsorshipPackageRow";
 
 const SponsorshipPackagesTable = props => {
@@ -18,11 +18,11 @@ const SponsorshipPackagesTable = props => {
 
     const {t} = useTranslation();
     const classes = useStyles();
-    const history = useHistory();
+    const navigate = useNavigate();
 
 
     const handleOpenSponsorshipPackage = (sponsorshipPackageId) => {
-        history.push(`/sponsorship-packages/${sponsorshipPackageId}`)
+        navigate(`/sponsorship-packages/${sponsorshipPackageId}`)
     }
 
     return (
@@ -31,7 +31,7 @@ const SponsorshipPackagesTable = props => {
                 <TableHead>
                     <TableRow>
                         <TableCell
-                            className={classes.header}>{t('sponsorshipPackage:sponsorshipPackageType')}</TableCell>
+                            className={classes.header}>{t('sponsorshipPackage:sponsorshipPackageName')}</TableCell>
                         <TableCell align="center" className={classes.header}>{t('general:standSize')}</TableCell>
                         <TableCell align="center" className={classes.header}>{t('general:price')}</TableCell>
                         <TableCell align="center"

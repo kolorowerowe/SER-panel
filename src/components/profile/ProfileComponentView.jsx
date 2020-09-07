@@ -1,7 +1,6 @@
 import React from 'react';
 import DefaultCard from "../../generic/DefaultCard";
 import {useTranslation} from "react-i18next";
-import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import moment from "moment";
 import Grid from "@material-ui/core/Grid";
@@ -9,6 +8,7 @@ import ValidatedTextField from "../../generic/input/ValidatedTextField";
 import ErrorAlert from "../../generic/ErrorAlert";
 import Button from "@material-ui/core/Button";
 import ProgressBar from "../../generic/ProgressBar";
+import DataDisplay from "../../generic/DataDisplay";
 
 const ProfileComponentView = (props) => {
 
@@ -147,15 +147,12 @@ const ProfileComponentView = (props) => {
 
             <Grid item xs={12}>
                 <DefaultCard title={t('user:details')}>
-                    <Typography className={classes.secondaryField}>
-                        {t('user:userId')}: {id}
-                    </Typography>
-                    <Typography className={classes.secondaryField}>
-                        {t('user:role')}: {t(`user:${role}`)}
-                    </Typography>
-                    <Typography className={classes.secondaryField}>
-                        {t('user:createdDate')}: {moment(userCreatedDate).format('LL')}
-                    </Typography>
+                    <Grid container spacing={2}>
+                        <DataDisplay value={id} label={t('user:userId')} displayGrid/>
+                        <DataDisplay value={t(`user:${role}`)} label={t('user:role')} displayGrid/>
+                        <DataDisplay value={moment(userCreatedDate).format('LL')} label={t('user:createdDate')} displayGrid/>
+
+                    </Grid>
                 </DefaultCard>
             </Grid>
         </Grid>
@@ -176,7 +173,7 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'center',
     },
     form: {
-        maxWidth: 600,
+        maxWidth: 500,
         marginTop: theme.spacing(1),
     },
     formElement: {
