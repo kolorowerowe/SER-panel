@@ -1,0 +1,12 @@
+{
+  "deadline": "Deadline",
+  "deadlinesNotInitialized": "Deadlines are not initialized, do it below.",
+  "FILL_COMPANY_DATA": "Fill company data",
+  "CHOOSE_SPONSORSHIP_PACKAGE": "Choose sponsorship package",
+  "CHOOSE_ADDITIONAL_EQUIPMENT": "Choose additional equipment",
+  "FILL_CATALOGUE_INFORMATION": "Fill catalogue information",
+  "SIGN_THE_CONTRACT": "Sign the contract",
+  "defineDeadlines": "Define deadlines",
+  "deadlineSaved": "Deadlines saved",
+  "deadlineSavedError": "An error occurred when saving deadlines"
+}

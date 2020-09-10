@@ -13,6 +13,14 @@ export const POSSIBLE_TRANSLATIONS = [
     }
 ];
 
+export const DEADLINES = [
+    'FILL_COMPANY_DATA',
+    'CHOOSE_SPONSORSHIP_PACKAGE',
+    'CHOOSE_ADDITIONAL_EQUIPMENT',
+    'FILL_CATALOGUE_INFORMATION',
+    'SIGN_THE_CONTRACT'
+]
+
 export const POSSIBLE_CURRENCIES = [
     {
         name: 'PLN',

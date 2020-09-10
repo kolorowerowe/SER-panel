@@ -2,7 +2,9 @@
   "startPage": "Start Page",
   "profile": "Your profile",
   "companies": "All companies",
-  "sponsorshipPackages": "Pakiety sponsorskie",
+  "eventConfig": "Event config",
+  "deadline": "Deadlines",
+  "sponsorshipPackage": "Sponsorship packages",
   "users": "Users",
   "signOut": "Sign Out"
 }

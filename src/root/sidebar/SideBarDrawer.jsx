@@ -3,21 +3,21 @@ import clsx from "clsx";
 import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import Divider from "@material-ui/core/Divider";
-import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Drawer from "@material-ui/core/Drawer";
-import {AllInbox, Business, Dashboard, Group, Person} from "@material-ui/icons";
+import {AllInbox, Business, Dashboard, Group, Person, Schedule, Tune} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/core/styles";
 import PropTypes from "prop-types"
 import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
-import {logoutAction} from "../redux/actions/authActions";
+import {logoutAction} from "../../redux/actions/authActions";
+import NavigationList from "./NavigationList";
 
-const drawerWidth = 240;
+const drawerWidth = 280;
 
 const SideBarDrawer = (props) => {
 
@@ -47,7 +47,8 @@ const SideBarDrawer = (props) => {
         text: companyName,
         icon: <Business/>,
         path: `/company/${companyId}`,
-        visible: isCompany
+        visible: isCompany,
+        collapsible: false
     }))
 
     const sideBarElements = [
@@ -55,32 +56,48 @@ const SideBarDrawer = (props) => {
             text: t('sidebar:startPage'),
             icon: <Dashboard/>,
             path: '/',
-            visible: true
+            visible: true,
+            collapsible: false
         },
         ...getSideBarCompanies,
-        {
-            text: t('sidebar:profile'),
-            icon: <Person/>,
-            path: '/profile',
-            visible: isLoggedIn
-        },
         {
             text: t('sidebar:companies'),
             icon: <Business/>,
             path: '/company',
-            visible: isLoggedIn && isOrganizer
-        },
-        {
-            text: t('sidebar:sponsorshipPackages'),
-            icon: <AllInbox/>,
-            path: '/sponsorship-packages',
-            visible: isLoggedIn && isOrganizer
+            visible: isLoggedIn && isOrganizer,
+            collapsible: false
         },
         {
             text: t('sidebar:users'),
             icon: <Group/>,
             path: '/user',
-            visible: isLoggedIn && isOrganizer
+            visible: isLoggedIn && isOrganizer,
+            collapsible: false
+        },
+        {
+            text: t('sidebar:eventConfig'),
+            icon: <Tune/>,
+            path: '/deadline',
+            visible: isLoggedIn && isOrganizer,
+            collapsible: true,
+            childrenItems: [{
+                text: t('sidebar:deadline'),
+                icon: <Schedule/>,
+                path: '/deadline',
+                visible: isLoggedIn && isOrganizer,
+            },{
+                text: t('sidebar:sponsorshipPackage'),
+                icon: <AllInbox/>,
+                path: '/sponsorship-package',
+                visible: isLoggedIn && isOrganizer,
+            }]
+        },
+        {
+            text: t('sidebar:profile'),
+            icon: <Person/>,
+            path: '/profile',
+            visible: isLoggedIn,
+            collapsible: false
         }
     ];
 
@@ -99,20 +116,7 @@ const SideBarDrawer = (props) => {
                 </IconButton>
             </div>
             <Divider/>
-            <List>
-                {sideBarElements
-                    .filter(x => !!x.visible)
-                    .map(({text, icon, path}, index) => (
-                        <ListItem key={index}
-                                  button
-                                  onClick={() => handleRedirect(path)}>
-                            <ListItemIcon>
-                                {icon}
-                            </ListItemIcon>
-                            <ListItemText primary={text}/>
-                        </ListItem>)
-                    )}
-            </List>
+            <NavigationList navItems={sideBarElements} handleRedirect={handleRedirect}/>
             <Divider/>
             <ListItem button onClick={handleLogout}>
                 <ListItemIcon>

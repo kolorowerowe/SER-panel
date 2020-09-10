@@ -2,6 +2,9 @@ import {
     ATTEMPT_LOGIN,
     ATTEMPT_LOGIN_FAILURE,
     ATTEMPT_LOGIN_SUCCESS,
+    CHECK_SAVED_TOKEN,
+    CHECK_SAVED_TOKEN_FAILURE,
+    CHECK_SAVED_TOKEN_SUCCESS,
     DECODE_TOKEN_SUCCESS,
     LOGOUT
 } from "../types/authTypes";
@@ -22,11 +25,13 @@ const initState = {
 export const authReducer = (state = initState, action) => { // (1)
     switch (action.type) {
         case ATTEMPT_LOGIN:
+        case CHECK_SAVED_TOKEN:
             return {
                 ...state,
                 loading: true
             };
         case ATTEMPT_LOGIN_SUCCESS:
+        case CHECK_SAVED_TOKEN_SUCCESS:
             return {
                 ...state,
                 loading: false,
@@ -34,6 +39,7 @@ export const authReducer = (state = initState, action) => { // (1)
                 authToken: action.payload
             };
         case ATTEMPT_LOGIN_FAILURE:
+        case CHECK_SAVED_TOKEN_FAILURE:
             return {
                 ...state,
                 loading: false,

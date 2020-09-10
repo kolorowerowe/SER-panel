@@ -22,7 +22,7 @@ const SponsorshipPackagesTable = props => {
 
 
     const handleOpenSponsorshipPackage = (sponsorshipPackageId) => {
-        navigate(`/sponsorship-packages/${sponsorshipPackageId}`)
+        navigate(`/sponsorship-package/${sponsorshipPackageId}`)
     }
 
     return (

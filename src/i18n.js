@@ -22,6 +22,9 @@ import companyPL from './locales/pl/company.json'
 import validationEN from './locales/en/validation.json'
 import validationPL from './locales/pl/validation.json'
 
+import deadlineEN from './locales/en/deadline.json'
+import deadlinePL from './locales/pl/deadline.json'
+
 import sponsorshipPackageEN from './locales/en/sponsorshipPackage.json'
 import sponsorshipPackagePL from './locales/pl/sponsorshipPackage.json'
 
@@ -35,6 +38,7 @@ const resources = {
         user: userEN,
         company: companyEN,
         validation: validationEN,
+        deadline: deadlineEN,
         sponsorshipPackage: sponsorshipPackageEN
     },
     pl: {
@@ -45,6 +49,7 @@ const resources = {
         user: userPL,
         company: companyPL,
         validation: validationPL,
+        deadline: deadlinePL,
         sponsorshipPackage: sponsorshipPackagePL
     }
 };

@@ -1,3 +1,17 @@
+import {Moment} from "moment";
+
+export type DeadlineF = {
+    orderNumber: number;
+    activity: string;
+    deadlineDate: Moment;
+}
+
+export type DeadlineB = {
+    orderNumber: number;
+    activity: string;
+    deadlineDate: string;
+}
+
 export type Translation = {
     languageCode: string;
     name: string;

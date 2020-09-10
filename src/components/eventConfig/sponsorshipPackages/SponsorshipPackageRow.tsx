@@ -4,8 +4,8 @@ import TableCell from "@material-ui/core/TableCell";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {useTranslation} from "react-i18next";
 import getSymbolFromCurrency from "currency-symbol-map";
-import {SponsorshipPackage} from "../../declarations/types";
-import StatusIconComponent from "../../generic/StatusIconComponent";
+import {SponsorshipPackage} from "../../../declarations/types";
+import StatusIconComponent from "../../../generic/StatusIconComponent";
 
 
 const useStyles = makeStyles(theme => ({

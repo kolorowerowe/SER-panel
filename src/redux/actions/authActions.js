@@ -2,6 +2,9 @@ import {
     ATTEMPT_LOGIN,
     ATTEMPT_LOGIN_FAILURE,
     ATTEMPT_LOGIN_SUCCESS,
+    CHECK_SAVED_TOKEN,
+    CHECK_SAVED_TOKEN_FAILURE,
+    CHECK_SAVED_TOKEN_SUCCESS,
     DECODE_TOKEN,
     DECODE_TOKEN_FAILURE,
     DECODE_TOKEN_SUCCESS,
@@ -30,6 +33,7 @@ export const loginAction = ({email, password}, dispatch) => {
                 payload: data.authToken
             });
             decodeTokenAction(data.authToken, dispatch);
+            localStorage.setItem("accessToken", data.authToken);
         })
         .catch(err => {
             dispatch({
@@ -38,6 +42,31 @@ export const loginAction = ({email, password}, dispatch) => {
             });
         });
 };
+
+export const checkSavedToken = (accessToken, dispatch) => {
+    dispatch({type: CHECK_SAVED_TOKEN});
+    console.log(accessToken);
+    axios.get(`${baseUrl}/user/check-token`, {
+        headers: {
+            "Authorization": `Bearer ${accessToken}`
+        }
+    })
+        .then(() => {
+            dispatch({
+                type: CHECK_SAVED_TOKEN_SUCCESS,
+                payload: accessToken
+            });
+            decodeTokenAction(accessToken, dispatch);
+        })
+        .catch(err => {
+            dispatch({
+                type: CHECK_SAVED_TOKEN_FAILURE,
+                payload: err
+            });
+            localStorage.removeItem("accessToken");
+        });
+};
+
 
 export const decodeTokenAction = (jwtToken, dispatch) => {
     dispatch({type: DECODE_TOKEN});
@@ -76,6 +105,7 @@ export const decodeTokenAction = (jwtToken, dispatch) => {
 };
 
 export const logoutAction = (dispatch, navigate) => {
+    localStorage.removeItem("accessToken");
     dispatch({type: LOGOUT});
     navigate('/')
 };

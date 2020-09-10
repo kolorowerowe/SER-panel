@@ -4,8 +4,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {
     addSponsorshipPackageAction,
     fetchSponsorshipPackagesAction
-} from "../../redux/actions/sponsorshipPackagesActions";
-import {useSnackbar} from "../../utils/useSnackbar";
+} from "../../../redux/actions/sponsorshipPackagesActions";
+import {useSnackbar} from "../../../utils/useSnackbar";
 
 const SponsorshipPackagesComponentContainer = () => {
 

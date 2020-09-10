@@ -9,5 +9,7 @@
   "eventHaveStarted": "Wydarzenie się rozpoczęło!",
   "standSize": "Rozmiar stoiska w m^2",
   "price": "Cena",
-  "priceInCurrency": "Cena w ${currency}"
+  "priceInCurrency": "Cena w ${currency}",
+  "date": "Data",
+  "time": "Godzina"
 }

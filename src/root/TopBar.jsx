@@ -23,7 +23,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import moment from "moment";
 import "moment/locale/pl";
 
-const drawerWidth = 240;
+const drawerWidth = 280;
 
 const TopBar = (props) => {
 

@@ -7,16 +7,17 @@ import ProtectedRoute from "./ProtectedRoute";
 import UsersComponentContainer from "../components/allUsers/UsersComponentContainer";
 import ActivateAccountComponentContainer from "../components/auth/activateAccount/ActivateAccountComponentContainer";
 import ProvideVerificationCodeComponentContainer
-        from "../components/auth/activateAccount/ProvideVerificationCodeComponentContainer";
+    from "../components/auth/activateAccount/ProvideVerificationCodeComponentContainer";
 import SetupPasswordComponentContainer from "../components/auth/activateAccount/SetupPasswordComponentContainer";
 import ActivationCompletedComponent from "../components/auth/activateAccount/ActivationCompletedComponent";
 import UserDetailsComponentContainer from "../components/allUsers/userDetails/UserDetailsComponentContainer";
 import CompaniesComponentContainer from "../components/allCompanies/CompaniesComponentContainer";
 import SponsorshipPackagesComponentContainer
-        from "../components/sponsorshipPackages/SponsorshipPackagesComponentContainer";
+    from "../components/eventConfig/sponsorshipPackages/SponsorshipPackagesComponentContainer";
 import SponsorshipPackageDetailsComponentContainer
-        from "../components/sponsorshipPackages/sponsorshipPackageDetails/SponsorshipPackageDetailsComponentContainer";
+    from "../components/eventConfig/sponsorshipPackages/sponsorshipPackageDetails/SponsorshipPackageDetailsComponentContainer";
 import CompanyComponent from "../components/company/CompanyComponent";
+import DeadlineComponentContainer from "../components/eventConfig/deadline/DeadlineComponentContainer";
 
 const RouterProvider = () => {
 
@@ -59,12 +60,16 @@ const RouterProvider = () => {
                             element={CompaniesComponentContainer}
             />
 
-            <ProtectedRoute path="/sponsorship-packages/:sponsorshipPackageId"
+            <ProtectedRoute path="/sponsorship-package/:sponsorshipPackageId"
                             element={SponsorshipPackageDetailsComponentContainer}
             />
 
-            <ProtectedRoute path="/sponsorship-packages"
+            <ProtectedRoute path="/sponsorship-package"
                             element={SponsorshipPackagesComponentContainer}
+            />
+
+            <ProtectedRoute path="/deadline"
+                            element={DeadlineComponentContainer}
             />
 
             <ProtectedRoute path="/profile"

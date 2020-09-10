@@ -1,0 +1,12 @@
+{
+  "deadline": "Deadline",
+  "deadlinesNotInitialized": "Deadliny nie zostały zdefioniowane, zrób to poniżej",
+  "FILL_COMPANY_DATA": "Uzupełnij dane firmy",
+  "CHOOSE_SPONSORSHIP_PACKAGE": "Wybierz pakiet sponsorski",
+  "CHOOSE_ADDITIONAL_EQUIPMENT": "Wybierz dodatkowe wyposażenie",
+  "FILL_CATALOGUE_INFORMATION": "Uzupełnij informacje do katalogu",
+  "SIGN_THE_CONTRACT": "Podpisz umowę",
+  "defineDeadlines": "Zdefiniuj deadliny",
+  "deadlineSaved": "Deadliny zostały zapisane",
+  "deadlineSavedError": "Wystąpił błąd w trakcie zapisywania deadlinów"
+}

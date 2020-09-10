@@ -17,7 +17,6 @@ import ProgressBar from "../../generic/ProgressBar";
 
 const CompanyComponent: React.FC = () => {
 
-
     const {t} = useTranslation();
     const navigate = useNavigate();
     const {companyId} = useParams();
@@ -31,15 +30,13 @@ const CompanyComponent: React.FC = () => {
         fetchCompanyDetailsAction(companyId, authToken, dispatch);
     }, [companyId]);
 
-
     interface LinkTabProps {
         index: number;
         label?: string;
         href: string;
-        selected?: boolean;
     }
 
-    const LinkTab: React.FC<LinkTabProps> = ({href, label, selected, index}: LinkTabProps) => {
+    const LinkTab: React.FC<LinkTabProps> = ({href, label, index}: LinkTabProps) => {
         return (
             <Tab
                 component="a"
@@ -49,7 +46,6 @@ const CompanyComponent: React.FC = () => {
                     navigate(`/company/${companyId}/${href}`);
                 }}
                 label={label}
-                selected={selected}
             />
         );
     }
@@ -63,7 +59,6 @@ const CompanyComponent: React.FC = () => {
                 variant="scrollable"
                 scrollButtons="auto"
                 centered
-
             >
                 <LinkTab label={t('company:companySummary')} href="/" index={0}/>
                 <LinkTab label={t('company:companyData')} href="data" index={1}/>
@@ -119,7 +114,6 @@ const CompanyComponent: React.FC = () => {
                     </Routes>
                 </Grid>
             </Grid>
-
         </div>
     );
 };

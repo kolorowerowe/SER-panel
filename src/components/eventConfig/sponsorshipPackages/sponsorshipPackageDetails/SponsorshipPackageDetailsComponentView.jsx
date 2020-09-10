@@ -1,16 +1,16 @@
 import React from 'react';
-import DefaultCard from "../../../generic/DefaultCard";
+import DefaultCard from "../../../../generic/DefaultCard";
 import {useTranslation} from "react-i18next";
 import Grid from "@material-ui/core/Grid";
-import ValidatedTextField from "../../../generic/input/ValidatedTextField";
-import ErrorAlert from "../../../generic/ErrorAlert";
+import ValidatedTextField from "../../../../generic/input/ValidatedTextField";
+import ErrorAlert from "../../../../generic/ErrorAlert";
 import Button from "@material-ui/core/Button";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import ProgressBar from "../../../generic/ProgressBar";
-import DataDisplay from "../../../generic/DataDisplay";
-import InputPriceComponent from "../../../generic/input/InputPriceComponent";
+import ProgressBar from "../../../../generic/ProgressBar";
+import DataDisplay from "../../../../generic/DataDisplay";
+import InputPriceComponent from "../../../../generic/input/InputPriceComponent";
 import SponsorshipPackageTranslations from "../SponsorshipPackageTranslations";
-import CheckboxInput from "../../../generic/input/CheckboxInput";
+import CheckboxInput from "../../../../generic/input/CheckboxInput";
 
 const SponsorshipPackageDetailsComponentView = (props) => {
 

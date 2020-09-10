@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {useSnackbar} from "../../../utils/useSnackbar";
+import {useSnackbar} from "../../../../utils/useSnackbar";
 import {useNavigate, useParams} from "react-router";
-import useFieldValidation from "../../../utils/useFieldValidation";
-import {validateStandSize} from "../../../utils/Validators";
+import useFieldValidation from "../../../../utils/useFieldValidation";
+import {validateStandSize} from "../../../../utils/Validators";
 import {
     deleteSponsorshipPackageAction,
     fetchSponsorshipPackageDetailsAction,
     saveSponsorshipPackageAction
-} from "../../../redux/actions/sponsorshipPackagesActions";
+} from "../../../../redux/actions/sponsorshipPackagesActions";
 import SponsorshipPackageDetailsComponentView from "./SponsorshipPackageDetailsComponentView";
-import usePriceFields from "../../../utils/usePriceFields";
-import useSponsorshipPackageTranslationFields from "../../../utils/useSponsorshipPackageTranslationFields";
+import usePriceFields from "../../../../utils/usePriceFields";
+import useSponsorshipPackageTranslationFields from "../../../../utils/useSponsorshipPackageTranslationFields";
 
 const SponsorshipPackageDetailsComponentContainer = () => {
 

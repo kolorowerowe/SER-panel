@@ -7,12 +7,14 @@ import {usersReducer} from "./reducers/usersReducer";
 import {activateUserProcessReducer} from "./reducers/activateUserProcessReducer";
 import {companiesReducer} from "./reducers/companiesReducer";
 import {sponsorshipPackagesReducer} from "./reducers/sponsorshipPackageReducer";
+import {deadlineReducer} from "./reducers/deadlineReducer";
 
 const rootReducer = combineReducers({
     auth: authReducer,
     activeUser: activeUserReducer,
     activateUserProcess: activateUserProcessReducer,
     companies: companiesReducer,
+    deadline: deadlineReducer,
     preferences: preferencesReducer,
     snackbar: snackbarReducer,
     sponsorshipPackages: sponsorshipPackagesReducer,

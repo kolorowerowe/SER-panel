@@ -3,7 +3,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import RouterProvider from "../routes/RouterProvider";
 import TopBar from "./TopBar";
-import SideBarDrawer from "./SideBarDrawer";
+import SideBarDrawer from "./sidebar/SideBarDrawer";
 import CustomSnackBar from "../generic/CustomSnackbar";
 
 
