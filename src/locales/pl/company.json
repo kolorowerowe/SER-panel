@@ -5,7 +5,7 @@
  "companyDetails": "Szczegóły firmy",
  "companyData": "Dane firmy",
  "companyId": "ID firmy",
- "primaryUserId": "ID założyciela firmy",
+ "primaryUserFullName": "Imię i nazwisko założyciela firmy",
  "createdDate": "Data rejestracji firmy",
  "companyName": "Nazwa firmy",
  "contactPhone": "Telefon kontaktowy",

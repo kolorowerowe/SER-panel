@@ -5,7 +5,7 @@
  "companyDetails": "Company details",
  "companyData": "Company data",
  "companyId": "Company ID",
- "primaryUserId": "Company registrator ID",
+ "primaryUserFullName": "Company registrator full name",
  "createdDate": "Company registration date",
  "companyName": "Company name",
  "contactPhone": "Contact phone",

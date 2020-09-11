@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
 
-const CompanyDetailsComponentView = (props) => {
+const CompanyDataComponentView = (props) => {
 
     const {
         companyNameField,
@@ -19,11 +19,6 @@ const CompanyDetailsComponentView = (props) => {
         cityField,
         postalCodeField,
         onSaveCompanySubmit,
-        company: {
-            id,
-            primaryUserId,
-            companyCreatedDate
-        } = {},
         loading
     } = props;
 
@@ -138,7 +133,7 @@ const CompanyDetailsComponentView = (props) => {
 };
 
 
-export default CompanyDetailsComponentView;
+export default CompanyDataComponentView;
 
 const useStyles = makeStyles((theme) => ({
     divider: {

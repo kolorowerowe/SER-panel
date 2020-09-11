@@ -8,5 +8,7 @@
   "SIGN_THE_CONTRACT": "Podpisz umowę",
   "defineDeadlines": "Zdefiniuj deadliny",
   "deadlineSaved": "Deadliny zostały zapisane",
-  "deadlineSavedError": "Wystąpił błąd w trakcie zapisywania deadlinów"
+  "deadlineSavedError": "Wystąpił błąd w trakcie zapisywania deadlinów",
+  "progress": "Progres rejestracji"
+
 }

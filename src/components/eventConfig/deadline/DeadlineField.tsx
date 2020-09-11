@@ -1,16 +1,20 @@
 import React from 'react';
 import MomentUtils from '@date-io/moment';
-import {Grid, Typography} from "@material-ui/core";
+import {Grid, Theme, Typography} from "@material-ui/core";
 import {KeyboardDatePicker, KeyboardTimePicker, MuiPickersUtilsProvider,} from '@material-ui/pickers';
 import {DeadlineF} from "../../../declarations/types";
 import moment, {Moment} from "moment";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {useTranslation} from "react-i18next";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme: Theme) => ({
     gridContainer: {
         padding: theme.spacing(2)
     },
+    secondaryField: {
+        color: theme.palette.text.secondary,
+        marginLeft: theme.spacing(2)
+    }
 }));
 
 type Props = {
@@ -38,7 +42,7 @@ const DeadlineField: React.FC<Props> = ({deadlineField, handleDateChange}: Props
                     <Typography>
                         {deadlineField.orderNumber}. {t(`deadline:${deadlineField.activity}`)}
                     </Typography>
-                    <Typography variant="body2" color="textSecondary">
+                    <Typography variant="body2" className={styles.secondaryField}>
                         ({deadlineField.deadlineDate.fromNow()})
                     </Typography>
                 </Grid>

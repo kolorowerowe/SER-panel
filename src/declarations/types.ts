@@ -30,14 +30,28 @@ export type SponsorshipPackage = {
     isAvailable: boolean;
 }
 
-export type Company = {
+export type UserMiniData = {
     id: string;
-    primaryUserId: string;
+    email: string;
+    fullName: string;
+}
+
+export type CompanyDeadlineStatus = {
+    orderNumber: number;
+    activity: string;
+    deadlineDate: string;
+    isFinished: boolean;
+}
+
+export type CompanyResponse = {
+    id: string;
+    primaryUser: UserMiniData;
     name: string;
     contactPhone: string;
     taxId: string;
     companyCreatedDate: string;
     sponsorshipPackageId?: string;
+    companyDeadlineStatuses?: CompanyDeadlineStatus[];
 }
 
 export type ParamTypes = {

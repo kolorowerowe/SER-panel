@@ -31,7 +31,9 @@ const CompaniesTable = props => {
                 <TableHead >
                     <TableRow>
                         <TableCell className={classes.header}>{t('company:companyName')}</TableCell>
+                        <TableCell align="center" className={classes.header}>{t('company:primaryUserFullName')}</TableCell>
                         <TableCell align="center" className={classes.header}>{t('sponsorshipPackage:sponsorshipPackageName')}</TableCell>
+                        <TableCell align="center" className={classes.header}>{t('deadline:progress')}</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>

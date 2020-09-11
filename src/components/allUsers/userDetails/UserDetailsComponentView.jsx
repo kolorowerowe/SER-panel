@@ -55,7 +55,7 @@ const UserDetailsComponentView = (props) => {
                              displayGrid/>
 
                 <DataDisplay label={t('user:lastSeen')}
-                             value={ isActivated ? (moment(lastSeen).format('LLL') + " (" + moment(lastSeen).fromNow()) : t('user:notActivated') + ")"}
+                             value={ isActivated ? (moment(lastSeen).format('LLL') + " (" + moment(lastSeen).fromNow()+ ")") : t('user:notActivated') }
                              displayGrid/>
 
                 <DataDisplay label={t('user:createdDate')}

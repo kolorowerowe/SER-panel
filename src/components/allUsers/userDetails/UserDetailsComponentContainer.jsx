@@ -11,7 +11,11 @@ const UserDetailsComponentContainer = () => {
 
     const {user, loading, error, errorResponse} = useSelector(state => state.users);
     const {authToken} = useSelector(state => state.auth);
-    const {user: {id : loggedInUserId}} = useSelector(state => state.activeUser);
+    const {
+        user: {
+            id: loggedInUserId
+        } = {}
+    } = useSelector(state => state.activeUser);
     const {userId} = useParams()
     const dispatch = useDispatch();
     const snackbar = useSnackbar();

@@ -8,5 +8,6 @@
   "SIGN_THE_CONTRACT": "Sign the contract",
   "defineDeadlines": "Define deadlines",
   "deadlineSaved": "Deadlines saved",
-  "deadlineSavedError": "An error occurred when saving deadlines"
+  "deadlineSavedError": "An error occurred when saving deadlines",
+  "progress": "Registration progress"
 }

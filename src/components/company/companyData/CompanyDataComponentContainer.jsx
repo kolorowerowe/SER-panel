@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {useSnackbar} from "../../../utils/useSnackbar";
-import CompanyDetailsComponentView from "./CompanyDetailsComponentView";
+import CompanyDataComponentView from "./CompanyDataComponentView";
 import {useNavigate} from "react-router";
 import useFieldValidation from "../../../utils/useFieldValidation";
 import {
@@ -16,7 +16,7 @@ import {
 } from "../../../utils/Validators";
 import {changeCompanyDetailsAction} from "../../../redux/actions/companiesActions";
 
-const CompanyDetailsComponentContainer = ({companyId, company, loading}) => {
+const CompanyDataComponentContainer = ({companyId, company, loading}) => {
 
     const {authToken} = useSelector(state => state.auth);
     const dispatch = useDispatch();
@@ -86,24 +86,24 @@ const CompanyDetailsComponentContainer = ({companyId, company, loading}) => {
     }, [company])
 
     return (
-        <CompanyDetailsComponentView company={company}
-                                     loading={loading}
+        <CompanyDataComponentView company={company}
+                                  loading={loading}
 
-                                     companyNameField={companyNameField}
-                                     contactPhoneField={contactPhoneField}
-                                     taxIdField={taxIdField}
+                                  companyNameField={companyNameField}
+                                  contactPhoneField={contactPhoneField}
+                                  taxIdField={taxIdField}
 
-                                     streetField={streetField}
-                                     buildingNumberField={buildingNumberField}
-                                     flatNumberField={flatNumberField}
-                                     cityField={cityField}
-                                     postalCodeField={postalCodeField}
+                                  streetField={streetField}
+                                  buildingNumberField={buildingNumberField}
+                                  flatNumberField={flatNumberField}
+                                  cityField={cityField}
+                                  postalCodeField={postalCodeField}
 
-                                     onSaveCompanySubmit={onSaveCompanySubmit}
+                                  onSaveCompanySubmit={onSaveCompanySubmit}
 
         />
     );
 };
 
 
-export default CompanyDetailsComponentContainer;
+export default CompanyDataComponentContainer;

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Route, Routes} from "react-router-dom";
 import {useTranslation} from "react-i18next";
-import CompanyDetailsComponentContainer from "./companyDetails/CompanyDetailsComponentContainer";
+import CompanyDataComponentContainer from "./companyData/CompanyDataComponentContainer";
 import {Divider, Tab, Tabs, Typography} from "@material-ui/core";
 import CompanySponsorshipPackageComponentContainer
     from "./companySponsorshipPackage/CompanySponsorshipPackageComponentContainer";
@@ -86,9 +86,9 @@ const CompanyComponent: React.FC = () => {
                     <Routes>
                         <Route path="data"
                                element={
-                                   <CompanyDetailsComponentContainer companyId={companyId}
-                                                                     company={company}
-                                                                     loading={loading}/>
+                                   <CompanyDataComponentContainer companyId={companyId}
+                                                                  company={company}
+                                                                  loading={loading}/>
                                }/>
                         <Route path="sponsorship-package"
                                element={

@@ -1,9 +1,9 @@
 import React from 'react';
-import {Company} from '../../../declarations/types';
+import {CompanyResponse} from '../../../declarations/types';
 
 type Props = {
     companyId: string;
-    company?: Company;
+    company?: CompanyResponse;
 }
 
 const CompanySponsorshipPackageComponentContainer: React.FC<Props> = ({company, companyId}: Props) => {
