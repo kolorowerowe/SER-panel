@@ -12,7 +12,6 @@ const SponsorshipPackageTranslations = props => {
     const {
         sponsorshipPackageTranslationFields: {
             translations = [],
-            setTranslations,
             setName,
             setDescription
         }

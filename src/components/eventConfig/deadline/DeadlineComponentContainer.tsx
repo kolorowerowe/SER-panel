@@ -16,7 +16,7 @@ const DeadlineComponentContainer: React.FC = () => {
 
     useEffect(() => {
         fetchDeadlinesAction(authToken, dispatch);
-    }, []);
+    }, [authToken]);
 
     const [deadlineFields, setDeadlineFields] = useState<DeadlineF[]>([]);
 

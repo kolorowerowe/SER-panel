@@ -22,7 +22,7 @@ const drawerWidth = 280;
 const SideBarDrawer = (props) => {
 
     const {open, handleDrawerClose} = props;
-    const {auth, isLoggedIn, isOrganizer, isCompany} = useSelector(state => state.auth);
+    const {isLoggedIn, isOrganizer, isCompany} = useSelector(state => state.auth);
     const {
         user: {
             companyAccessList = []

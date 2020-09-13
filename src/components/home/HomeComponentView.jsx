@@ -13,11 +13,7 @@ const HomeComponentView = (props) => {
         activeUser: {
             user: {
                 fullName,
-                role,
-            } = {},
-            loading,
-            error,
-            errorResponse
+            } = {}
         } = {},
         companies: {
             companies

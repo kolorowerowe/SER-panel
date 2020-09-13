@@ -17,7 +17,7 @@ const SponsorshipPackagesComponentContainer = () => {
 
     useEffect(() => {
         fetchSponsorshipPackagesAction(authToken, dispatch);
-    }, []);
+    }, [authToken, ]);
 
     const handleAddSponsorshipPackageSubmit = (userBody) => {
         addSponsorshipPackageAction(userBody, authToken, dispatch, snackbar);

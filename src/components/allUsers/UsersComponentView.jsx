@@ -1,7 +1,6 @@
 import React from 'react';
 import DefaultCard from "../../generic/DefaultCard";
 import {useTranslation} from "react-i18next";
-import {makeStyles} from "@material-ui/core/styles";
 import UsersTable from "./UsersTable";
 import Button from "@material-ui/core/Button";
 import AddNewUserDialog from "./AddNewUserDialog";
@@ -18,7 +17,6 @@ const UsersComponentView = (props) => {
     } = props;
 
     const {t} = useTranslation();
-    const classes = useStyles();
 
     const NewUserButton = () => (
         <Button
@@ -48,10 +46,3 @@ const UsersComponentView = (props) => {
 
 
 export default UsersComponentView;
-
-const useStyles = makeStyles((theme) => ({
-    divider: {
-        marginTop: 20,
-        marginBottom: 20
-    }
-}));

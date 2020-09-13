@@ -1,7 +1,6 @@
 import React from 'react';
 import DefaultCard from "../../generic/DefaultCard";
 import {useTranslation} from "react-i18next";
-import {makeStyles} from "@material-ui/core/styles";
 import CompaniesTable from "./CompaniesTable";
 
 const CompaniesComponentView = (props) => {
@@ -14,7 +13,6 @@ const CompaniesComponentView = (props) => {
     } = props;
 
     const {t} = useTranslation();
-    const classes = useStyles();
 
     return (
         <DefaultCard title={t('company:allCompanies')}
@@ -32,10 +30,3 @@ const CompaniesComponentView = (props) => {
 
 
 export default CompaniesComponentView;
-
-const useStyles = makeStyles((theme) => ({
-    divider: {
-        marginTop: 20,
-        marginBottom: 20
-    }
-}));

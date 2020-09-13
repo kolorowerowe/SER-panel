@@ -24,7 +24,7 @@ const UserDetailsComponentContainer = () => {
 
     useEffect(() => {
         fetchUserDetailsAction(userId, authToken, dispatch);
-    }, []);
+    }, [userId, authToken]);
 
     const onSaveUserSubmit = () => {
         const saveUserBody = {
@@ -49,7 +49,7 @@ const UserDetailsComponentContainer = () => {
     const [roleValue, setRoleValue] = useState('');
 
     useEffect(() => {
-        if (!!user) {
+        if (user) {
             emailField.setValue(user.email);
             fullNameField.setValue(user.fullName);
             phoneNumberField.setValue(user.phoneNumber);

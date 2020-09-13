@@ -1,21 +1,11 @@
 import React from 'react';
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
-import makeStyles from "@material-ui/core/styles/makeStyles";
 import {useTranslation} from "react-i18next";
 import getSymbolFromCurrency from "currency-symbol-map";
 import {SponsorshipPackage} from "../../../declarations/types";
 import StatusIconComponent from "../../../generic/StatusIconComponent";
 
-
-const useStyles = makeStyles(theme => ({
-    ok: {
-        color: theme.palette.success.main
-    },
-    error: {
-        color: theme.palette.error.main
-    }
-}));
 
 type Props = {
     sponsorshipPackage: SponsorshipPackage;
@@ -32,7 +22,6 @@ const SponsorshipPackageRow: React.FC<Props> = ({sponsorshipPackage, handleOpenS
         isAvailable
     } = sponsorshipPackage;
 
-    const classes = useStyles();
     const {t} = useTranslation();
 
     return (

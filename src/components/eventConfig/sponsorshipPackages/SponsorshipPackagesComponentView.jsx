@@ -4,7 +4,6 @@ import {useTranslation} from "react-i18next";
 import Button from "@material-ui/core/Button";
 import AddSponsorshipPackageDialog from "./AddSponsorshipPackageDialog";
 import SponsorshipPackagesTable from "./SponsorshipPackagesTable";
-import makeStyles from "@material-ui/core/styles/makeStyles";
 
 const SponsorshipPackagesComponentView = (props) => {
 
@@ -18,7 +17,6 @@ const SponsorshipPackagesComponentView = (props) => {
     } = props;
 
     const {t} = useTranslation();
-    const classes = useStyles();
 
     const NewSponsorshipPackageButton = () => (
         <Button
@@ -52,10 +50,3 @@ const SponsorshipPackagesComponentView = (props) => {
 
 
 export default SponsorshipPackagesComponentView;
-
-const useStyles = makeStyles((theme) => ({
-    divider: {
-        marginTop: 20,
-        marginBottom: 20
-    }
-}));

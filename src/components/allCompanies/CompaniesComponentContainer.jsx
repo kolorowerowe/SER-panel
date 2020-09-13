@@ -12,7 +12,7 @@ const CompaniesComponentContainer = () => {
 
     useEffect(() => {
         fetchCompaniesAction(authToken, dispatch);
-    }, []);
+    }, [authToken]);
 
     return (
         <CompaniesComponentView companies={companies}

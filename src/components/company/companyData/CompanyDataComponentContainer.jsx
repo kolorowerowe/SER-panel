@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {useSnackbar} from "../../../utils/useSnackbar";
 import CompanyDataComponentView from "./CompanyDataComponentView";
-import {useNavigate} from "react-router";
 import useFieldValidation from "../../../utils/useFieldValidation";
 import {
     validateBuildingNumber,
@@ -21,7 +20,6 @@ const CompanyDataComponentContainer = ({companyId, company, loading}) => {
     const {authToken} = useSelector(state => state.auth);
     const dispatch = useDispatch();
     const snackbar = useSnackbar();
-    const navigate = useNavigate();
 
     const onSaveCompanySubmit = () => {
 

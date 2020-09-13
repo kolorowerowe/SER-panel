@@ -22,7 +22,7 @@ const UsersComponentContainer = () => {
 
     useEffect(() => {
         fetchUsersAction(authToken, dispatch);
-    }, []);
+    }, [authToken]);
 
     return (
         <UsersComponentView users={users}

@@ -8,8 +8,7 @@ const ProtectedRoute = (props) => {
 
     const {
         element: Component,
-        path,
-        ...rest
+        path
     } = props;
 
     const {isLoggedIn} = useSelector(state => state.auth)

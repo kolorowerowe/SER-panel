@@ -8,7 +8,6 @@ import {useTranslation} from "react-i18next";
 import useFieldValidation from "../../../utils/useFieldValidation";
 import {validateStandSize} from "../../../utils/Validators";
 import ValidatedTextField from "../../../generic/input/ValidatedTextField";
-import makeStyles from "@material-ui/core/styles/makeStyles";
 import Grid from "@material-ui/core/Grid";
 
 import usePriceFields from "../../../utils/usePriceFields";
@@ -25,7 +24,6 @@ const AddSponsorshipPackageDialog = props => {
     } = props;
 
     const {t} = useTranslation();
-    const classes = useStyles();
 
     const sponsorshipPackageTranslationFields = useSponsorshipPackageTranslationFields();
     const standSizeField = useFieldValidation('', validateStandSize);
@@ -93,10 +91,4 @@ const AddSponsorshipPackageDialog = props => {
 }
 
 export default AddSponsorshipPackageDialog;
-
-const useStyles = makeStyles((theme) => ({
-    gridItem: {
-        display: 'grid'
-    }
-}));
 

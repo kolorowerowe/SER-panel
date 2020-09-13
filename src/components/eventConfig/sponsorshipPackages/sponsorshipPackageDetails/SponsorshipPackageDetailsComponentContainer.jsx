@@ -25,7 +25,7 @@ const SponsorshipPackageDetailsComponentContainer = () => {
 
     useEffect(() => {
         fetchSponsorshipPackageDetailsAction(sponsorshipPackageId, authToken, dispatch);
-    }, []);
+    }, [sponsorshipPackageId, authToken]);
 
     const onSaveSponsorshipPackageSubmit = () => {
         const saveSponsorshipPackageBody = {

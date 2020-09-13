@@ -11,14 +11,12 @@ type Props = {
 const CompanySponsorshipPackageComponentContainer: React.FC<Props> = ({company, loading, error}: Props) => {
 
     const {
-        name,
-        companyCreatedDate,
         sponsorshipPackage
     } = company || {};
 
     const isNotDefined = useMemo(() => {
         return (!loading && !error && !sponsorshipPackage);
-    }, [company]);
+    }, [sponsorshipPackage, loading, error]);
 
 
     return (

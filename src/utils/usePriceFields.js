@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import {POSSIBLE_CURRENCIES} from "./constans";
 
 const usePriceFields = () => {

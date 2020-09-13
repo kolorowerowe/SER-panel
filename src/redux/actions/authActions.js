@@ -33,9 +33,11 @@ export const loginAction = ({email, password}, dispatch) => {
                 payload: data.authToken
             });
             decodeTokenAction(data.authToken, dispatch);
+            console.log("Login successful, saving accessToken to localStorage.");
             localStorage.setItem("accessToken", data.authToken);
         })
         .catch(err => {
+            console.log("Login unsuccessful");
             dispatch({
                 type: ATTEMPT_LOGIN_FAILURE,
                 payload: err
@@ -45,13 +47,14 @@ export const loginAction = ({email, password}, dispatch) => {
 
 export const checkSavedToken = (accessToken, dispatch) => {
     dispatch({type: CHECK_SAVED_TOKEN});
-    console.log(accessToken);
+    console.log("Checking accessToken from localStorage if it is valid");
     axios.get(`${baseUrl}/user/check-token`, {
         headers: {
             "Authorization": `Bearer ${accessToken}`
         }
     })
         .then(() => {
+            console.log("Successfully loged in with saved token");
             dispatch({
                 type: CHECK_SAVED_TOKEN_SUCCESS,
                 payload: accessToken
@@ -59,6 +62,7 @@ export const checkSavedToken = (accessToken, dispatch) => {
             decodeTokenAction(accessToken, dispatch);
         })
         .catch(err => {
+            console.log("Saved token expired, removing from localStorage.");
             dispatch({
                 type: CHECK_SAVED_TOKEN_FAILURE,
                 payload: err

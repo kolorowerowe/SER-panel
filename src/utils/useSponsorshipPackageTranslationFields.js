@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import {POSSIBLE_TRANSLATIONS} from "./constans";
 
 const useSponsorshipPackageTranslationFields = () => {

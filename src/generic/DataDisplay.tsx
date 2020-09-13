@@ -27,7 +27,7 @@ const DataDisplay: React.FunctionComponent<DataDisplayProps> = ({label, value, d
                     {label}
                 </Typography>
                 <Typography>
-                    {value == undefined ? '-' : value}
+                    {value === undefined ? '-' : value}
                 </Typography>
             </Grid> :
             <div>
@@ -35,7 +35,7 @@ const DataDisplay: React.FunctionComponent<DataDisplayProps> = ({label, value, d
                     {label}
                 </Typography>
                 <Typography>
-                    {value == undefined ? '-' : value}
+                    {value === undefined ? '-' : value}
                 </Typography>
             </div>
     );

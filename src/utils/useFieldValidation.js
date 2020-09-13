@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 
 const useFieldValidation = (initialValue, validate) => {
     const [value, setValue] = useState(initialValue);
