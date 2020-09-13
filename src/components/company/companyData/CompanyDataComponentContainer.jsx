@@ -29,7 +29,7 @@ const CompanyDataComponentContainer = ({companyId, company, loading}) => {
         const isError = allFields.reduce((currentError, x) => (currentError || !!x.validate()), false);
 
 
-        if (!isError){
+        if (!isError) {
             const saveCompanyDetailsBody = {
                 contactPhone: contactPhoneField.value,
                 taxId: taxIdField.value,
@@ -60,28 +60,30 @@ const CompanyDataComponentContainer = ({companyId, company, loading}) => {
 
 
     useEffect(() => {
-        const {
-            name,
-            contactPhone,
-            taxId,
-            address: {
-                street,
-                buildingNumber,
-                flatNumber,
-                city,
-                postalCode
-            } = {}
-        } = company || {}
+        if (company) {
+            const {
+                name,
+                contactPhone,
+                taxId,
+                address: {
+                    street,
+                    buildingNumber,
+                    flatNumber,
+                    city,
+                    postalCode
+                } = {}
+            } = company;
 
-        companyNameField.setValue(name);
-        contactPhoneField.setValue(contactPhone);
-        taxIdField.setValue(taxId);
+            companyNameField.setValue(name);
+            contactPhoneField.setValue(contactPhone);
+            taxIdField.setValue(taxId);
 
-        streetField.setValue(street);
-        buildingNumberField.setValue(buildingNumber);
-        flatNumberField.setValue(flatNumber);
-        cityField.setValue(city);
-        postalCodeField.setValue(postalCode);
+            streetField.setValue(street);
+            buildingNumberField.setValue(buildingNumber);
+            flatNumberField.setValue(flatNumber);
+            cityField.setValue(city);
+            postalCodeField.setValue(postalCode);
+        }
 
     }, [company])
 

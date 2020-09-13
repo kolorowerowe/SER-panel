@@ -25,14 +25,16 @@ const NavigationList: React.FC<Props> = ({navItems, handleRedirect}: Props) => {
     return (
         <List>
             {navItems
-                .filter(x => !!x.visible)
+                .filter(x => x.visible)
                 .map(item =>
                     (item.collapsible ?
                         <CollapsibleNavLink {...item}
+                                            key={item.text}
                                             handleRedirect={handleRedirect}
                         />
                         :
                         <SimpleNavLink {...item}
+                                       key={item.text}
                                        handleRedirect={handleRedirect}
                         />)
                 )}

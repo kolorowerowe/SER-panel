@@ -8,10 +8,10 @@ import Button from "@material-ui/core/Button";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import SelectComponent from "../../../generic/input/SelectComponent";
 import {ALL_ROLES} from "../../../utils/constans";
-import moment from "moment";
 import ProgressBar from "../../../generic/ProgressBar";
 import Tooltip from "@material-ui/core/Tooltip";
 import DataDisplay from "../../../generic/DataDisplay";
+import {formatDateWithBackwardPeriod} from "../../../utils/DateTimeUtils";
 
 const UserDetailsComponentView = (props) => {
 
@@ -55,11 +55,11 @@ const UserDetailsComponentView = (props) => {
                              displayGrid/>
 
                 <DataDisplay label={t('user:lastSeen')}
-                             value={ isActivated ? (moment(lastSeen).format('LLL') + " (" + moment(lastSeen).fromNow()+ ")") : t('user:notActivated') }
+                             value={isActivated ? (formatDateWithBackwardPeriod(lastSeen, 'LLL')) : t('user:notActivated')}
                              displayGrid/>
 
                 <DataDisplay label={t('user:createdDate')}
-                             value={moment(userCreatedDate).format('LL') + " (" + moment(userCreatedDate).fromNow() + ")"}
+                             value={formatDateWithBackwardPeriod(userCreatedDate)}
                              displayGrid/>
 
 

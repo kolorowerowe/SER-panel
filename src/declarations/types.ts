@@ -50,7 +50,7 @@ export type CompanyResponse = {
     contactPhone: string;
     taxId: string;
     companyCreatedDate: string;
-    sponsorshipPackageId?: string;
+    sponsorshipPackage?: string;
     companyDeadlineStatuses?: CompanyDeadlineStatus[];
 }
 

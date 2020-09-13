@@ -21,7 +21,7 @@ const CompanyRow: React.FC<Props> = ({company, handleOpenCompany}: Props) => {
         primaryUser: {
             fullName = ''
         } = {},
-        sponsorshipPackageId,
+        sponsorshipPackage,
         companyDeadlineStatuses = []
     } = company;
 
@@ -52,9 +52,9 @@ const CompanyRow: React.FC<Props> = ({company, handleOpenCompany}: Props) => {
                 {fullName}
             </TableCell>
             <TableCell align="center">
-                {sponsorshipPackageId === undefined ?
+                {!sponsorshipPackage ?
                     <StatusIconComponent status={'error'} label={t('sponsorshipPackage:notChosenYet')}/>
-                    : sponsorshipPackageId
+                    : sponsorshipPackage
                 }
             </TableCell>
             <TableCell align="center">

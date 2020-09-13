@@ -2,11 +2,11 @@ import React from 'react';
 import DefaultCard from "../../generic/DefaultCard";
 import {useTranslation} from "react-i18next";
 import {makeStyles} from "@material-ui/core/styles";
-import moment from "moment";
 import Grid from "@material-ui/core/Grid";
 import ValidatedTextField from "../../generic/input/ValidatedTextField";
 import Button from "@material-ui/core/Button";
 import DataDisplay from "../../generic/DataDisplay";
+import {formatDateWithBackwardPeriod} from "../../utils/DateTimeUtils";
 
 const ProfileComponentView = (props) => {
 
@@ -142,7 +142,7 @@ const ProfileComponentView = (props) => {
                     <Grid container spacing={2}>
                         <DataDisplay value={id} label={t('user:userId')} displayGrid/>
                         <DataDisplay value={t(`user:${role}`)} label={t('user:role')} displayGrid/>
-                        <DataDisplay value={moment(userCreatedDate).format('LL')} label={t('user:createdDate')}
+                        <DataDisplay value={formatDateWithBackwardPeriod(userCreatedDate)}
                                      displayGrid/>
 
                     </Grid>

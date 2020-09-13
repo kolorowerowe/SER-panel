@@ -1,10 +1,16 @@
 import i18n from "../i18n";
+import moment, {Duration} from "moment";
 
-export const DATE_TIME_FORMAT = 'yyyy-MM-dd HH:mm:ss'
 export const DATE_FORMAT = 'yyyy-MM-dd'
-export const LONG_DATE_FORMAT = 'dd MMMM yyyy'
 
-export const formatCountDown = (duration) => {
+export const formatDateWithBackwardPeriod = (date: string | undefined, format = 'LL'): string => {
+    if (date === undefined) {
+        return '-';
+    }
+    return moment(date).format(format) + " (" + moment(date).fromNow() + ")";
+}
+
+export const formatCountDown = (duration: Duration): string => {
 
     let formatted = '';
 

@@ -21,7 +21,6 @@ const DeadlineComponentContainer: React.FC = () => {
     const [deadlineFields, setDeadlineFields] = useState<DeadlineF[]>([]);
 
     useEffect(() => {
-        console.log(deadlines)
         if (deadlines) {
             setDeadlineFields((deadlines as DeadlineB[]).map(ddl => ({
                 ...ddl,
@@ -44,8 +43,6 @@ const DeadlineComponentContainer: React.FC = () => {
     };
 
     const initializeDeadlines = (): void => {
-        console.log('init');
-
         setDeadlineFields([{
             activity: 'FILL_COMPANY_DATA',
             deadlineDate: moment().add(1, 'days'),

@@ -6,6 +6,7 @@ import DataDisplay from "../../../generic/DataDisplay";
 import moment from "moment";
 import {useTranslation} from "react-i18next";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import {formatDateWithBackwardPeriod} from "../../../utils/DateTimeUtils";
 
 type Props = {
     companyId: string;
@@ -35,7 +36,7 @@ const CompanySummaryComponent: React.FC<Props> = ({companyId, company}: Props) =
         primaryUser: {
             fullName = ''
         } = {},
-        companyCreatedDate,
+        companyCreatedDate = '',
         companyDeadlineStatuses = []
     } = company || {};
 
@@ -84,7 +85,7 @@ const CompanySummaryComponent: React.FC<Props> = ({companyId, company}: Props) =
                                      value={fullName}
                                      displayGrid/>
                         <DataDisplay label={t('company:createdDate')}
-                                     value={moment(companyCreatedDate).format('LL') + " (" + moment(companyCreatedDate).fromNow() + ")"}
+                                     value={formatDateWithBackwardPeriod(companyCreatedDate)}
                                      displayGrid/>
                     </Grid>
                 </DefaultCard>
