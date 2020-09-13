@@ -29,7 +29,7 @@ const ValidatedTextField = props => {
 
 ValidatedTextField.propTypes = {
     field: PropTypes.shape({
-        value: PropTypes.string.isRequired,
+        value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
         error: PropTypes.object,
         handleChange: PropTypes.func.isRequired,
         handleBlur: PropTypes.func.isRequired,

@@ -1,5 +1,5 @@
 import React from 'react';
-import DefaultCard from "../../../../generic/DefaultCard";
+import DefaultCard from "../../../../generic/displayData/DefaultCard";
 import {useTranslation} from "react-i18next";
 import Grid from "@material-ui/core/Grid";
 import ValidatedTextField from "../../../../generic/input/ValidatedTextField";
@@ -7,7 +7,7 @@ import ErrorAlert from "../../../../generic/ErrorAlert";
 import Button from "@material-ui/core/Button";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import ProgressBar from "../../../../generic/ProgressBar";
-import DataDisplay from "../../../../generic/DataDisplay";
+import LabeledData from "../../../../generic/displayData/LabeledData";
 import InputPriceComponent from "../../../../generic/input/InputPriceComponent";
 import SponsorshipPackageTranslations from "../SponsorshipPackageTranslations";
 import CheckboxInput from "../../../../generic/input/CheckboxInput";
@@ -47,7 +47,7 @@ const SponsorshipPackageDetailsComponentView = (props) => {
                 <ProgressBar loading={loading} displayGrid/>
 
 
-                <DataDisplay label={t('sponsorshipPackage:sponsorshipPackageId')}
+                <LabeledData label={t('sponsorshipPackage:sponsorshipPackageId')}
                              value={id}
                              displayGrid/>
 

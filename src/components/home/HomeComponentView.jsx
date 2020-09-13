@@ -1,5 +1,5 @@
 import React from 'react';
-import DefaultCard from "../../generic/DefaultCard";
+import DefaultCard from "../../generic/displayData/DefaultCard";
 import Grid from "@material-ui/core/Grid";
 import CompanyTileComponentContainer from "./CompanyTileComponentContainer";
 import Typography from "@material-ui/core/Typography";

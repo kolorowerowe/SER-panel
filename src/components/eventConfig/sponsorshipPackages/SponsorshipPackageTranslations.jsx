@@ -23,7 +23,7 @@ const SponsorshipPackageTranslations = props => {
     return (
         <Grid container spacing={2}>
             {translations.map(translation => (
-                <Grid item xs={6}>
+                <Grid item xs={6} key={translation.languageCode}>
                     <Typography className={classes.languageCode}>
                         {translation.languageCode}
                     </Typography>

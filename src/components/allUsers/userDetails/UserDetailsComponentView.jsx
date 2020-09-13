@@ -1,5 +1,5 @@
 import React from 'react';
-import DefaultCard from "../../../generic/DefaultCard";
+import DefaultCard from "../../../generic/displayData/DefaultCard";
 import {useTranslation} from "react-i18next";
 import Grid from "@material-ui/core/Grid";
 import ValidatedTextField from "../../../generic/input/ValidatedTextField";
@@ -10,7 +10,7 @@ import SelectComponent from "../../../generic/input/SelectComponent";
 import {ALL_ROLES} from "../../../utils/constans";
 import ProgressBar from "../../../generic/ProgressBar";
 import Tooltip from "@material-ui/core/Tooltip";
-import DataDisplay from "../../../generic/DataDisplay";
+import LabeledData from "../../../generic/displayData/LabeledData";
 import {formatDateWithBackwardPeriod} from "../../../utils/DateTimeUtils";
 
 const UserDetailsComponentView = (props) => {
@@ -50,15 +50,15 @@ const UserDetailsComponentView = (props) => {
                 <ProgressBar loading={loading} displayGrid/>
 
 
-                <DataDisplay label={t('user:userId')}
+                <LabeledData label={t('user:userId')}
                              value={id}
                              displayGrid/>
 
-                <DataDisplay label={t('user:lastSeen')}
+                <LabeledData label={t('user:lastSeen')}
                              value={isActivated ? (formatDateWithBackwardPeriod(lastSeen, 'LLL')) : t('user:notActivated')}
                              displayGrid/>
 
-                <DataDisplay label={t('user:createdDate')}
+                <LabeledData label={t('user:createdDate')}
                              value={formatDateWithBackwardPeriod(userCreatedDate)}
                              displayGrid/>
 

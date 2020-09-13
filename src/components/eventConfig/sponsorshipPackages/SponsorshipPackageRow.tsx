@@ -2,9 +2,9 @@ import React from 'react';
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import {useTranslation} from "react-i18next";
-import getSymbolFromCurrency from "currency-symbol-map";
 import {SponsorshipPackage} from "../../../declarations/types";
 import StatusIconComponent from "../../../generic/StatusIconComponent";
+import {joinPrices, joinTranslations} from "../../../utils/general";
 
 
 type Props = {
@@ -27,11 +27,14 @@ const SponsorshipPackageRow: React.FC<Props> = ({sponsorshipPackage, handleOpenS
     return (
         <TableRow hover onClick={(): void => handleOpenSponsorshipPackage(id)}>
             <TableCell component="th" scope="row">
-                {translations.map(translation => translation.name).join(" / ")}
+                {joinTranslations(translations)}
             </TableCell>
-            <TableCell align="center">{standSize}</TableCell>
+            <TableCell align="center">
+                {standSize}
+            </TableCell>
             <TableCell
-                align="center">{prices.map(price => (price.value + getSymbolFromCurrency(price.currency))).join(" / ")}</TableCell>
+                align="center">{joinPrices(prices)}
+            </TableCell>
             <TableCell align="center">
                 {isAvailable ?
                     <StatusIconComponent status={'ok'}

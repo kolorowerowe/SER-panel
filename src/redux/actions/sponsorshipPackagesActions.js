@@ -123,7 +123,7 @@ export const deleteSponsorshipPackageAction = (sponsorshipPackageId, authToken, 
                 payload: data
             });
             snackbar.addSuccess(i18n.t('sponsorshipPackage:sponsorshipPackageDeleted'));
-            navigate("/sponsorship-packages");
+            navigate("/sponsorship-package");
         })
         .catch(err => {
             dispatch({

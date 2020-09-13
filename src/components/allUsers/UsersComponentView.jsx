@@ -1,5 +1,5 @@
 import React from 'react';
-import DefaultCard from "../../generic/DefaultCard";
+import DefaultCard from "../../generic/displayData/DefaultCard";
 import {useTranslation} from "react-i18next";
 import UsersTable from "./UsersTable";
 import Button from "@material-ui/core/Button";

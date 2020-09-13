@@ -1,11 +1,11 @@
 import React from 'react';
-import DefaultCard from "../../generic/DefaultCard";
+import DefaultCard from "../../generic/displayData/DefaultCard";
 import {useTranslation} from "react-i18next";
 import {makeStyles} from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import ValidatedTextField from "../../generic/input/ValidatedTextField";
 import Button from "@material-ui/core/Button";
-import DataDisplay from "../../generic/DataDisplay";
+import LabeledData from "../../generic/displayData/LabeledData";
 import {formatDateWithBackwardPeriod} from "../../utils/DateTimeUtils";
 
 const ProfileComponentView = (props) => {
@@ -140,9 +140,9 @@ const ProfileComponentView = (props) => {
                 <DefaultCard title={t('user:details')}
                              divider>
                     <Grid container spacing={2}>
-                        <DataDisplay value={id} label={t('user:userId')} displayGrid/>
-                        <DataDisplay value={t(`user:${role}`)} label={t('user:role')} displayGrid/>
-                        <DataDisplay value={formatDateWithBackwardPeriod(userCreatedDate)}
+                        <LabeledData value={id} label={t('user:userId')} displayGrid/>
+                        <LabeledData value={t(`user:${role}`)} label={t('user:role')} displayGrid/>
+                        <LabeledData value={formatDateWithBackwardPeriod(userCreatedDate)}
                                      displayGrid/>
 
                     </Grid>

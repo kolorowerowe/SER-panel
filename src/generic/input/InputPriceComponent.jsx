@@ -23,7 +23,7 @@ const InputPriceComponent = props => {
     return (
         <Grid container spacing={2}>
             {prices.map(price => (
-                <Grid item xs={6}>
+                <Grid item xs={6} key={price.currency}>
                     <TextField
                         value={price.value}
                         label={t('general:priceInCurrency').replace("${currency}", price.currency)}
@@ -32,7 +32,6 @@ const InputPriceComponent = props => {
                         variant={'standard'}
                         fullWidth
                         className={classes.priceValue}
-                        {...props}
                         InputProps={{
                             startAdornment: <InputAdornment position="start">{getSymbolFromCurrency(price.currency)}</InputAdornment>,
                         }}

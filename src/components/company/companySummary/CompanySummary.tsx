@@ -1,8 +1,8 @@
 import React from 'react';
 import {CompanyDeadlineStatus, CompanyResponse} from "../../../declarations/types";
 import {Grid, Theme, Typography} from "@material-ui/core";
-import DefaultCard from "../../../generic/DefaultCard";
-import DataDisplay from "../../../generic/DataDisplay";
+import DefaultCard from "../../../generic/displayData/DefaultCard";
+import LabeledData from "../../../generic/displayData/LabeledData";
 import moment from "moment";
 import {useTranslation} from "react-i18next";
 import makeStyles from "@material-ui/core/styles/makeStyles";
@@ -77,14 +77,14 @@ const CompanySummaryComponent: React.FC<Props> = ({companyId, company}: Props) =
 
                     <Grid container spacing={2}>
 
-                        <DataDisplay label={t('company:companyId')}
+                        <LabeledData label={t('company:companyId')}
                                      value={id}
                                      displayGrid/>
 
-                        <DataDisplay label={t('company:primaryUserFullName')}
+                        <LabeledData label={t('company:primaryUserFullName')}
                                      value={fullName}
                                      displayGrid/>
-                        <DataDisplay label={t('company:createdDate')}
+                        <LabeledData label={t('company:createdDate')}
                                      value={formatDateWithBackwardPeriod(companyCreatedDate)}
                                      displayGrid/>
                     </Grid>

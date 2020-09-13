@@ -1,5 +1,5 @@
 import React from 'react';
-import DefaultCard from "../../../generic/DefaultCard";
+import DefaultCard from "../../../generic/displayData/DefaultCard";
 import {useTranslation} from "react-i18next";
 import Grid from "@material-ui/core/Grid";
 import ValidatedTextField from "../../../generic/input/ValidatedTextField";

@@ -7,11 +7,11 @@ import IconButton from "@material-ui/core/IconButton";
 import {useNavigate} from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
-import ErrorAlert from "./ErrorAlert";
-import ProgressBar from "./ProgressBar";
+import ErrorAlert from "../ErrorAlert";
+import ProgressBar from "../ProgressBar";
 
 type DefaultCardProps = {
-    title: string;
+    title?: string;
     children: object;
     buttonComponent?: object;
     backButton?: object;

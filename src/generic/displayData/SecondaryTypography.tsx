@@ -3,8 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Grid from "@material-ui/core/Grid";
 
-type DataDisplayProps = {
-    value?: string;
+type SecondaryTypographyProps = {
     label: string;
     displayGrid?: boolean;
 }
@@ -17,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const DataDisplay: React.FunctionComponent<DataDisplayProps> = ({label, value, displayGrid}: DataDisplayProps) => {
+const SecondaryTypography: React.FunctionComponent<SecondaryTypographyProps> = ({label, displayGrid}: SecondaryTypographyProps) => {
 
     const classes = useStyles();
 
@@ -26,19 +25,13 @@ const DataDisplay: React.FunctionComponent<DataDisplayProps> = ({label, value, d
                 <Typography className={classes.secondaryField}>
                     {label}
                 </Typography>
-                <Typography>
-                    {value === undefined ? '-' : value}
-                </Typography>
             </Grid> :
             <div>
                 <Typography className={classes.secondaryField}>
                     {label}
                 </Typography>
-                <Typography>
-                    {value === undefined ? '-' : value}
-                </Typography>
             </div>
     );
 };
 
-export default DataDisplay;
+export default SecondaryTypography;

@@ -3,8 +3,7 @@ import {Route, Routes} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import CompanyDataComponentContainer from "./companyData/CompanyDataComponentContainer";
 import {Divider, Tab, Tabs, Typography} from "@material-ui/core";
-import CompanySponsorshipPackageComponentContainer
-    from "./companySponsorshipPackage/CompanySponsorshipPackageComponentContainer";
+import CompanySponsorshipPackageComponent from "./companySponsorshipPackage/CompanySponsorshipPackageComponent";
 import {useLocation, useNavigate, useParams} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchCompanyDetailsAction} from "../../redux/actions/companiesActions";
@@ -58,10 +57,10 @@ const CompanyComponent: React.FC = () => {
             label: t('sponsorshipPackage:sponsorshipPackage'),
             href: "sponsorship-package",
             index: 2,
-            component: <CompanySponsorshipPackageComponentContainer company={company}
-                                                                    companyId={companyId}
-                                                                    loading={loading}
-                                                                    error={error}/>
+            component: <CompanySponsorshipPackageComponent company={company}
+                                                           companyId={companyId}
+                                                           loading={loading}
+                                                           error={error}/>
         }, {
             label: t('equipment:additionalEquipment'),
             href: "additional-equipment",
@@ -71,13 +70,13 @@ const CompanyComponent: React.FC = () => {
             label: t('catalogue:catalogue'),
             href: "catalogue",
             index: 4,
-            component: <Typography>//TODO 13/09/20: Additional equipment </Typography>
+            component: <Typography>//TODO 13/09/20: catalogue </Typography>
         },
         {
             label: t('contract:contract'),
             href: "contract",
             index: 5,
-            component: <Typography>//TODO 13/09/20: Additional equipment </Typography>
+            component: <Typography>//TODO 13/09/20: contract </Typography>
         }
     ];
 

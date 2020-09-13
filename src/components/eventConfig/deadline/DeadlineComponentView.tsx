@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 import {useTranslation} from "react-i18next";
-import DefaultCard from "../../../generic/DefaultCard";
+import DefaultCard from "../../../generic/displayData/DefaultCard";
 import DeadlineField from "./DeadlineField";
 import {DeadlineF} from "../../../declarations/types";
 import ErrorAlert from "../../../generic/ErrorAlert";
@@ -8,7 +8,7 @@ import {matchErrorCode} from "../../../utils/ErrorUtils";
 import CustomAlert from "../../../generic/CustomAlert";
 import {Button, CardActions} from "@material-ui/core";
 import {Moment} from "moment";
-import makeStyles from "@material-ui/core/styles/makeStyles";
+import {useCommonStyles} from "../../../utils/commonStyles";
 
 
 type Props = {
@@ -22,14 +22,6 @@ type Props = {
 }
 
 
-const useStyles = makeStyles(theme => ({
-    cardActions: {
-        justifyContent: 'flex-end',
-        marginTop: 20
-    },
-
-}));
-
 const DeadlineComponentView: React.FC<Props> = (props: Props) => {
     const {
         loading,
@@ -39,10 +31,10 @@ const DeadlineComponentView: React.FC<Props> = (props: Props) => {
         handleSave,
         initializeDeadlines,
         handleDateChange
-} = props;
+    } = props;
 
     const {t} = useTranslation();
-    const styles=useStyles();
+    const styles = useCommonStyles();
 
     const deadlinesAreNotInitialized = useMemo(
         () => matchErrorCode(errorResponse, 401),
@@ -70,8 +62,8 @@ const DeadlineComponentView: React.FC<Props> = (props: Props) => {
             <CardActions className={styles.cardActions}>
 
                 {deadlineFields.length === 0 && <Button onClick={initializeDeadlines}
-                                                       color="primary"
-                                                       variant="contained">
+                                                        color="primary"
+                                                        variant="contained">
                     {t('deadline:defineDeadlines')}
                 </Button>}
 

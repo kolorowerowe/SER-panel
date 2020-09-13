@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import DefaultCard from "../../generic/DefaultCard";
+import DefaultCard from "../../generic/displayData/DefaultCard";
 
 const CompanyTileComponentContainer = (props) => {
 

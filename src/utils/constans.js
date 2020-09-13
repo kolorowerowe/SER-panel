@@ -4,12 +4,12 @@ export const EVENT_DATE_TIME = '2021-03-10T10:00'
 
 export const POSSIBLE_TRANSLATIONS = [
     {
-        name: 'pl',
-        value: 'Polski'
+        name: 'Polski',
+        value: 'pl'
     },
     {
-        name: 'en',
-        value: 'English'
+        name: 'English',
+        value: 'en'
     }
 ];
 
