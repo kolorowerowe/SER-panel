@@ -14,11 +14,15 @@ const useStyles = makeStyles((theme) => ({
     },
     leftField: {
         color: theme.palette.text.secondary,
-        fontSize: theme.typography.body2.fontSize
+        fontSize: theme.typography.body2.fontSize,
+        marginRight: 5
     },
     rightField: {
         color: theme.palette.text.secondary,
-        fontSize: theme.typography.body2.fontSize
+        fontSize: theme.typography.body2.fontSize,
+        textAlign: 'right',
+        marginLeft: 5
+
     }
 }));
 

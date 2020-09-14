@@ -13,6 +13,10 @@
   "deleteSponsorshipPackage": "Usuń pakiet sponsorski",
   "saveSponsorshipPackage": "Zapisz pakiet sponsorski",
   "sponsorshipPackageDeleted": "Pakiet sponsorski zosta usunięty.",
-  "notChosenYet": "Pakiet sponsorski nie został jeszcze wybrany."
+  "notChosenYet": "Pakiet sponsorski nie został jeszcze wybrany.",
+  "chooseSponsorshipPackage": "Wybierz pakiet sponsorski dla twojej firmy",
+  "spIsNotAvailable": "Ten pakiet sponsorski jest niedostępny",
+  "confirmChosenSponsorship": "Potwierdź wybrany pakiet sponsorski",
+  "confirmAndSave": "Potwierdź i zapisz"
 
 }

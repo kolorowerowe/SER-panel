@@ -13,7 +13,10 @@ import {
     FETCH_COMPANIES_SUCCESS,
     FETCH_COMPANY_DETAILS,
     FETCH_COMPANY_DETAILS_FAILURE,
-    FETCH_COMPANY_DETAILS_SUCCESS
+    FETCH_COMPANY_DETAILS_SUCCESS,
+    SET_COMPANY_SPONSORSHIP_PACKAGE,
+    SET_COMPANY_SPONSORSHIP_PACKAGE_FAILURE,
+    SET_COMPANY_SPONSORSHIP_PACKAGE_SUCCESS
 } from "../types/companyTypes";
 import axios from "axios";
 import i18n from "../../i18n";
@@ -136,5 +139,27 @@ export const createCompanyAction = (createCompanyBody, userEmail, authToken, dis
                 payload: err
             });
             snackbar.addError(new Error(i18n.t('company:companyRegisteredFailure')));
+        });
+};
+
+export const setCompanySponsorshipPackageAction = (companyId, sponsorshipPackageId, authToken, dispatch) => {
+    dispatch({type: SET_COMPANY_SPONSORSHIP_PACKAGE});
+
+    axios.patch(`${baseUrl}/company/${companyId}/sponsorship-package/${sponsorshipPackageId}`, {}, {
+        headers: {
+            "Authorization": `Bearer ${authToken}`
+        }
+    })
+        .then(({data}) => {
+            dispatch({
+                type: SET_COMPANY_SPONSORSHIP_PACKAGE_SUCCESS,
+                payload: data
+            });
+        })
+        .catch(err => {
+            dispatch({
+                type: SET_COMPANY_SPONSORSHIP_PACKAGE_FAILURE,
+                payload: err
+            });
         });
 };

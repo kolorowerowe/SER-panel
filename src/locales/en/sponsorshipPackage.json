@@ -13,5 +13,9 @@
   "deleteSponsorshipPackage": "Delete sponsorship package",
   "saveSponsorshipPackage": "Save sponsorship package",
   "sponsorshipPackageDeleted": "Sponsorship package has been deleted.",
-  "notChosenYet": "Sponsorship package haven't been chosen yet."
+  "notChosenYet": "Sponsorship package haven't been chosen yet.",
+  "chooseSponsorshipPackage": "Choose sponsorship package for your company.",
+  "spIsNotAvailable": "This sponsorship package is not available",
+  "confirmChosenSponsorship": "Confirm choosing this sponsorship package.",
+  "confirmAndSave": "Confirm and save"
 }

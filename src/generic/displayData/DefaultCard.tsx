@@ -17,6 +17,7 @@ type DefaultCardProps = {
     backButton?: object;
     divider?: boolean;
     loading?: boolean;
+    disabled?: boolean;
     error?: object;
     errorResponse?: object;
 
@@ -25,6 +26,10 @@ type DefaultCardProps = {
 const useStyles = makeStyles((theme) => ({
     card: {
         padding: theme.spacing(2)
+    },
+    disabledCard: {
+        padding: theme.spacing(2),
+        background: 'none'
     },
     header: {
         display: 'flex',
@@ -39,6 +44,9 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
         color: theme.palette.text.primary,
+    },
+    titleDisabled: {
+        color: theme.palette.text.secondary,
     }
 }));
 
@@ -52,6 +60,7 @@ const DefaultCard: React.FunctionComponent<DefaultCardProps> = (props: DefaultCa
         backButton,
         divider = false,
         loading = false,
+        disabled = false,
         error,
         errorResponse
     } = props;
@@ -60,13 +69,13 @@ const DefaultCard: React.FunctionComponent<DefaultCardProps> = (props: DefaultCa
     const navigate = useNavigate();
 
     return (
-        <Card className={classes.card}>
+        <Card className={disabled ? classes.disabledCard : classes.card}>
             <div className={classes.header}>
                 <div className={classes.leftHeader}>
                     {!!backButton && <IconButton onClick={() => navigate(-1)}>
                         <ArrowBackIcon/>
                     </IconButton>}
-                    {!!title && <Typography className={classes.title}>
+                    {!!title && <Typography className={disabled ? classes.titleDisabled : classes.title}>
                         {title}
                     </Typography>}
                 </div>

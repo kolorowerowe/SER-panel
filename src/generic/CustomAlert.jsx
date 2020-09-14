@@ -8,11 +8,12 @@ const CustomAlert = props => {
         severity = 'info',
         message,
         onClose,
+        variant = 'filled',
         ...other
     } = props;
 
     return (
-        <Alert variant="filled" severity={severity} onClose={onClose} {...other}>
+        <Alert variant={variant} severity={severity} onClose={onClose} {...other}>
             {message}
         </Alert>
     );
@@ -21,6 +22,7 @@ const CustomAlert = props => {
 CustomAlert.propTypes = {
     severity: PropTypes.oneOf(['error', 'warning', 'info', 'success']),
     message: PropTypes.string,
+    variant: PropTypes.string,
     onClose: PropTypes.func,
 };
 

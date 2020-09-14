@@ -13,7 +13,10 @@ import {
     FETCH_COMPANIES_SUCCESS,
     FETCH_COMPANY_DETAILS,
     FETCH_COMPANY_DETAILS_FAILURE,
-    FETCH_COMPANY_DETAILS_SUCCESS
+    FETCH_COMPANY_DETAILS_SUCCESS,
+    SET_COMPANY_SPONSORSHIP_PACKAGE,
+    SET_COMPANY_SPONSORSHIP_PACKAGE_FAILURE,
+    SET_COMPANY_SPONSORSHIP_PACKAGE_SUCCESS
 } from "../types/companyTypes";
 
 const initState = {
@@ -31,6 +34,7 @@ export const companiesReducer = (state = initState, action) => { // (1)
         case FETCH_COMPANIES_FOR_USER:
         case CHANGE_COMPANY_DETAILS:
         case CREATE_COMPANY:
+        case SET_COMPANY_SPONSORSHIP_PACKAGE:
             return {
                 ...state,
                 loading: true,
@@ -54,6 +58,7 @@ export const companiesReducer = (state = initState, action) => { // (1)
             };
         case FETCH_COMPANY_DETAILS_SUCCESS:
         case CHANGE_COMPANY_DETAILS_SUCCESS:
+        case SET_COMPANY_SPONSORSHIP_PACKAGE_SUCCESS:
             return {
                 ...state,
                 company: action.payload,
@@ -69,6 +74,7 @@ export const companiesReducer = (state = initState, action) => { // (1)
         case FETCH_COMPANY_DETAILS_FAILURE:
         case CHANGE_COMPANY_DETAILS_FAILURE:
         case CREATE_COMPANY_FAILURE:
+        case SET_COMPANY_SPONSORSHIP_PACKAGE_FAILURE:
             return {
                 ...state,
                 loading: false,

@@ -9,15 +9,18 @@ import {Button, CardActions, Grid} from "@material-ui/core";
 import {useTranslation} from "react-i18next";
 import {joinPrices} from "../../../../utils/general";
 import {useCommonStyles} from "../../../../utils/commonStyles";
+import {getRightTranslation} from "../../../../utils/translationUtils";
 
 
 type Props = {
     sponsorshipPackage: SponsorshipPackage;
+    setChosenSponsorshipPackageId: (id: string) => void;
 }
 
-const SponsorshipPackageCardComponent: React.FC<Props> = ({sponsorshipPackage}: Props) => {
+const SponsorshipPackageCardComponent: React.FC<Props> = ({sponsorshipPackage, setChosenSponsorshipPackageId}: Props) => {
 
     const {
+        id,
         translations,
         prices,
         standSize,
@@ -30,26 +33,12 @@ const SponsorshipPackageCardComponent: React.FC<Props> = ({sponsorshipPackage}: 
 
 
     const translation = useMemo(
-        (): Translation => {
-            const rightTranslation = translations.find(t => t.languageCode === languageCode);
-            if (rightTranslation) {
-                return rightTranslation
-            }
-            const fallbackTranslation = translations.find(t => t.languageCode === 'en');
-            if (fallbackTranslation) {
-                return fallbackTranslation
-            }
-            return {
-                languageCode: '-',
-                name: '-',
-                description: '-'
-            } as Translation;
+        (): Translation => getRightTranslation(sponsorshipPackage.translations, languageCode),
+        [sponsorshipPackage, languageCode]);
 
-        }, [sponsorshipPackage, languageCode])
-
-    return (<DefaultCard title={translation.name} divider>
+    return (<DefaultCard title={translation.name} divider disabled={!isAvailable}>
         <Grid container spacing={1}>
-            <Grid item xs={12}>
+            <Grid item xs={12} className={styles.description}>
                 <SecondaryTypography label={translation.description}/>
             </Grid>
             <Grid item xs={12}/>
@@ -59,17 +48,20 @@ const SponsorshipPackageCardComponent: React.FC<Props> = ({sponsorshipPackage}: 
             <Grid item xs={12}>
                 <LeftRightData left={t('general:price')} right={joinPrices(prices)}/>
             </Grid>
+            <Grid item xs={12} style={{height: 'auto'}}/>
 
         </Grid>
 
         <CardActions className={styles.cardActions}>
 
-            <Button onClick={() => {}}
+            <Button onClick={(): void => setChosenSponsorshipPackageId(id)}
                     color="primary"
-
+                    disabled={!isAvailable}
             >
-                {t('general:details')}
+                {isAvailable ? t('general:details') : t('sponsorshipPackage:spIsNotAvailable')}
             </Button>
+
+
         </CardActions>
     </DefaultCard>);
 }

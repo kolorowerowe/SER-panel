@@ -5,6 +5,9 @@ import {useTranslation} from "react-i18next";
 import {CompanyDeadlineStatus, CompanyResponse} from "../../declarations/types";
 import StatusIconComponent from "../../generic/StatusIconComponent";
 import {Checkbox} from "@material-ui/core";
+import {getRightTranslation} from "../../utils/translationUtils";
+import {useSelector} from "react-redux";
+import {RootState} from "../../redux/store";
 
 
 type Props = {
@@ -26,6 +29,7 @@ const CompanyRow: React.FC<Props> = ({company, handleOpenCompany}: Props) => {
     } = company;
 
     const {t} = useTranslation();
+    const {languageCode} = useSelector((state: RootState) => state.preferences);
 
     type StatusesProps = {
         companyDeadlineStatuses: CompanyDeadlineStatus[];
@@ -54,7 +58,7 @@ const CompanyRow: React.FC<Props> = ({company, handleOpenCompany}: Props) => {
             <TableCell align="center">
                 {!sponsorshipPackage ?
                     <StatusIconComponent status={'error'} label={t('sponsorshipPackage:notChosenYet')}/>
-                    : sponsorshipPackage
+                    : getRightTranslation(sponsorshipPackage.translations, languageCode).name
                 }
             </TableCell>
             <TableCell align="center">

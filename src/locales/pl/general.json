@@ -11,5 +11,6 @@
   "price": "Cena",
   "priceInCurrency": "Cena w ${currency}",
   "date": "Data",
-  "time": "Godzina"
+  "time": "Godzina",
+  "details": "Szczegóły"
 }
