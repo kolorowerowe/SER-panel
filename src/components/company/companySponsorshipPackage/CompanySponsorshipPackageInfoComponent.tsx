@@ -1,19 +1,43 @@
-import React from "react";
-import {CompanyResponse} from "../../../declarations/types";
+import React, {useMemo} from "react";
+import {SponsorshipPackage, Translation} from "../../../declarations/types";
+import DefaultCard from "../../../generic/displayData/DefaultCard";
+import Grid from "@material-ui/core/Grid";
+import {joinPrices} from "../../../utils/general";
+import {useSelector} from "react-redux";
+import {RootState} from "../../../redux/store";
+import {getRightTranslation} from "../../../utils/translationUtils";
+import {useTranslation} from "react-i18next";
+import LabeledData from "../../../generic/displayData/LabeledData";
+
 
 type Props = {
-    company?: CompanyResponse;
+    sponsorshipPackage?: SponsorshipPackage;
 }
 
-const CompanySponsorshipPackageInfoComponent: React.FC<Props> = ({company}: Props) => {
+const CompanySponsorshipPackageInfoComponent: React.FC<Props> = ({sponsorshipPackage}: Props) => {
 
     const {
-        id
-    } = company || {};
+        id = '',
+        translations = [],
+        prices = [],
+        standSize = 0
+    } = sponsorshipPackage || {} as SponsorshipPackage;
 
-    return <div>
-            some info
-    </div>
+    const {languageCode} = useSelector((state: RootState) => state.preferences);
+    const {t} = useTranslation();
+
+    const translation = useMemo(
+        (): Translation => getRightTranslation(translations, languageCode),
+        [translations, languageCode]);
+
+    return <DefaultCard title={t('sponsorshipPackage:chosenSponsorshipPackage')} divider>
+        <Grid container spacing={1}>
+            <LabeledData label={t('sponsorshipPackage:name')} value={translation.name} displayGrid/>
+            <LabeledData label={t('sponsorshipPackage:description')} value={translation.description} displayGrid/>
+            <LabeledData label={t('general:standSize')} value={standSize + ' m2'} displayGrid/>
+            <LabeledData label={t('general:price')} value={joinPrices(prices)} displayGrid/>
+        </Grid>
+    </DefaultCard>
 }
 
 export default CompanySponsorshipPackageInfoComponent;

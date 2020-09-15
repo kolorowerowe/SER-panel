@@ -24,7 +24,7 @@ const CompanySponsorshipPackageComponent: React.FC<Props> = ({company, loading, 
     return (companyIsWithoutSponsorshipPackage ?
             <ChooseCompanySponsorshipPackageComponent company={company}/>
             :
-            <CompanySponsorshipPackageInfoComponent company={company}/>
+            <CompanySponsorshipPackageInfoComponent sponsorshipPackage={sponsorshipPackage}/>
     );
 };
 

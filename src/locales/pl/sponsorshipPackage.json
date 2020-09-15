@@ -1,6 +1,6 @@
 {
   "sponsorshipPackage": "Pakiet sponsorski",
-  "allSponsorshipPackages" : "Wszystkie pakiety sponsorskie",
+  "allSponsorshipPackages": "Wszystkie pakiety sponsorskie",
   "addNewSponsorshipPackage": "Dodaj nowy pakiet sponsorski",
   "sponsorshipPackageName": "Nazwa pakietu sponsorskiego",
   "name": "Nazwa",
@@ -17,6 +17,6 @@
   "chooseSponsorshipPackage": "Wybierz pakiet sponsorski dla twojej firmy",
   "spIsNotAvailable": "Ten pakiet sponsorski jest niedostępny",
   "confirmChosenSponsorship": "Potwierdź wybrany pakiet sponsorski",
-  "confirmAndSave": "Potwierdź i zapisz"
-
+  "confirmAndSave": "Potwierdź i zapisz",
+  "chosenSponsorshipPackage": "Wybrany pakiet sponsorski"
 }

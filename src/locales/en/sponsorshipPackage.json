@@ -17,5 +17,6 @@
   "chooseSponsorshipPackage": "Choose sponsorship package for your company.",
   "spIsNotAvailable": "This sponsorship package is not available",
   "confirmChosenSponsorship": "Confirm choosing this sponsorship package.",
-  "confirmAndSave": "Confirm and save"
+  "confirmAndSave": "Confirm and save",
+  "chosenSponsorshipPackage": "Chosen sponsorship package"
 }
