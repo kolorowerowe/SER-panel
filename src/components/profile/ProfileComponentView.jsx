@@ -21,7 +21,7 @@ const ProfileComponentView = (props) => {
             id,
             role,
             userCreatedDate
-        },
+        } = {},
         emailField,
         fullNameField,
         phoneNumberField,

@@ -6,6 +6,7 @@ import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Drawer from "@material-ui/core/Drawer";
 import {AllInbox, Business, Dashboard, Group, Person, Schedule, Tune} from "@material-ui/icons";
@@ -118,6 +119,12 @@ const SideBarDrawer = (props) => {
             <Divider/>
             <NavigationList navItems={sideBarElements} handleRedirect={handleRedirect}/>
             <Divider/>
+            <ListItem button onClick={() => handleRedirect('/help')}>
+                <ListItemIcon>
+                    <HelpOutlineIcon/>
+                </ListItemIcon>
+                <ListItemText primary={t('sidebar:help')}/>
+            </ListItem>
             <ListItem button onClick={handleLogout}>
                 <ListItemIcon>
                     <ExitToAppIcon/>
