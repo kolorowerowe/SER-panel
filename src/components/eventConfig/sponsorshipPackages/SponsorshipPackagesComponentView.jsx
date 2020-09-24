@@ -30,9 +30,7 @@ const SponsorshipPackagesComponentView = (props) => {
         </Button>
     );
 
-
     return (
-
         <DefaultCard title={t('sponsorshipPackage:allSponsorshipPackages')}
                      buttonComponent={<NewSponsorshipPackageButton/>}
                      divider
@@ -43,9 +41,7 @@ const SponsorshipPackagesComponentView = (props) => {
             <AddSponsorshipPackageDialog {...props}/>
             <SponsorshipPackagesTable sponsorshipPackages={sponsorshipPackages}/>
         </DefaultCard>
-
-    )
-        ;
+    );
 };
 
 

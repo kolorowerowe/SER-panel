@@ -19,5 +19,8 @@
   "confirmChosenSponsorship": "Potwierdź wybrany pakiet sponsorski",
   "confirmAndSave": "Potwierdź i zapisz",
   "chosenSponsorshipPackage": "Wybrany pakiet sponsorski",
-  "equipmentDeleted": "Wyposażenie zostało usunięte"
+  "equipmentDeleted": "Wyposażenie zostało usunięte",
+  "allEquipments": "Wszystkie elementy wyposażenia",
+  "addNewEquipment": "Dodaj nowe wyposażenie",
+  "maxCountPerCompany": "Maksymalna ilość na firmę"
 }

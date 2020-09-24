@@ -118,6 +118,40 @@ export const validateStandSize = (standSize) => {
     return null;
 }
 
+export const validatePercentage = (number) => {
+    if (!number) {
+        return new Error(i18n.t('common:fieldRequired'));
+    }
 
+    if (isNaN(number)) {
+        return new Error(i18n.t('common:fieldMustBeNumber'));
+    }
+
+    if (number < 0) {
+        return new Error(i18n.t('common:numberBeGreaterOrEqualThanZero'));
+    }
+
+    if (number > 100) {
+        return new Error(i18n.t('common:numberBeLessOrEqual100'));
+    }
+
+    return null;
+}
+
+export const validatePositiveNumber = (number) => {
+    if (!number) {
+        return new Error(i18n.t('common:fieldRequired'));
+    }
+
+    if (isNaN(number)) {
+        return new Error(i18n.t('common:fieldMustBeNumber'));
+    }
+
+    if (number <= 0) {
+        return new Error(i18n.t('common:numberBeGreaterThanZero'));
+    }
+
+    return null;
+}
 
 export const noValidate = () => null;

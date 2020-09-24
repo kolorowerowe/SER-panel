@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {POSSIBLE_TRANSLATIONS} from "./constans";
 
-const useSponsorshipPackageTranslationFields = () => {
+const useTranslationFields = () => {
 
     const initialTranslations = POSSIBLE_TRANSLATIONS.map(translation => ({
         languageCode: translation.value,
@@ -45,4 +45,4 @@ const useSponsorshipPackageTranslationFields = () => {
     };
 };
 
-export default useSponsorshipPackageTranslationFields;
+export default useTranslationFields;

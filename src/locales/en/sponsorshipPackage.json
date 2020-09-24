@@ -19,5 +19,8 @@
   "confirmChosenSponsorship": "Confirm choosing this sponsorship package.",
   "confirmAndSave": "Confirm and save",
   "chosenSponsorshipPackage": "Chosen sponsorship package",
-  "equipmentDeleted": "Equipment has been deleted."
+  "equipmentDeleted": "Equipment has been deleted.",
+  "allEquipments": "All equipments",
+  "addNewEquipment": "Add new equipment",
+  "maxCountPerCompany": "Max count per company"
 }

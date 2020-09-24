@@ -6,75 +6,82 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import {useTranslation} from "react-i18next";
 import useFieldValidation from "../../../utils/useFieldValidation";
-import {validateStandSize} from "../../../utils/Validators";
+import {validatePositiveNumber} from "../../../utils/Validators";
 import ValidatedTextField from "../../../generic/input/ValidatedTextField";
 import Grid from "@material-ui/core/Grid";
-
 import usePriceFields from "../../../utils/usePriceFields";
 import InputPriceComponent from "../../../generic/input/InputPriceComponent";
+import {Divider} from "@material-ui/core";
 import useTranslationFields from "../../../utils/useTranslationFields";
 import TranslationsComponent from "../../../generic/input/TranslationsComponent";
-import {Divider} from "@material-ui/core";
+import {NewEquipmentBody} from "../../../declarations/types";
 
-const AddSponsorshipPackageDialog = props => {
+
+type Props = {
+    addEquipmentDialogOpen: boolean;
+    setAddEquipmentDialogOpen: (isOpen: boolean) => void;
+    handleAddEquipmentSubmit: (equipmentBody: NewEquipmentBody) => void;
+}
+
+const AddEquipmentDialog: React.FC<Props> = (props: Props) => {
 
     const {
-        addSponsorshipPackageDialogOpen,
-        setAddSponsorshipPackageDialogOpen,
-        handleAddSponsorshipPackageSubmit
+        addEquipmentDialogOpen,
+        setAddEquipmentDialogOpen,
+        handleAddEquipmentSubmit
     } = props;
 
     const {t} = useTranslation();
 
-    const sponsorshipPackageTranslationFields = useTranslationFields();
-    const standSizeField = useFieldValidation('', validateStandSize);
+    const equipmentTranslationFields = useTranslationFields();
     const priceFields = usePriceFields();
+    const maxCountPerCompanyField = useFieldValidation('', validatePositiveNumber);
 
 
     const handleSubmit = () => {
 
-        if (standSizeField.validate() == null) {
+        if (maxCountPerCompanyField.validate() == null) {
 
-            const newSponsorshipPackageBody = {
-                translations: sponsorshipPackageTranslationFields.translations,
-                standSize: standSizeField.value,
+            const newEquipmentBody = {
+                translations: equipmentTranslationFields.translations,
+                maxCountPerCompany: maxCountPerCompanyField.value,
                 prices: priceFields.prices
             };
 
-            handleAddSponsorshipPackageSubmit(newSponsorshipPackageBody);
+            handleAddEquipmentSubmit(newEquipmentBody);
         }
 
     }
 
     return (
-        <Dialog open={addSponsorshipPackageDialogOpen}
-                onClose={() => setAddSponsorshipPackageDialogOpen(false)}
+        <Dialog open={addEquipmentDialogOpen}
+                onClose={() => setAddEquipmentDialogOpen(false)}
                 fullWidth
                 maxWidth={'md'}>
             <DialogTitle>
-                {t('sponsorshipPackage:addNewSponsorshipPackage')}
+                {t('sponsorshipPackage:addNewEquipment')}
             </DialogTitle>
             <Divider/>
             <DialogContent>
                 <Grid container spacing={5}>
                     <Grid item xs={12}>
-                        <TranslationsComponent translationsField={sponsorshipPackageTranslationFields}/>
-                    </Grid>
-                    <Grid item xs={12} >
-                        <ValidatedTextField
-                            label={t('general:standSize')}
-                            field={standSizeField}
-                            type="number"
-                        />
+                        <TranslationsComponent translationsField={equipmentTranslationFields}/>
                     </Grid>
                     <Grid item xs={12}>
                         <InputPriceComponent priceFields={priceFields}/>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <ValidatedTextField
+                            label={t('sponsorshipPackage:maxCountPerCompany')}
+                            field={maxCountPerCompanyField}
+                            type="number"
+                        />
                     </Grid>
                 </Grid>
 
             </DialogContent>
             <DialogActions>
-                <Button onClick={() => setAddSponsorshipPackageDialogOpen(false)}
+                <Button onClick={() => setAddEquipmentDialogOpen(false)}
                         color="primary"
                         variant="outlined"
                 >
@@ -91,5 +98,5 @@ const AddSponsorshipPackageDialog = props => {
     );
 }
 
-export default AddSponsorshipPackageDialog;
+export default AddEquipmentDialog;
 

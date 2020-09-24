@@ -11,6 +11,8 @@ const ValidatedTextField = props => {
             handleBlur,
             handleChange
         },
+        label,
+        type
     } = props;
 
     return (
@@ -22,7 +24,8 @@ const ValidatedTextField = props => {
             helperText={(error && error.message) || ''}
             variant={'standard'}
             fullWidth
-            {...props}
+            label={label}
+            type={type}
         />
     );
 };
@@ -35,6 +38,7 @@ ValidatedTextField.propTypes = {
         handleBlur: PropTypes.func.isRequired,
     }).isRequired,
     label: PropTypes.string.isRequired,
+    type: PropTypes.oneOf(['number', 'password'])
 };
 
 export default ValidatedTextField;

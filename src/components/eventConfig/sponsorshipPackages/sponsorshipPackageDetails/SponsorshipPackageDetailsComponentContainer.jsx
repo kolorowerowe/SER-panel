@@ -11,7 +11,7 @@ import {
 } from "../../../../redux/actions/sponsorshipPackagesActions";
 import SponsorshipPackageDetailsComponentView from "./SponsorshipPackageDetailsComponentView";
 import usePriceFields from "../../../../utils/usePriceFields";
-import useSponsorshipPackageTranslationFields from "../../../../utils/useSponsorshipPackageTranslationFields";
+import useTranslationFields from "../../../../utils/useTranslationFields";
 
 const SponsorshipPackageDetailsComponentContainer = () => {
 
@@ -44,7 +44,7 @@ const SponsorshipPackageDetailsComponentContainer = () => {
         deleteSponsorshipPackageAction(sponsorshipPackageId, authToken, dispatch, snackbar, navigate);
     }
 
-    const sponsorshipPackageTranslationFields = useSponsorshipPackageTranslationFields();
+    const sponsorshipPackageTranslationFields = useTranslationFields();
     const standSizeField = useFieldValidation('', validateStandSize);
     const priceFields = usePriceFields();
     const [isAvailable, setIsAvailable] = useState(false);

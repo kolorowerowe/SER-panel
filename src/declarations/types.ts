@@ -22,6 +22,17 @@ export type Price = {
     currency: string;
     value: number;
 }
+
+export type NewEquipmentBody = {
+    translations: Translation[];
+    maxCountPerCompany: number;
+    prices: Price[];
+};
+
+export type Equipment = NewEquipmentBody & {
+    id: string;
+};
+
 export type SponsorshipPackage = {
     id: string;
     translations: Translation[];
