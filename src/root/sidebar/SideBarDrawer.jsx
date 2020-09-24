@@ -9,7 +9,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Drawer from "@material-ui/core/Drawer";
-import {AllInbox, Business, Dashboard, Group, Person, Schedule, Tune} from "@material-ui/icons";
+import {AllInbox, Business, Dashboard, Group, Person, Schedule, Tune, Tv} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/core/styles";
 import PropTypes from "prop-types"
 import {useNavigate} from "react-router-dom";
@@ -86,12 +86,18 @@ const SideBarDrawer = (props) => {
                 icon: <Schedule/>,
                 path: '/deadline',
                 visible: isLoggedIn && isOrganizer,
-            },{
+            }, {
                 text: t('sidebar:sponsorshipPackage'),
                 icon: <AllInbox/>,
                 path: '/sponsorship-package',
                 visible: isLoggedIn && isOrganizer,
-            }]
+            },
+                {
+                    text: t('sidebar:equipment'),
+                    icon: <Tv/>,
+                    path: '/equipment',
+                    visible: isLoggedIn && isOrganizer,
+                }]
         },
         {
             text: t('sidebar:profile'),

@@ -3,14 +3,14 @@ import DefaultCard from "../../../../generic/displayData/DefaultCard";
 import {useTranslation} from "react-i18next";
 import Grid from "@material-ui/core/Grid";
 import ValidatedTextField from "../../../../generic/input/ValidatedTextField";
-import ErrorAlert from "../../../../generic/ErrorAlert";
 import Button from "@material-ui/core/Button";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import ProgressBar from "../../../../generic/ProgressBar";
 import LabeledData from "../../../../generic/displayData/LabeledData";
 import InputPriceComponent from "../../../../generic/input/InputPriceComponent";
-import SponsorshipPackageTranslations from "../SponsorshipPackageTranslations";
+import TranslationsComponent from "../../../../generic/input/TranslationsComponent";
 import CheckboxInput from "../../../../generic/input/CheckboxInput";
+import {CardActions} from "@material-ui/core";
+import {useCommonStyles} from "../../../../utils/commonStyles";
 
 const SponsorshipPackageDetailsComponentView = (props) => {
 
@@ -35,17 +35,12 @@ const SponsorshipPackageDetailsComponentView = (props) => {
     const {t} = useTranslation();
     const classes = useStyles();
 
+    const styles = useCommonStyles();
 
     return (
-        <DefaultCard title={t('sponsorshipPackage:sponsorshipPackageDetails')} backButton>
+        <DefaultCard title={t('sponsorshipPackage:sponsorshipPackageDetails')} backButton error={error} errorResponse={errorResponse} loading={loading}>
+
             <Grid container spacing={2}>
-
-                <ErrorAlert error={error}
-                            errorResponse={errorResponse}
-                            className={classes.formElement} displayGrid/>
-
-                <ProgressBar loading={loading} displayGrid/>
-
 
                 <LabeledData label={t('sponsorshipPackage:sponsorshipPackageId')}
                              value={id}
@@ -57,8 +52,7 @@ const SponsorshipPackageDetailsComponentView = (props) => {
                     <Grid container spacing={3} className={classes.editDataContainer}>
 
                         <Grid item xs={12}>
-                            <SponsorshipPackageTranslations
-                                sponsorshipPackageTranslationFields={sponsorshipPackageTranslationFields}/>
+                            <TranslationsComponent translationsField={sponsorshipPackageTranslationFields}/>
                         </Grid>
                         <Grid item xs={12}>
                             <ValidatedTextField
@@ -75,36 +69,31 @@ const SponsorshipPackageDetailsComponentView = (props) => {
                                            onChange={e => setIsAvailable(e.target.checked)}
                                            label={t('sponsorshipPackage:isAvailable')}/>
                         </Grid>
-                        <Grid item xs={6}>
-                            <Button
-                                fullWidth
-                                variant="outlined"
-                                color="secondary"
-                                className={classes.formElement}
-                                onClick={onDeleteSponsorshipPackageSubmit}
-                                disabled={loading}
-                            >
-                                {t('sponsorshipPackage:deleteSponsorshipPackage')}
-                            </Button>
-
-                        </Grid>
-
-                        <Grid item xs={6}>
-                            <Button
-                                fullWidth
-                                variant="contained"
-                                color="primary"
-                                className={classes.formElement}
-                                onClick={onSaveSponsorshipPackageSubmit}
-                                disabled={loading}
-                            >
-                                {t('sponsorshipPackage:saveSponsorshipPackage')}
-                            </Button>
-                        </Grid>
                     </Grid>
 
                 </Grid>
             </Grid>
+
+            <CardActions className={styles.cardActions}>
+                <Button
+                    variant="outlined"
+                    color="secondary"
+                    className={classes.formElement}
+                    onClick={onDeleteSponsorshipPackageSubmit}
+                    disabled={loading}
+                >
+                    {t('sponsorshipPackage:deleteSponsorshipPackage')}
+                </Button>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    className={classes.formElement}
+                    onClick={onSaveSponsorshipPackageSubmit}
+                    disabled={loading}
+                >
+                    {t('sponsorshipPackage:saveSponsorshipPackage')}
+                </Button>
+            </CardActions>
 
         </DefaultCard>
 
@@ -115,10 +104,6 @@ const SponsorshipPackageDetailsComponentView = (props) => {
 export default SponsorshipPackageDetailsComponentView;
 
 const useStyles = makeStyles((theme) => ({
-    divider: {
-        marginTop: 20,
-        marginBottom: 20
-    },
     formElement: {
         marginTop: 20
     },
@@ -131,9 +116,5 @@ const useStyles = makeStyles((theme) => ({
     },
     editDataContainer: {
         maxWidth: 600,
-    },
-    deleteButton: {
-        marginTop: 20,
-        color: theme.palette.error.main
     }
 }));

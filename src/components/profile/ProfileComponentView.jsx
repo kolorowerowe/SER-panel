@@ -142,7 +142,7 @@ const ProfileComponentView = (props) => {
                     <Grid container spacing={2}>
                         <LabeledData value={id} label={t('user:userId')} displayGrid/>
                         <LabeledData value={t(`user:${role}`)} label={t('user:role')} displayGrid/>
-                        <LabeledData value={formatDateWithBackwardPeriod(userCreatedDate)}
+                        <LabeledData value={formatDateWithBackwardPeriod(userCreatedDate)} label={t('user:createdDate')}
                                      displayGrid/>
 
                     </Grid>

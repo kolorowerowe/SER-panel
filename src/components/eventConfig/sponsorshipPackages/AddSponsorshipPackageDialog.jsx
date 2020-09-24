@@ -13,7 +13,8 @@ import Grid from "@material-ui/core/Grid";
 import usePriceFields from "../../../utils/usePriceFields";
 import InputPriceComponent from "../../../generic/input/InputPriceComponent";
 import useSponsorshipPackageTranslationFields from "../../../utils/useSponsorshipPackageTranslationFields";
-import SponsorshipPackageTranslations from "./SponsorshipPackageTranslations";
+import TranslationsComponent from "../../../generic/input/TranslationsComponent";
+import {Divider} from "@material-ui/core";
 
 const AddSponsorshipPackageDialog = props => {
 
@@ -53,10 +54,11 @@ const AddSponsorshipPackageDialog = props => {
             <DialogTitle>
                 {t('sponsorshipPackage:addNewSponsorshipPackage')}
             </DialogTitle>
+            <Divider/>
             <DialogContent>
                 <Grid container spacing={5}>
                     <Grid item xs={12}>
-                        <SponsorshipPackageTranslations sponsorshipPackageTranslationFields={sponsorshipPackageTranslationFields}/>
+                        <TranslationsComponent translationsField={sponsorshipPackageTranslationFields}/>
                     </Grid>
                     <Grid item xs={12} >
                         <ValidatedTextField
@@ -69,7 +71,6 @@ const AddSponsorshipPackageDialog = props => {
                         <InputPriceComponent priceFields={priceFields}/>
                     </Grid>
                 </Grid>
-
 
             </DialogContent>
             <DialogActions>

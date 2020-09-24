@@ -18,5 +18,6 @@
   "spIsNotAvailable": "This sponsorship package is not available",
   "confirmChosenSponsorship": "Confirm choosing this sponsorship package.",
   "confirmAndSave": "Confirm and save",
-  "chosenSponsorshipPackage": "Chosen sponsorship package"
+  "chosenSponsorshipPackage": "Chosen sponsorship package",
+  "equipmentDeleted": "Equipment has been deleted."
 }

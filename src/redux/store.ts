@@ -8,6 +8,7 @@ import {activateUserProcessReducer} from "./reducers/activateUserProcessReducer"
 import {companiesReducer} from "./reducers/companiesReducer";
 import {sponsorshipPackagesReducer} from "./reducers/sponsorshipPackageReducer";
 import {deadlineReducer} from "./reducers/deadlineReducer";
+import {equipmentReducer} from "./reducers/equipmentReducer";
 
 const rootReducer = combineReducers({
     auth: authReducer,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
     activateUserProcess: activateUserProcessReducer,
     companies: companiesReducer,
     deadline: deadlineReducer,
+    equipment: equipmentReducer,
     preferences: preferencesReducer,
     snackbar: snackbarReducer,
     sponsorshipPackages: sponsorshipPackagesReducer,
