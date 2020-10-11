@@ -10,5 +10,9 @@ export const useCommonStyles = makeStyles((theme) => ({
     },
     fullHeight: {
         height: '100%'
+    },
+    secondaryField: {
+        color: theme.palette.text.secondary,
+        fontSize: theme.typography.body2.fontSize
     }
 }));

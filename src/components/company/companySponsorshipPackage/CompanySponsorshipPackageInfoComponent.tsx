@@ -8,6 +8,7 @@ import {RootState} from "../../../redux/store";
 import {getRightTranslation} from "../../../utils/translationUtils";
 import {useTranslation} from "react-i18next";
 import LabeledData from "../../../generic/displayData/LabeledData";
+import EquipmentSummary from "../../eventConfig/equipment/generic/EquipmentSummary";
 
 
 type Props = {
@@ -20,7 +21,8 @@ const CompanySponsorshipPackageInfoComponent: React.FC<Props> = ({sponsorshipPac
         id = '',
         translations = [],
         prices = [],
-        standSize = 0
+        standSize = 0,
+        spEquipmentList = []
     } = sponsorshipPackage || {} as SponsorshipPackage;
 
     const {languageCode} = useSelector((state: RootState) => state.preferences);
@@ -37,6 +39,9 @@ const CompanySponsorshipPackageInfoComponent: React.FC<Props> = ({sponsorshipPac
             <LabeledData label={t('general:standSize')} value={standSize + ' m2'} displayGrid/>
             <LabeledData label={t('general:price')} value={joinPrices(prices)} displayGrid/>
 
+            <Grid item xs={12}>
+                <EquipmentSummary spEquipmentList={spEquipmentList}/>
+            </Grid>
         </Grid>
     </DefaultCard>
 }

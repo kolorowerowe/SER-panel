@@ -10,8 +10,9 @@ import {SponsorshipPackage, Translation} from "../../../../declarations/types";
 import {useSelector} from "react-redux";
 import {RootState} from "../../../../redux/store";
 import {getRightTranslation} from "../../../../utils/translationUtils";
-import LeftRightData from "../../../../generic/displayData/LeftRightData";
 import {joinPrices} from "../../../../utils/general";
+import LabeledData from "../../../../generic/displayData/LabeledData";
+import EquipmentSummary from "../../../eventConfig/equipment/generic/EquipmentSummary";
 
 type Props = {
     chosenSponsorshipPackageId?: string;
@@ -66,20 +67,21 @@ const ConfirmSponsorshipPackageDialog = (props: Props) => {
             </DialogTitle>
             <DialogContent>
                 <Grid container spacing={1}>
+                    <LabeledData label={t('sponsorshipPackage:name')}
+                                 value={translation.name}
+                                 displayGrid/>
+                    <LabeledData label={t('sponsorshipPackage:description')}
+                                 value={translation.description}
+                                 displayGrid/>
+                    <LabeledData label={t('general:standSize')}
+                                 value={chosenSponsorshipPackage.standSize + ' m2'}
+                                 displayGrid/>
+                    <LabeledData label={t('general:price')}
+                                 value={joinPrices(chosenSponsorshipPackage.prices)}
+                                 displayGrid/>
                     <Grid item xs={12}>
-                        <LeftRightData left={t('sponsorshipPackage:name')} right={translation.name}/>
+                        <EquipmentSummary spEquipmentList={chosenSponsorshipPackage.spEquipmentList}/>
                     </Grid>
-                    <Grid item xs={12}>
-                        <LeftRightData left={t('sponsorshipPackage:description')} right={translation.description}/>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <LeftRightData left={t('general:standSize')}
-                                       right={chosenSponsorshipPackage.standSize + ' m2'}/>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <LeftRightData left={t('general:price')} right={joinPrices(chosenSponsorshipPackage.prices)}/>
-                    </Grid>
-
                 </Grid>
             </DialogContent>
             <DialogActions>

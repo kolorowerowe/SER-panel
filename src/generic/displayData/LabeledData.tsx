@@ -1,7 +1,7 @@
 import React from 'react';
 import Typography from "@material-ui/core/Typography";
-import makeStyles from "@material-ui/core/styles/makeStyles";
 import Grid from "@material-ui/core/Grid";
+import {useCommonStyles} from "../../utils/commonStyles";
 
 type LabeledDataProps = {
     value?: string;
@@ -9,17 +9,9 @@ type LabeledDataProps = {
     displayGrid?: boolean;
 }
 
-const useStyles = makeStyles((theme) => ({
-    secondaryField: {
-        color: theme.palette.text.secondary,
-        fontSize: theme.typography.body2.fontSize
-    }
-}));
-
-
 const LabeledData: React.FunctionComponent<LabeledDataProps> = ({label, value, displayGrid}: LabeledDataProps) => {
 
-    const classes = useStyles();
+    const classes = useCommonStyles();
 
     return (
         displayGrid ? <Grid item xs={12}>
