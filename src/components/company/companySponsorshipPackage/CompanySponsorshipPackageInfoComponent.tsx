@@ -36,6 +36,7 @@ const CompanySponsorshipPackageInfoComponent: React.FC<Props> = ({sponsorshipPac
             <LabeledData label={t('sponsorshipPackage:description')} value={translation.description} displayGrid/>
             <LabeledData label={t('general:standSize')} value={standSize + ' m2'} displayGrid/>
             <LabeledData label={t('general:price')} value={joinPrices(prices)} displayGrid/>
+
         </Grid>
     </DefaultCard>
 }

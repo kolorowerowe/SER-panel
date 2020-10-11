@@ -5,16 +5,10 @@ import Tabs from "@material-ui/core/Tabs";
 import {Tab} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {Translation} from "../../declarations/types";
-
-type TranslationField = {
-    translations: Translation[];
-    setName: (name: string, languageCode: string) => void;
-    setDescription: (description: string, languageCode: string) => void;
-}
+import {TranslationFields} from "../../declarations/types";
 
 type Props = {
-    translationsField: TranslationField;
+    translationsField: TranslationFields;
 }
 
 const useStyles = makeStyles((theme) => ({

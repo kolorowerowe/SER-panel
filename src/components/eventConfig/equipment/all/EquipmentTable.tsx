@@ -8,8 +8,8 @@ import TableContainer from "@material-ui/core/TableContainer";
 import {useTranslation} from "react-i18next";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {useNavigate} from "react-router";
-import {Equipment} from "../../../declarations/types";
-import {joinPrices, joinTranslations} from "../../../utils/general";
+import {Equipment} from "../../../../declarations/types";
+import {joinPrices, joinTranslations} from "../../../../utils/general";
 
 
 const useStyles = makeStyles(theme => ({

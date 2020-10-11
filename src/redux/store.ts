@@ -1,4 +1,5 @@
-import {combineReducers, createStore} from 'redux';
+import {applyMiddleware, combineReducers, compose, createStore} from 'redux';
+import thunk from 'redux-thunk';
 import {activeUserReducer} from "./reducers/activeUserReducer";
 import {preferencesReducer} from "./reducers/preferencesReducer";
 import {authReducer} from "./reducers/authReducer";
@@ -24,7 +25,11 @@ const rootReducer = combineReducers({
 });
 export type RootState = ReturnType<typeof rootReducer>
 
+const composeEnhancers =
+    typeof window === 'object' &&
+    (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+        (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
 
-const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__();
+const enhancer = composeEnhancers(applyMiddleware(thunk))
 
-export const store = createStore(rootReducer, composeEnhancers);
+export const store = createStore(rootReducer, enhancer);

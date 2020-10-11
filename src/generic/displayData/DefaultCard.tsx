@@ -14,7 +14,7 @@ type DefaultCardProps = {
     title?: string;
     children: object;
     buttonComponent?: object;
-    backButton?: object;
+    backButton?: boolean;
     divider?: boolean;
     loading?: boolean;
     disabled?: boolean;

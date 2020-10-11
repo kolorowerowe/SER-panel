@@ -7,19 +7,20 @@ import ProtectedRoute from "./ProtectedRoute";
 import UsersComponentContainer from "../components/allUsers/UsersComponentContainer";
 import ActivateAccountComponentContainer from "../components/auth/activateAccount/ActivateAccountComponentContainer";
 import ProvideVerificationCodeComponentContainer
-    from "../components/auth/activateAccount/ProvideVerificationCodeComponentContainer";
+        from "../components/auth/activateAccount/ProvideVerificationCodeComponentContainer";
 import SetupPasswordComponentContainer from "../components/auth/activateAccount/SetupPasswordComponentContainer";
 import ActivationCompletedComponent from "../components/auth/activateAccount/ActivationCompletedComponent";
 import UserDetailsComponentContainer from "../components/allUsers/userDetails/UserDetailsComponentContainer";
 import CompaniesComponentContainer from "../components/allCompanies/CompaniesComponentContainer";
 import SponsorshipPackagesComponentContainer
-    from "../components/eventConfig/sponsorshipPackages/SponsorshipPackagesComponentContainer";
-import SponsorshipPackageDetailsComponentContainer
-    from "../components/eventConfig/sponsorshipPackages/sponsorshipPackageDetails/SponsorshipPackageDetailsComponentContainer";
+        from "../components/eventConfig/sponsorshipPackages/all/SponsorshipPackagesComponentContainer";
+import SponsorshipPackageContainer
+        from "../components/eventConfig/sponsorshipPackages/sponsorshipPackageDetails/SponsorshipPackageContainer";
 import CompanyComponent from "../components/company/CompanyComponent";
 import DeadlineComponentContainer from "../components/eventConfig/deadline/DeadlineComponentContainer";
 import HelpComponentContainer from "../components/help/HelpComponentContainer";
-import EquipmentComponentContainer from "../components/eventConfig/equipment/EquipmentComponentContainer";
+import EquipmentComponentContainer from "../components/eventConfig/equipment/all/EquipmentComponentContainer";
+import EquipmentDetailsContainer from "../components/eventConfig/equipment/equipmentDetails/EquipmentDetailsContainer";
 
 const RouterProvider = () => {
 
@@ -62,16 +63,21 @@ const RouterProvider = () => {
                             element={CompaniesComponentContainer}
             />
 
-            <ProtectedRoute path="/sponsorship-package/:sponsorshipPackageId"
-                            element={SponsorshipPackageDetailsComponentContainer}
+            <ProtectedRoute path="/sponsorship-package/:sponsorshipPackageId/*"
+                            element={SponsorshipPackageContainer}
+            />
+
+            <ProtectedRoute path="/sponsorship-package"
+                            element={SponsorshipPackagesComponentContainer}
             />
 
             <ProtectedRoute path="/deadline"
                             element={DeadlineComponentContainer}
             />
 
-            <ProtectedRoute path="/sponsorship-package"
-                            element={SponsorshipPackagesComponentContainer}
+
+            <ProtectedRoute path="/equipment/:equipmentId"
+                            element={EquipmentDetailsContainer}
             />
 
             <ProtectedRoute path="/equipment"

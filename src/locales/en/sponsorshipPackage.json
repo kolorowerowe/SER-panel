@@ -20,7 +20,13 @@
   "confirmAndSave": "Confirm and save",
   "chosenSponsorshipPackage": "Chosen sponsorship package",
   "equipmentDeleted": "Equipment has been deleted.",
+  "equipment": "Equipment",
   "allEquipments": "All equipments",
   "addNewEquipment": "Add new equipment",
-  "maxCountPerCompany": "Max count per company"
+  "maxCountPerCompany": "Max count per company",
+  "equipmentDetails": "Equipment details",
+  "equipmentId": "Equipment ID",
+  "currentEquipment": "Current equipment",
+  "editEquipment": "Edit equipment",
+  "equipmentCount": "Equipment count"
 }

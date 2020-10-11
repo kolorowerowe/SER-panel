@@ -1,8 +1,10 @@
 import {useEffect, useState} from "react";
+import {ValidatedField} from "../declarations/types";
 
-const useFieldValidation = (initialValue, validate) => {
-    const [value, setValue] = useState(initialValue);
-    const [error, setError] = useState(null);
+const useFieldValidation = (initialValue: string,
+                            validate: (value: string | number) => Error | null): ValidatedField => {
+    const [value, setValue] = useState<string | number>(initialValue);
+    const [error, setError] = useState<Error | null>(null);
 
     useEffect(() => {
         if (value !== initialValue) {
@@ -11,7 +13,7 @@ const useFieldValidation = (initialValue, validate) => {
         }
     }, [value, validate, initialValue]);
 
-    const handleChange = (event) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value);
     };
 
@@ -26,21 +28,11 @@ const useFieldValidation = (initialValue, validate) => {
         return validationError;
     };
 
-    const resetToInitialValue = () => {
-        setValue(initialValue);
-    };
-
-    const clearValue = () => {
-        setValue('');
-    };
-
     return {
         value,
         handleChange,
         error,
         handleBlur,
-        resetToInitialValue,
-        clearValue,
         validate: runValidation,
         setValue
     };

@@ -31,7 +31,7 @@ const ConfirmSponsorshipPackageDialog = (props: Props) => {
 
     const {languageCode} = useSelector((state: RootState) => state.preferences);
 
-    const chosenSponsorshipPackage = useMemo<SponsorshipPackage>((): SponsorshipPackage =>{
+    const chosenSponsorshipPackage = useMemo<SponsorshipPackage>((): SponsorshipPackage => {
         const foundSP = sponsorshipPackages.find(sp => sp.id === chosenSponsorshipPackageId);
         if (foundSP !== undefined) {
             return foundSP
@@ -41,7 +41,8 @@ const ConfirmSponsorshipPackageDialog = (props: Props) => {
                 translations: [],
                 prices: [],
                 standSize: 0,
-                isAvailable: false
+                isAvailable: false,
+                spEquipmentList: []
             } as SponsorshipPackage
         }
 
@@ -53,7 +54,6 @@ const ConfirmSponsorshipPackageDialog = (props: Props) => {
     const translation = useMemo(
         (): Translation => getRightTranslation(chosenSponsorshipPackage.translations, languageCode),
         [chosenSponsorshipPackage, languageCode]);
-
 
 
     return (
@@ -73,7 +73,8 @@ const ConfirmSponsorshipPackageDialog = (props: Props) => {
                         <LeftRightData left={t('sponsorshipPackage:description')} right={translation.description}/>
                     </Grid>
                     <Grid item xs={12}>
-                        <LeftRightData left={t('general:standSize')} right={chosenSponsorshipPackage.standSize + ' m2'}/>
+                        <LeftRightData left={t('general:standSize')}
+                                       right={chosenSponsorshipPackage.standSize + ' m2'}/>
                     </Grid>
                     <Grid item xs={12}>
                         <LeftRightData left={t('general:price')} right={joinPrices(chosenSponsorshipPackage.prices)}/>

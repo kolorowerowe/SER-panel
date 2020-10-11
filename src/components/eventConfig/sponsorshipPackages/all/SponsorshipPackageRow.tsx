@@ -2,9 +2,9 @@ import React from 'react';
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import {useTranslation} from "react-i18next";
-import {SponsorshipPackage} from "../../../declarations/types";
-import StatusIconComponent from "../../../generic/StatusIconComponent";
-import {joinPrices, joinTranslations} from "../../../utils/general";
+import {SponsorshipPackage} from "../../../../declarations/types";
+import StatusIconComponent from "../../../../generic/StatusIconComponent";
+import {joinPrices, joinTranslations} from "../../../../utils/general";
 
 
 type Props = {

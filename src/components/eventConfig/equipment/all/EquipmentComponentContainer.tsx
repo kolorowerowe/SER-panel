@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../../../redux/store";
-import {useSnackbar} from "../../../utils/useSnackbar";
-import {addEquipmentAction, fetchEquipmentListAction} from "../../../redux/actions/equipmentActions";
+import {RootState} from "../../../../redux/store";
+import {useSnackbar} from "../../../../utils/useSnackbar";
+import {addEquipmentAction, fetchEquipmentListAction} from "../../../../redux/actions/equipmentActions";
 import EquipmentComponentView from "./EquipmentComponentView";
-import {NewEquipmentBody} from "../../../declarations/types";
+import {NewEquipmentBody} from "../../../../declarations/types";
 
 const EquipmentComponentContainer: React.FC = () => {
 
@@ -14,13 +14,13 @@ const EquipmentComponentContainer: React.FC = () => {
     const snackbar = useSnackbar();
 
     useEffect(() => {
-        fetchEquipmentListAction(authToken, dispatch);
-    }, [authToken]);
+        dispatch(fetchEquipmentListAction());
+    }, []);
 
     const [addEquipmentDialogOpen, setAddEquipmentDialogOpen] = useState<boolean>(false);
 
     const handleAddEquipmentSubmit = (equipmentBody: NewEquipmentBody): void => {
-        addEquipmentAction(equipmentBody, authToken, dispatch, snackbar);
+        dispatch(addEquipmentAction(equipmentBody, snackbar));
         setAddEquipmentDialogOpen(false);
     }
 

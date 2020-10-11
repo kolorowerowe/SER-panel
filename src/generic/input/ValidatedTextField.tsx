@@ -1,8 +1,14 @@
 import React from 'react';
 import TextField from "@material-ui/core/TextField";
-import PropTypes from "prop-types"
+import {ValidatedField} from "../../declarations/types";
 
-const ValidatedTextField = props => {
+type Props = {
+    field: ValidatedField;
+    label?: string;
+    type?: string;
+}
+
+const ValidatedTextField: React.FC<Props> = (props: Props) => {
 
     const {
         field: {
@@ -28,17 +34,6 @@ const ValidatedTextField = props => {
             type={type}
         />
     );
-};
-
-ValidatedTextField.propTypes = {
-    field: PropTypes.shape({
-        value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        error: PropTypes.object,
-        handleChange: PropTypes.func.isRequired,
-        handleBlur: PropTypes.func.isRequired,
-    }).isRequired,
-    label: PropTypes.string.isRequired,
-    type: PropTypes.oneOf(['number', 'password'])
 };
 
 export default ValidatedTextField;

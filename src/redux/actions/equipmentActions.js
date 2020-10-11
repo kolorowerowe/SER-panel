@@ -22,8 +22,10 @@ import i18n from "../../i18n";
 
 const baseUrl = process.env.REACT_APP_BACK_END_URL;
 
-export const fetchEquipmentListAction = (authToken, dispatch) => {
+export const fetchEquipmentListAction = () => (dispatch, getState) => {
     dispatch({type: FETCH_EQUIPMENT_LIST});
+    const {authToken} = getState().auth;
+
 
     axios.get(`${baseUrl}/equipment`, {
         headers: {
@@ -44,19 +46,20 @@ export const fetchEquipmentListAction = (authToken, dispatch) => {
         });
 };
 
-export const addEquipmentAction = (equipmentBody, authToken, dispatch, snackbar) => {
+export const addEquipmentAction = (equipmentBody, snackbar) => (dispatch, getState)=> {
     dispatch({type: ADD_EQUIPMENT});
+    const {authToken} = getState().auth;
 
     axios.post(`${baseUrl}/equipment`, equipmentBody, {
         headers: {
             "Authorization": `Bearer ${authToken}`
         }
     })
-        .then(({data}) => {
+        .then(() => {
             dispatch({
                 type: ADD_EQUIPMENT_SUCCESS
             });
-            fetchEquipmentListAction(authToken, dispatch);
+            dispatch(fetchEquipmentListAction());
         })
         .catch(err => {
             dispatch({
@@ -66,10 +69,12 @@ export const addEquipmentAction = (equipmentBody, authToken, dispatch, snackbar)
         });
 };
 
-export const fetchEquipmentDetailsAction = (equipmentId, authToken, dispatch) => {
+export const fetchEquipmentDetailsAction = (equipmentId) => (dispatch, getState) => {
     dispatch({type: FETCH_EQUIPMENT_DETAILS});
 
-    axios.get(`${baseUrl}/equipment/${equipmentId}`, {
+    const {authToken} = getState().auth;
+
+    return axios.get(`${baseUrl}/equipment/${equipmentId}`, {
         headers: {
             "Authorization": `Bearer ${authToken}`
         }
@@ -88,8 +93,9 @@ export const fetchEquipmentDetailsAction = (equipmentId, authToken, dispatch) =>
         });
 };
 
-export const saveEquipmentAction = (equipmentId, saveEquipmentBody, authToken, dispatch, snackbar) => {
+export const saveEquipmentAction = (equipmentId, saveEquipmentBody, snackbar) => (dispatch, getState) => {
     dispatch({type: SAVE_EQUIPMENT});
+    const {authToken} = getState().auth;
 
     axios.patch(`${baseUrl}/equipment/${equipmentId}`, saveEquipmentBody, {
         headers: {
@@ -110,8 +116,9 @@ export const saveEquipmentAction = (equipmentId, saveEquipmentBody, authToken, d
         });
 };
 
-export const deleteEquipmentAction = (equipmentId, authToken, dispatch, snackbar, navigate) => {
+export const deleteEquipmentAction = (equipmentId, snackbar, navigate) => (dispatch, getState)=> {
     dispatch({type: DELETE_EQUIPMENT});
+    const {authToken} = getState().auth;
 
     axios.delete(`${baseUrl}/equipment/${equipmentId}`, {
         headers: {

@@ -12,5 +12,6 @@
   "priceInCurrency": "Cena w ${currency}",
   "date": "Data",
   "time": "Godzina",
-  "details": "Szczegóły"
+  "details": "Szczegóły",
+  "pieces": "{{count}} szt."
 }

@@ -20,7 +20,13 @@
   "confirmAndSave": "Potwierdź i zapisz",
   "chosenSponsorshipPackage": "Wybrany pakiet sponsorski",
   "equipmentDeleted": "Wyposażenie zostało usunięte",
+  "equipment": "Wyposażenie",
   "allEquipments": "Wszystkie elementy wyposażenia",
   "addNewEquipment": "Dodaj nowe wyposażenie",
-  "maxCountPerCompany": "Maksymalna ilość na firmę"
+  "maxCountPerCompany": "Maksymalna ilość na firmę",
+  "equipmentDetails": "Szczegóły wyposażenia",
+  "equipmentId": "ID wyposażenia",
+  "currentEquipment": "Obecne wyposażenie",
+  "editEquipment": "Edytuj wyposażenie",
+  "equipmentCount": "Liczba wyposażenia"
 }

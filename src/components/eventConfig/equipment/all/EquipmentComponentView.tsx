@@ -1,9 +1,9 @@
 import React from 'react';
 import Button from "@material-ui/core/Button";
 import {useTranslation} from "react-i18next";
-import DefaultCard from "../../../generic/displayData/DefaultCard";
+import DefaultCard from "../../../../generic/displayData/DefaultCard";
 import AddEquipmentDialog from "./AddEquipmentDialog";
-import {Equipment, NewEquipmentBody} from "../../../declarations/types";
+import {Equipment, NewEquipmentBody} from "../../../../declarations/types";
 import EquipmentTable from "./EquipmentTable";
 
 

@@ -5,15 +5,15 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import {useTranslation} from "react-i18next";
-import useFieldValidation from "../../../utils/useFieldValidation";
-import {validateStandSize} from "../../../utils/Validators";
-import ValidatedTextField from "../../../generic/input/ValidatedTextField";
+import useFieldValidation from "../../../../utils/useFieldValidation";
+import {validateStandSize} from "../../../../utils/Validators";
+import ValidatedTextField from "../../../../generic/input/ValidatedTextField";
 import Grid from "@material-ui/core/Grid";
 
-import usePriceFields from "../../../utils/usePriceFields";
-import InputPriceComponent from "../../../generic/input/InputPriceComponent";
-import useTranslationFields from "../../../utils/useTranslationFields";
-import TranslationsComponent from "../../../generic/input/TranslationsComponent";
+import usePriceFields from "../../../../utils/usePriceFields";
+import InputPriceComponent from "../../../../generic/input/InputPriceComponent";
+import useTranslationFields from "../../../../utils/useTranslationFields";
+import TranslationsComponent from "../../../../generic/input/TranslationsComponent";
 import {Divider} from "@material-ui/core";
 
 const AddSponsorshipPackageDialog = props => {

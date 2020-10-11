@@ -17,10 +17,19 @@ export type Translation = {
     name: string;
     description: string;
 }
+export type TranslationFields = {
+    translations: Translation[];
+    setName: (name: string, languageCode: string) => void;
+    setDescription: (description: string, languageCode: string) => void;
+}
 
 export type Price = {
     currency: string;
     value: number;
+}
+export type PriceFields = {
+    prices: Price[];
+    setPriceValue: (newValue: string, currency: string) => void;
 }
 
 export type NewEquipmentBody = {
@@ -33,12 +42,20 @@ export type Equipment = NewEquipmentBody & {
     id: string;
 };
 
+export type SPEquipment = {
+    id: string;
+    sponsorshipPackageId: string;
+    count: number;
+    equipment: Equipment;
+}
+
 export type SponsorshipPackage = {
     id: string;
     translations: Translation[];
     prices: Price[];
     standSize: number;
     isAvailable: boolean;
+    spEquipmentList: SPEquipment[];
 }
 
 export type UserMiniData = {
@@ -69,4 +86,24 @@ export type ParamTypes = {
     userId?: string;
     companyId?: string;
     sponsorshipPackageId?: string;
+}
+
+export type ValidatedField = {
+    value: string | number;
+    error?: Error | null;
+    handleBlur?: () => void;
+    handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    validate: () => Error | null;
+    setValue: (value: string | number) => void;
+}
+
+export type SelectElement = {
+    name: string;
+    value: string|number;
+}
+
+export type ResponseMetaData = {
+    loading: boolean;
+    error?: object;
+    errorResponse?: object;
 }

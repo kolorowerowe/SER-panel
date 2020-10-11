@@ -4,8 +4,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {
     addSponsorshipPackageAction,
     fetchSponsorshipPackagesAction
-} from "../../../redux/actions/sponsorshipPackagesActions";
-import {useSnackbar} from "../../../utils/useSnackbar";
+} from "../../../../redux/actions/sponsorshipPackagesActions";
+import {useSnackbar} from "../../../../utils/useSnackbar";
 
 const SponsorshipPackagesComponentContainer = () => {
 
@@ -15,16 +15,17 @@ const SponsorshipPackagesComponentContainer = () => {
     const dispatch = useDispatch();
     const snackbar = useSnackbar();
 
+    const [addSponsorshipPackageDialogOpen, setAddSponsorshipPackageDialogOpen] = useState(false);
+
     useEffect(() => {
-        fetchSponsorshipPackagesAction(authToken, dispatch);
+        dispatch(fetchSponsorshipPackagesAction());
     }, [authToken, ]);
 
     const handleAddSponsorshipPackageSubmit = (userBody) => {
-        addSponsorshipPackageAction(userBody, authToken, dispatch, snackbar);
+        dispatch(addSponsorshipPackageAction(userBody, snackbar));
         setAddSponsorshipPackageDialogOpen(false);
     }
 
-    const [addSponsorshipPackageDialogOpen, setAddSponsorshipPackageDialogOpen] = useState(false);
 
     return (
         <SponsorshipPackagesComponentView sponsorshipPackages={sponsorshipPackages}

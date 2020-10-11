@@ -37,8 +37,8 @@ const ChooseCompanySponsorshipPackageComponent: React.FC<Props> = ({company}: Pr
     const styles = useCommonStyles();
 
     useEffect(() => {
-        fetchSponsorshipPackagesAction(authToken, dispatch);
-    }, [authToken]);
+        dispatch(fetchSponsorshipPackagesAction());
+    }, []);
 
     const confirmChosenSponsorshipPackage = (): void => {
         if (!!company && !!company.id && !!chosenSponsorshipPackageId) {
