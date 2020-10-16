@@ -25,9 +25,7 @@ import "moment/locale/pl";
 
 const drawerWidth = 280;
 
-const TopBar = (props) => {
-
-    const {handleDrawerOpen, open} = props;
+const TopBar = ({handleDrawerToggle}) => {
 
     const classes = useStyles();
     const {t} = useTranslation();
@@ -66,13 +64,13 @@ const TopBar = (props) => {
     };
 
     return (
-        <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
-            <Toolbar className={classes.toolbar}>
+        <AppBar position="absolute" className={classes.appBar}>
+            <Toolbar className={classes.toolbar} variant={'dense'}>
                 <IconButton
                     edge="start"
                     color="inherit"
-                    onClick={handleDrawerOpen}
-                    className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
+                    onClick={handleDrawerToggle}
+                    className={clsx(classes.menuButton)}
                 >
                     <MenuIcon/>
                 </IconButton>
@@ -123,8 +121,7 @@ const TopBar = (props) => {
 };
 
 TopBar.propTypes = {
-    handleDrawerOpen: PropTypes.func.isRequired,
-    open: PropTypes.bool.isRequired
+    handleDrawerToggle: PropTypes.func.isRequired,
 };
 
 export default TopBar;
@@ -157,9 +154,6 @@ const useStyles = makeStyles((theme) => ({
     },
     menuButton: {
         marginRight: 36,
-    },
-    menuButtonHidden: {
-        display: 'none',
     },
     title: {
         flexGrow: 1,

@@ -5,6 +5,7 @@ import {ValidatedField} from "../../declarations/types";
 type Props = {
     field: ValidatedField;
     label?: string;
+    disabled?: boolean;
     type?: string;
 }
 
@@ -18,6 +19,7 @@ const ValidatedTextField: React.FC<Props> = (props: Props) => {
             handleChange
         },
         label,
+        disabled,
         type
     } = props;
 
@@ -32,6 +34,7 @@ const ValidatedTextField: React.FC<Props> = (props: Props) => {
             fullWidth
             label={label}
             type={type}
+            disabled={disabled}
         />
     );
 };

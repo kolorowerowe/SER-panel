@@ -10,8 +10,11 @@ import CustomSnackBar from "../generic/CustomSnackbar";
 const SERContainer = () => {
     const classes = useStyles();
 
-    const [open, setOpen] = React.useState(true);
+    const [open, setOpen] = React.useState(false);
 
+    const handleDrawerToggle = () => {
+        setOpen(prevState => !prevState);
+    };
     const handleDrawerOpen = () => {
         setOpen(true);
     };
@@ -24,8 +27,7 @@ const SERContainer = () => {
 
             <CssBaseline/>
 
-            <TopBar handleDrawerOpen={handleDrawerOpen}
-                    open={open}/>
+            <TopBar handleDrawerToggle={handleDrawerToggle}/>
 
             <SideBarDrawer handleDrawerClose={handleDrawerClose}
                            open={open}/>
@@ -46,7 +48,9 @@ const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
     },
-    appBarSpacer: theme.mixins.toolbar,
+    appBarSpacer: {
+        minHeight: 48
+    },
     content: {
         flexGrow: 1,
         height: '100vh',
