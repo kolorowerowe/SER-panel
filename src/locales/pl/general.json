@@ -13,5 +13,11 @@
   "date": "Data",
   "time": "Godzina",
   "details": "Szczegóły",
-  "pieces": "{{count}} szt."
+  "pieces": "{{count}} szt.",
+  "hello": "Cześć",
+  "days": "Dni",
+  "hours": "Godzin",
+  "minutes": "Minut",
+  "seconds": "Sekund",
+  "timeLeftToEvent": "Do wydarzenia pozostało:"
 }

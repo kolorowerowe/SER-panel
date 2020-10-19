@@ -157,9 +157,7 @@ const useStyles = makeStyles((theme) => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
-        [theme.breakpoints.up('sm')]: {
-            width: theme.spacing(7),
-        },
+        width: theme.spacing(7)
     },
     appBarSpacer: {
         minHeight: 44,

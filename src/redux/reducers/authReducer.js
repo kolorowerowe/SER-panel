@@ -15,6 +15,7 @@ const initState = {
     auth: undefined,
     isAdmin: false,
     isOrganizer: false,
+    isCompany: false,
     hasEditRight: false,
     loading: false,
     error: null,

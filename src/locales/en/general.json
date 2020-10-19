@@ -13,5 +13,11 @@
   "date": "Date",
   "time": "Time",
   "details": "Details",
-  "pieces": "{{count}} pcs."
+  "pieces": "{{count}} pcs.",
+  "hello": "Hello",
+  "days": "Days",
+  "hours": "Hours",
+  "minutes": "Minutes",
+  "seconds": "Seconds",
+  "timeLeftToEvent": "Time left to event:"
 }

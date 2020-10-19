@@ -1,9 +1,13 @@
 import React from 'react';
-import DefaultCard from "../../generic/displayData/DefaultCard";
 import Grid from "@material-ui/core/Grid";
 import CompanyTileComponentContainer from "./CompanyTileComponentContainer";
 import Typography from "@material-ui/core/Typography";
 import RegisterCompanyComponentContainer from "./RegisterCompanyComponentContainer";
+import CountdownComponent from "../../generic/displayData/CountdownComponent";
+import {useTranslation} from "react-i18next";
+import DefaultCard from "../../generic/displayData/DefaultCard";
+import {Divider} from "@material-ui/core";
+import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 
 const HomeComponentView = (props) => {
 
@@ -13,19 +17,34 @@ const HomeComponentView = (props) => {
         activeUser: {
             user: {
                 fullName,
-            } = {}
+                role = ''
+            } = {},
         } = {},
         companies: {
             companies
         } = {},
         timeLeftToEvent
-    } = props
+    } = props;
+
+    const {t} = useTranslation();
+    console.log(role)
 
     return (
         <Grid container spacing={2}>
             <Grid item xs={12}>
-                <DefaultCard title={`Hello, ${fullName}!`}>
-                    {timeLeftToEvent}
+                <DefaultCard title={t('general:hello') + ' ' + fullName}>
+                    <div style={{display: 'flex', flexDirection: 'row'}}>
+                        <VerifiedUserIcon fontSize={'small'} color={'disabled'}/>
+                        <Typography color={'textSecondary'}>
+                            {t(`user:${role}`)}
+                        </Typography>
+                    </div>
+
+                    <Divider style={{margin: '20px 0px'}}/>
+                    <Typography align={'center'}>
+                        {t('general:timeLeftToEvent')}
+                    </Typography>
+                    <CountdownComponent timeLeft={timeLeftToEvent}/>
                 </DefaultCard>
             </Grid>
 
@@ -38,15 +57,10 @@ const HomeComponentView = (props) => {
                     <RegisterCompanyComponentContainer/>
                 </Grid>)
             }
-
-            {isOrganizer && <Typography>
-                Jesteś adminem
-            </Typography>}
         </Grid>
 
     );
 };
 
-HomeComponentView.propTypes = {};
 
 export default HomeComponentView;
