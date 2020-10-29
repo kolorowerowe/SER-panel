@@ -10,6 +10,7 @@ import {companiesReducer} from "./reducers/companiesReducer";
 import {sponsorshipPackagesReducer} from "./reducers/sponsorshipPackageReducer";
 import {deadlineReducer} from "./reducers/deadlineReducer";
 import {equipmentReducer} from "./reducers/equipmentReducer";
+import {statisticsReducer} from "./reducers/statisticsReducer";
 
 const rootReducer = combineReducers({
     auth: authReducer,
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
     preferences: preferencesReducer,
     snackbar: snackbarReducer,
     sponsorshipPackages: sponsorshipPackagesReducer,
+    statistics: statisticsReducer,
     users: usersReducer
 });
 export type RootState = ReturnType<typeof rootReducer>

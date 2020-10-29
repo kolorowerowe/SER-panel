@@ -1,17 +1,20 @@
 import React from 'react';
 import Grid from "@material-ui/core/Grid";
-import CompanyTileComponentContainer from "./CompanyTileComponentContainer";
+import CompanyTileComponentContainer from "./company/CompanyTileComponentContainer";
 import Typography from "@material-ui/core/Typography";
-import RegisterCompanyComponentContainer from "./RegisterCompanyComponentContainer";
+import RegisterCompanyComponentContainer from "./company/RegisterCompanyComponentContainer";
 import CountdownComponent from "../../generic/displayData/CountdownComponent";
 import {useTranslation} from "react-i18next";
 import DefaultCard from "../../generic/displayData/DefaultCard";
 import {Divider} from "@material-ui/core";
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
+import UserStatistics from "./statistics/UserStatistics";
+import UserStatisticsComponent from "./statistics/UserStatistics";
 
 const HomeComponentView = (props) => {
 
     const {
+        isAdmin,
         isOrganizer,
         isCompany,
         activeUser: {
@@ -19,6 +22,9 @@ const HomeComponentView = (props) => {
                 fullName,
                 role = ''
             } = {},
+        } = {},
+        statistics: {
+            userStatistics
         } = {},
         companies: {
             companies
@@ -56,6 +62,12 @@ const HomeComponentView = (props) => {
                 <Grid item xs={12}>
                     <RegisterCompanyComponentContainer/>
                 </Grid>)
+            }
+
+
+            {(isAdmin || isOrganizer) && <Grid item xs={6}>
+                <UserStatisticsComponent userStatistics={userStatistics}/>
+            </Grid>
             }
         </Grid>
 

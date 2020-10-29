@@ -10,7 +10,7 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogActions from "@material-ui/core/DialogActions";
-import useFieldValidation from "../../utils/useFieldValidation";
+import useFieldValidation from "../../../utils/useFieldValidation";
 import {
     validateBuildingNumber,
     validateCity,
@@ -20,10 +20,10 @@ import {
     validatePostalCode,
     validateStreet,
     validateTaxId
-} from "../../utils/Validators";
-import ValidatedTextField from "../../generic/input/ValidatedTextField";
-import {createCompanyAction} from "../../redux/actions/companiesActions";
-import {useSnackbar} from "../../utils/useSnackbar";
+} from "../../../utils/Validators";
+import ValidatedTextField from "../../../generic/input/ValidatedTextField";
+import {createCompanyAction} from "../../../redux/actions/companiesActions";
+import {useSnackbar} from "../../../utils/useSnackbar";
 import IconButton from "@material-ui/core/IconButton";
 import PhoneIphoneIcon from '@material-ui/icons/PhoneIphone';
 import Grid from "@material-ui/core/Grid";

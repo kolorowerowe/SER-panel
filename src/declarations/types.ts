@@ -82,6 +82,18 @@ export type CompanyResponse = {
     companyDeadlineStatuses?: CompanyDeadlineStatus[];
 }
 
+export type UserStatistics = {
+    allUsersCount: number;
+    roleOccurrenceList: {
+        object: string;
+        occurrences: number;
+    }[]
+}
+
+export type Statistics = {
+    userStatistics: UserStatistics;
+}
+
 export type ParamTypes = {
     userId?: string;
     companyId?: string;
@@ -106,4 +118,13 @@ export type ResponseMetaData = {
     loading: boolean;
     error?: object;
     errorResponse?: object;
+}
+
+type OccurrenceInfo = {
+    name: string;
+    value: number;
+}
+
+type PieChartProps = {
+    data: OccurrenceInfo[]
 }
