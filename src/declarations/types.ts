@@ -92,6 +92,15 @@ export type UserStatistics = {
     }[]
 }
 
+export type SPStatistics = {
+    allSPCount: number;
+    percentageProgressesSP: {
+        object: SponsorshipPackage;
+        currentProgress: number;
+        maxProgress: number;
+    }[]
+}
+
 export type Statistics = {
     userStatistics: UserStatistics;
 }

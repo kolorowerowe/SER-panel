@@ -20,6 +20,12 @@ export const useCommonStyles = makeStyles((theme) => ({
         justifyContent: 'center',
         flexDirection: 'column'
     },
+    nextToEachOther: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'row'
+    },
     countUp: {
         fontSize: 40,
         display: 'flex',

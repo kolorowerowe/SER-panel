@@ -8,8 +8,8 @@ import {useTranslation} from "react-i18next";
 import DefaultCard from "../../generic/displayData/DefaultCard";
 import {Divider} from "@material-ui/core";
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
-import UserStatistics from "./statistics/UserStatistics";
-import UserStatisticsComponent from "./statistics/UserStatistics";
+import UserStatisticsComponent from "./statistics/UserStatisticsComponent";
+import SPStatisticsComponent from "./statistics/SPStatisticsComponent";
 
 const HomeComponentView = (props) => {
 
@@ -24,7 +24,8 @@ const HomeComponentView = (props) => {
             } = {},
         } = {},
         statistics: {
-            userStatistics
+            userStatistics,
+            sponsorshipPackageStatistics
         } = {},
         companies: {
             companies
@@ -65,10 +66,14 @@ const HomeComponentView = (props) => {
             }
 
 
-            {(isAdmin || isOrganizer) && <Grid item xs={6}>
-                <UserStatisticsComponent userStatistics={userStatistics}/>
-            </Grid>
-            }
+            {(isAdmin || isOrganizer) && <React.Fragment>
+                <Grid item xs={12} md={6}>
+                    <UserStatisticsComponent userStatistics={userStatistics}/>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                    <SPStatisticsComponent sponsorshipPackageStatistics={sponsorshipPackageStatistics}/>
+                </Grid>
+            </React.Fragment>}
         </Grid>
 
     );

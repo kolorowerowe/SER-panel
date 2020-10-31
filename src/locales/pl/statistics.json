@@ -1,4 +1,6 @@
 {
   "users" : "Użytkownicy",
-  "allUsers": "Wszyscy użytkownicy"
+  "allUsers": "Wszyscy użytkownicy",
+  "sponsorshipPackages": "Pakiety sponsorskie",
+  "sponsorshipPackagesTaken": "Zajęte pakiety sponsorskie"
 }

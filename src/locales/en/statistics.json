@@ -1,4 +1,6 @@
 {
   "users" : "Users",
-  "allUsers": "All users"
+  "allUsers": "All users",
+  "sponsorshipPackages": "Sponsorship packages",
+  "sponsorshipPackagesTaken": "Taken sponsorship packages"
 }
