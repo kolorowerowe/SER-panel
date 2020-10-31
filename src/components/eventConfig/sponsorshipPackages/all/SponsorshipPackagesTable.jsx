@@ -34,6 +34,7 @@ const SponsorshipPackagesTable = props => {
                             className={classes.header}>{t('sponsorshipPackage:sponsorshipPackageName')}</TableCell>
                         <TableCell align="center" className={classes.header}>{t('general:standSize')}</TableCell>
                         <TableCell align="center" className={classes.header}>{t('general:price')}</TableCell>
+                        <TableCell align="center" className={classes.header}>{t('sponsorshipPackage:companiesRegisteredMax')}</TableCell>
                         <TableCell align="center"
                                    className={classes.header}>{t('sponsorshipPackage:isAvailable')}</TableCell>
 

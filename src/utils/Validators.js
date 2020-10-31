@@ -111,13 +111,6 @@ export const validatePriceValue = (price) => {
     return null;
 }
 
-export const validateStandSize = (standSize) => {
-    if (!standSize) {
-        return new Error(i18n.t('validation:fieldRequired'));
-    }
-    return null;
-}
-
 export const validatePercentage = (number) => {
     if (!number) {
         return new Error(i18n.t('common:fieldRequired'));

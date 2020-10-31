@@ -9,7 +9,7 @@ import LabeledData from "../../../../generic/displayData/LabeledData";
 import InputPriceComponent from "../../../../generic/input/InputPriceComponent";
 import TranslationsComponent from "../../../../generic/input/TranslationsComponent";
 import {CardActions} from "@material-ui/core";
-import {useCommonStyles} from "../../../../utils/commonStyles";
+import {useCommonStyles} from "../../../../styles/commonStyles";
 import {Equipment, PriceFields, TranslationFields, ValidatedField} from "../../../../declarations/types";
 
 const useStyles = makeStyles((theme) => ({

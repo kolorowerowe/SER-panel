@@ -8,7 +8,7 @@ import {matchErrorCode} from "../../../utils/ErrorUtils";
 import CustomAlert from "../../../generic/CustomAlert";
 import {Button, CardActions} from "@material-ui/core";
 import {Moment} from "moment";
-import {useCommonStyles} from "../../../utils/commonStyles";
+import {useCommonStyles} from "../../../styles/commonStyles";
 
 
 type Props = {

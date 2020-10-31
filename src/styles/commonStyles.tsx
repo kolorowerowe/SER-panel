@@ -14,5 +14,15 @@ export const useCommonStyles = makeStyles((theme) => ({
     secondaryField: {
         color: theme.palette.text.secondary,
         fontSize: theme.typography.body2.fontSize
+    },
+    centeredDiv: {
+        display: 'flex',
+        justifyContent: 'center',
+        flexDirection: 'column'
+    },
+    countUp: {
+        fontSize: 40,
+        display: 'flex',
+        justifyContent: 'center',
     }
 }));

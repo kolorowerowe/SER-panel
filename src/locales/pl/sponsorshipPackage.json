@@ -5,6 +5,7 @@
   "sponsorshipPackageName": "Nazwa pakietu sponsorskiego",
   "name": "Nazwa",
   "description": "Opis",
+  "companiesRegisteredMax": "Firmy zarejestrowane / maksymalnie",
   "isAvailable": "Dostępne do zakupu",
   "available": "Firmy mogą wybrać podany pakiet sponsorski",
   "notAvailable": "Firmy nie mogą już wybrać podanego pakietu.",

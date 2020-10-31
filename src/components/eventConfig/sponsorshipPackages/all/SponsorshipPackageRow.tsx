@@ -19,6 +19,8 @@ const SponsorshipPackageRow: React.FC<Props> = ({sponsorshipPackage, handleOpenS
         translations = [],
         prices,
         standSize,
+        currentCompanies,
+        maxCompanies,
         isAvailable
     } = sponsorshipPackage;
 
@@ -34,6 +36,9 @@ const SponsorshipPackageRow: React.FC<Props> = ({sponsorshipPackage, handleOpenS
             </TableCell>
             <TableCell
                 align="center">{joinPrices(prices)}
+            </TableCell>
+            <TableCell align={'center'}>
+                {currentCompanies} / {maxCompanies}
             </TableCell>
             <TableCell align="center">
                 {isAvailable ?

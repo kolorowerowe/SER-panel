@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useSnackbar} from "../../../../utils/useSnackbar";
 import {useNavigate, useParams} from "react-router";
 import useFieldValidation from "../../../../utils/useFieldValidation";
-import {validateStandSize} from "../../../../utils/Validators";
+import {validatePositiveNumber} from "../../../../utils/Validators";
 import {
     deleteSponsorshipPackageAction,
     fetchSponsorshipPackageDetailsAction,
@@ -28,7 +28,8 @@ const SponsorshipPackageContainer: React.FC = () => {
     const navigate = useNavigate();
 
     const sponsorshipPackageTranslationFields = useTranslationFields();
-    const standSizeField = useFieldValidation('', validateStandSize);
+    const standSizeField = useFieldValidation('', validatePositiveNumber);
+    const maxCompaniesField = useFieldValidation('', validatePositiveNumber);
     const priceFields = usePriceFields();
     const [isAvailable, setIsAvailable] = useState(false);
 
@@ -41,6 +42,7 @@ const SponsorshipPackageContainer: React.FC = () => {
             id: sponsorshipPackageId,
             translations: sponsorshipPackageTranslationFields.translations,
             standSize: standSizeField.value,
+            maxCompanies: maxCompaniesField.value,
             prices: priceFields.prices,
             isAvailable
         };
@@ -58,12 +60,14 @@ const SponsorshipPackageContainer: React.FC = () => {
         const {
             translations = [],
             standSize = 0,
+            maxCompanies = 0,
             prices = [],
             isAvailable: newIsAvailable = false
         } = sponsorshipPackageDetails || {};
 
         sponsorshipPackageTranslationFields.setNewTranslations(translations);
         standSizeField.setValue(standSize);
+        maxCompaniesField.setValue(maxCompanies);
         priceFields.setNewPrices(prices);
         setIsAvailable(newIsAvailable);
 
@@ -78,6 +82,7 @@ const SponsorshipPackageContainer: React.FC = () => {
                                                            loading={loading}
                                                            sponsorshipPackageTranslationFields={sponsorshipPackageTranslationFields}
                                                            standSizeField={standSizeField}
+                                                           maxCompaniesField={maxCompaniesField}
                                                            priceFields={priceFields}
                                                            isAvailable={isAvailable}
                                                            setIsAvailable={setIsAvailable}

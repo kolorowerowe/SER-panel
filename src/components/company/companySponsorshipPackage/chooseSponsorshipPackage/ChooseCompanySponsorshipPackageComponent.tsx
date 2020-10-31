@@ -8,7 +8,7 @@ import SponsorshipPackageCardComponent from "./SponsorshipPackageCardComponent";
 import ConfirmSponsorshipPackageDialog from "./ConfirmSponsorshipPackageDialog";
 import CustomAlert from "../../../../generic/CustomAlert";
 import {useTranslation} from "react-i18next"
-import {useCommonStyles} from "../../../../utils/commonStyles";
+import {useCommonStyles} from "../../../../styles/commonStyles";
 import {setCompanySponsorshipPackageAction} from "../../../../redux/actions/companiesActions";
 
 type Props = {

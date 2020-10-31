@@ -8,7 +8,7 @@ import LeftRightData from "../../../../generic/displayData/LeftRightData";
 import {Button, CardActions, Grid} from "@material-ui/core";
 import {useTranslation} from "react-i18next";
 import {joinPrices} from "../../../../utils/general";
-import {useCommonStyles} from "../../../../utils/commonStyles";
+import {useCommonStyles} from "../../../../styles/commonStyles";
 import {getRightTranslation} from "../../../../utils/translationUtils";
 
 

@@ -6,7 +6,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import {useTranslation} from "react-i18next";
 import useFieldValidation from "../../../../utils/useFieldValidation";
-import {validateStandSize} from "../../../../utils/Validators";
+import {validatePositiveNumber, validateStandSize} from "../../../../utils/Validators";
 import ValidatedTextField from "../../../../generic/input/ValidatedTextField";
 import Grid from "@material-ui/core/Grid";
 
@@ -27,7 +27,8 @@ const AddSponsorshipPackageDialog = props => {
     const {t} = useTranslation();
 
     const sponsorshipPackageTranslationFields = useTranslationFields();
-    const standSizeField = useFieldValidation('', validateStandSize);
+    const standSizeField = useFieldValidation(0, validatePositiveNumber);
+    const maxCompaniesField = useFieldValidation(0, validatePositiveNumber);
     const priceFields = usePriceFields();
 
 
@@ -38,6 +39,7 @@ const AddSponsorshipPackageDialog = props => {
             const newSponsorshipPackageBody = {
                 translations: sponsorshipPackageTranslationFields.translations,
                 standSize: standSizeField.value,
+                maxCompanies: maxCompaniesField.value,
                 prices: priceFields.prices
             };
 
@@ -64,6 +66,13 @@ const AddSponsorshipPackageDialog = props => {
                         <ValidatedTextField
                             label={t('general:standSize')}
                             field={standSizeField}
+                            type="number"
+                        />
+                    </Grid>
+                    <Grid item xs={12} >
+                        <ValidatedTextField
+                            label={t('general:maxCompanies')}
+                            field={maxCompaniesField}
                             type="number"
                         />
                     </Grid>

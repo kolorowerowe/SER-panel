@@ -15,3 +15,11 @@ export const generateSelectValues = (from: number, to: number): SelectElement[] 
 
     return generatedSelectValue;
 }
+
+export const round = (value: number, decimalPlaces = 2) => {
+    return value.toFixed(decimalPlaces);
+};
+
+export const formatAsPercentage = (value: number) => {
+    return round(value*100, 0) + '%';
+}

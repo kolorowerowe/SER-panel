@@ -1,7 +1,7 @@
 import React from 'react';
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import {useCommonStyles} from "../../utils/commonStyles";
+import {useCommonStyles} from "../../styles/commonStyles";
 
 type LabeledDataProps = {
     value?: string;

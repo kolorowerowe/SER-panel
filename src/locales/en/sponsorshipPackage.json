@@ -5,6 +5,7 @@
   "sponsorshipPackageName": "Sponsorship package name",
   "name": "Name",
   "description": "Description",
+  "companiesRegisteredMax": "Companies registered / all",
   "isAvailable": "Available to buy",
   "available": "Companies can choose this sponsorship package",
   "notAvailable": "Companies can't choose this sponsorship package",

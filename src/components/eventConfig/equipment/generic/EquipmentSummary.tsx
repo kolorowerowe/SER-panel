@@ -5,7 +5,7 @@ import {useSelector} from "react-redux";
 import {RootState} from "../../../../redux/store";
 import {Tooltip, Typography} from "@material-ui/core";
 import {useTranslation} from "react-i18next";
-import {useCommonStyles} from "../../../../utils/commonStyles";
+import {useCommonStyles} from "../../../../styles/commonStyles";
 
 
 type EquipmentElementProps = {

@@ -8,6 +8,7 @@
   "submit": "Submit",
   "eventHaveStarted": "Event have started!",
   "standSize": "Stand size in m^2",
+  "maxCompanies":  "Max companies",
   "price": "Price",
   "priceInCurrency": "Price in ${currency}",
   "date": "Date",

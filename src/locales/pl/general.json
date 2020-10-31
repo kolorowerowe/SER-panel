@@ -8,6 +8,7 @@
   "submit": "Prześlij",
   "eventHaveStarted": "Wydarzenie się rozpoczęło!",
   "standSize": "Rozmiar stoiska w m^2",
+  "maxCompanies":  "Maksymalna ilość firm",
   "price": "Cena",
   "priceInCurrency": "Cena w ${currency}",
   "date": "Data",

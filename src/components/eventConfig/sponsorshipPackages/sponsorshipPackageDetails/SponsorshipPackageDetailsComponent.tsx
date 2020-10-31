@@ -10,7 +10,7 @@ import InputPriceComponent from "../../../../generic/input/InputPriceComponent";
 import TranslationsComponent from "../../../../generic/input/TranslationsComponent";
 import CheckboxInput from "../../../../generic/input/CheckboxInput";
 import {CardActions} from "@material-ui/core";
-import {useCommonStyles} from "../../../../utils/commonStyles";
+import {useCommonStyles} from "../../../../styles/commonStyles";
 import {PriceFields, SponsorshipPackage, TranslationFields, ValidatedField} from "../../../../declarations/types";
 
 const useStyles = makeStyles((theme) => ({
@@ -33,6 +33,7 @@ type Props = {
     sponsorshipPackageDetails: SponsorshipPackage;
     sponsorshipPackageTranslationFields: TranslationFields;
     standSizeField: ValidatedField;
+    maxCompaniesField: ValidatedField;
     priceFields: PriceFields;
     isAvailable: boolean;
     loading: boolean;
@@ -50,6 +51,7 @@ const SponsorshipPackageDetailsComponent: React.FC<Props> = (props: Props) => {
         } = {},
         sponsorshipPackageTranslationFields,
         standSizeField,
+        maxCompaniesField,
         priceFields,
         isAvailable,
         setIsAvailable,
@@ -85,6 +87,13 @@ const SponsorshipPackageDetailsComponent: React.FC<Props> = (props: Props) => {
                             <ValidatedTextField
                                 label={t('general:standSize')}
                                 field={standSizeField}
+                                type="number"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <ValidatedTextField
+                                label={t('general:maxCompanies')}
+                                field={maxCompaniesField}
                                 type="number"
                             />
                         </Grid>

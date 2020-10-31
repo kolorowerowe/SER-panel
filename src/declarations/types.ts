@@ -54,6 +54,8 @@ export type SponsorshipPackage = {
     translations: Translation[];
     prices: Price[];
     standSize: number;
+    currentCompanies: number;
+    maxCompanies: number;
     isAvailable: boolean;
     spEquipmentList: SPEquipment[];
 }
@@ -120,11 +122,11 @@ export type ResponseMetaData = {
     errorResponse?: object;
 }
 
-type OccurrenceInfo = {
+export type OccurrenceInfo = {
     name: string;
     value: number;
 }
 
-type PieChartProps = {
+export type DefaultBarChartProps = {
     data: OccurrenceInfo[]
 }

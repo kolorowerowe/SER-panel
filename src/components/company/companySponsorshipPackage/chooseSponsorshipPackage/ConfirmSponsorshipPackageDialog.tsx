@@ -42,6 +42,8 @@ const ConfirmSponsorshipPackageDialog = (props: Props) => {
                 translations: [],
                 prices: [],
                 standSize: 0,
+                maxCompanies: 0,
+                currentCompanies: 0,
                 isAvailable: false,
                 spEquipmentList: []
             } as SponsorshipPackage
