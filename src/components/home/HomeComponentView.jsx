@@ -11,6 +11,8 @@ import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import UserStatisticsComponent from "./statistics/UserStatisticsComponent";
 import SPStatisticsComponent from "./statistics/SPStatisticsComponent";
 import CompanyStatisticsComponent from "./statistics/CompanyStatisticsComponent";
+import ErrorAlert from "../../generic/ErrorAlert";
+import ProgressBar from "../../generic/ProgressBar";
 
 const HomeComponentView = (props) => {
 
@@ -29,10 +31,17 @@ const HomeComponentView = (props) => {
             companyStatistics,
             sponsorshipPackageStatistics
         } = {},
+        statisticsLoading,
+        statisticsError,
+        statisticsErrorResponse,
         companies: {
             companies
         } = {},
-        timeLeftToEvent
+        timeLeftToEvent,
+        eventConfigLoading,
+        eventConfigError,
+        eventConfigErrorResponse
+
     } = props;
 
     const {t} = useTranslation();
@@ -41,7 +50,10 @@ const HomeComponentView = (props) => {
     return (
         <Grid container spacing={2}>
             <Grid item xs={12}>
-                <DefaultCard title={t('general:hello') + ' ' + fullName}>
+                <DefaultCard title={t('general:hello') + ' ' + fullName}
+                             loading={eventConfigLoading}
+                             error={eventConfigError}
+                             errorResponse={eventConfigErrorResponse}>
                     <div style={{display: 'flex', flexDirection: 'row'}}>
                         <VerifiedUserIcon fontSize={'small'} color={'disabled'}/>
                         <Typography color={'textSecondary'}>
@@ -69,6 +81,14 @@ const HomeComponentView = (props) => {
 
 
             {(isAdmin || isOrganizer) && <React.Fragment>
+
+                <ProgressBar loading={statisticsLoading}
+                             displayGrid/>
+
+                <ErrorAlert error={statisticsError}
+                            errorResponse={statisticsErrorResponse}
+                            displayGrid
+                />
                 <Grid item xs={12} md={6}>
                     <UserStatisticsComponent userStatistics={userStatistics}/>
                 </Grid>

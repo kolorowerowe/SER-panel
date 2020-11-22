@@ -11,6 +11,7 @@ import {sponsorshipPackagesReducer} from "./reducers/sponsorshipPackageReducer";
 import {deadlineReducer} from "./reducers/deadlineReducer";
 import {equipmentReducer} from "./reducers/equipmentReducer";
 import {statisticsReducer} from "./reducers/statisticsReducer";
+import {eventConfigReducer} from "./reducers/eventConfigReducer";
 
 const rootReducer = combineReducers({
     auth: authReducer,
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
     companies: companiesReducer,
     deadline: deadlineReducer,
     equipment: equipmentReducer,
+    eventConfig: eventConfigReducer,
     preferences: preferencesReducer,
     snackbar: snackbarReducer,
     sponsorshipPackages: sponsorshipPackagesReducer,

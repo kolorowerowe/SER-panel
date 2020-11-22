@@ -6,6 +6,8 @@
   "delete": "Usuń",
   "save": "Zapisz",
   "submit": "Prześlij",
+  "successfullySaved": "Pomyślnie zapisano",
+  "errorOccurred": "Wystąpił błąd!",
   "eventHaveStarted": "Wydarzenie się rozpoczęło!",
   "standSize": "Rozmiar stoiska w m^2",
   "maxCompanies":  "Maksymalna ilość firm",
@@ -20,5 +22,9 @@
   "hours": "Godzin",
   "minutes": "Minut",
   "seconds": "Sekund",
-  "timeLeftToEvent": "Do wydarzenia pozostało:"
+  "timeLeftToEvent": "Do wydarzenia pozostało:",
+  "eventConfig": "Konfiguracja wydarzenia",
+  "eventConfigNotInitialized": "Konfiguracja wydarzenia nie została zainicjalizowana",
+  "eventDate": "Data wydarzenia",
+  "defineEventDate": "Zdefiniuj datę wydarzenia"
 }

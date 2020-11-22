@@ -19,5 +19,7 @@
   "352": "Nie znaleziono wyposażenia pakietu dla podanego id",
   "353": "Wybrany pakiet sponsorski jest niedostępny do wybrania",
   "400": "Nieprawidłowe deadliny",
-  "401": "Deadliny nie zostały ustawiuone"
+  "401": "Deadliny nie zostały ustawione",
+  "402": "Konfiguracja eventu nie została ustawiona",
+  "403": "Konfiguracja eventu nieparwaidłowa"
 }

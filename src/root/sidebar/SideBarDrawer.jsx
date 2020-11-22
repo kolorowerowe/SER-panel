@@ -78,17 +78,25 @@ const SideBarDrawer = ({open, handleDrawerClose}) => {
             path: '/deadline',
             visible: isLoggedIn && isOrganizer,
             collapsible: true,
-            childrenItems: [{
-                text: t('sidebar:deadline'),
-                icon: <Schedule/>,
-                path: '/deadline',
-                visible: isLoggedIn && isOrganizer,
-            }, {
-                text: t('sidebar:sponsorshipPackage'),
-                icon: <AllInbox/>,
-                path: '/sponsorship-package',
-                visible: isLoggedIn && isOrganizer,
-            },
+            childrenItems: [
+                {
+                    text: t('sidebar:eventConfig'),
+                    icon: <Schedule/>,
+                    path: '/event-config',
+                    visible: isLoggedIn && isOrganizer,
+                },
+                {
+                    text: t('sidebar:deadline'),
+                    icon: <Schedule/>,
+                    path: '/deadline',
+                    visible: isLoggedIn && isOrganizer,
+                },
+                {
+                    text: t('sidebar:sponsorshipPackage'),
+                    icon: <AllInbox/>,
+                    path: '/sponsorship-package',
+                    visible: isLoggedIn && isOrganizer,
+                },
                 {
                     text: t('sidebar:equipment'),
                     icon: <Tv/>,

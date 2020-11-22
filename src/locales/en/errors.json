@@ -19,5 +19,7 @@
   "352": "No sponsorship package equipment for provided id",
   "353": "Sponsorship package is unavailable to choose",
   "400": "Invalid deadlines",
-  "401": "Deadlines are not initialized"
+  "401": "Deadlines are not initialized",
+  "402": "Event config is not initializes",
+  "403": "Event config "
 }

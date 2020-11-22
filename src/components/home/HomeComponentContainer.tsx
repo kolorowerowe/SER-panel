@@ -6,13 +6,27 @@ import {EVENT_DATE_TIME} from "../../utils/constans";
 import {useCountdownHook} from "../../utils/DateTimeUtils";
 import {RootState} from "../../redux/store";
 import {fetchStatisticsAction} from "../../redux/actions/statisticsActions";
+import {fetchEventConfigAction} from "../../redux/actions/eventConfigActions";
 
 const HomeComponentContainer: React.FC = () => {
 
     const activeUser = useSelector((state: RootState) => state.activeUser);
     const {isOrganizer, isCompany, isAdmin, authToken} = useSelector((state: RootState) => state.auth);
     const companies = useSelector((state: RootState) => state.companies);
-    const {statistics} = useSelector((state: RootState) => state.statistics);
+    const {
+        statistics,
+        loading: statisticsLoading,
+        error: statisticsError,
+        errorResponse: statisticsErrorResponse
+    } = useSelector((state: RootState) => state.statistics);
+    const {
+        eventConfig: {
+            eventDate = ''
+        } = {},
+        loading: eventConfigLoading,
+        error: eventConfigError,
+        errorResponse: eventConfigErrorResponse
+    } = useSelector((state: RootState) => state.eventConfig)
 
     const dispatch = useDispatch();
 
@@ -33,9 +47,13 @@ const HomeComponentContainer: React.FC = () => {
         dispatch(fetchStatisticsAction())
     }, [dispatch]);
 
+    useEffect(() => {
+        dispatch(fetchEventConfigAction())
+    }, [dispatch]);
 
 
-    const {timeLeft} = useCountdownHook(EVENT_DATE_TIME);
+
+    const {timeLeft} = useCountdownHook(eventDate);
 
     return (
         <HomeComponentView activeUser={activeUser}
@@ -44,7 +62,13 @@ const HomeComponentContainer: React.FC = () => {
                            isCompany={isCompany}
                            companies={companies}
                            statistics={statistics}
-                           timeLeftToEvent={timeLeft}/>
+                           statisticsLoading={statisticsLoading}
+                           statisticsError={statisticsError}
+                           statisticsErrorResponse={statisticsErrorResponse}
+                           timeLeftToEvent={timeLeft}
+                           eventConfigLoading={eventConfigLoading}
+                           eventConfigError={eventConfigError}
+                           eventConfigErrorResponse={eventConfigErrorResponse}/>
     );
 };
 

@@ -1,4 +1,3 @@
-import i18n from "../i18n";
 import moment, {Duration} from "moment";
 import {useEffect, useState} from "react";
 
@@ -27,8 +26,10 @@ export const useCountdownHook = (dateTo: string) => {
     }
 
     useEffect(() => {
-        setInterval(updateTimeLeft, 1000)
-    }, []);
+        if (!!dateTo) {
+            setInterval(updateTimeLeft, 1000)
+        }
+    }, [dateTo]);
 
     return {
         timeLeft,

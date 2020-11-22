@@ -6,9 +6,11 @@
   "delete": "Delete",
   "save": "Save",
   "submit": "Submit",
+  "successfullySaved": "Successfully saved",
+  "errorOccurred": "Error occurred" ,
   "eventHaveStarted": "Event have started!",
   "standSize": "Stand size in m^2",
-  "maxCompanies":  "Max companies",
+  "maxCompanies": "Max companies",
   "price": "Price",
   "priceInCurrency": "Price in ${currency}",
   "date": "Date",
@@ -20,5 +22,9 @@
   "hours": "Hours",
   "minutes": "Minutes",
   "seconds": "Seconds",
-  "timeLeftToEvent": "Time left to event:"
+  "timeLeftToEvent": "Time left to event:",
+  "eventConfig": "Event config",
+  "eventConfigNotInitialized": "Event config is not initialized",
+  "eventDate": "Event date",
+  "defineEventDate": "Define event date"
 }
