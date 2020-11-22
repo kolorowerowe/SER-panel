@@ -2,5 +2,7 @@
   "users" : "Użytkownicy",
   "allUsers": "Wszyscy użytkownicy",
   "sponsorshipPackages": "Pakiety sponsorskie",
-  "sponsorshipPackagesTaken": "Zajęte pakiety sponsorskie"
+  "sponsorshipPackagesTaken": "Zajęte pakiety sponsorskie",
+  "companies": "Firmy",
+  "allCompanies": "Wszystkie firmy"
 }

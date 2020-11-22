@@ -103,7 +103,10 @@ const RegisterCompanyComponentContainer = (props) => {
                 {t('company:registerCompany')}
             </Button>
 
-            <Dialog open={openRegisterCompanyDialog} onClose={() => setOpenRegisterCompanyDialog(false)}>
+            <Dialog open={openRegisterCompanyDialog}
+                    onClose={() => setOpenRegisterCompanyDialog(false)}
+                    fullWidth
+                    maxWidth={'md'}>
                 <DialogTitle>
                     {t('company:registerCompany')}
                 </DialogTitle>

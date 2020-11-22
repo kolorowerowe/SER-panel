@@ -10,7 +10,14 @@
   "205": "Użytkownik jest nieaktywny",
   "206": "Podane dane są nieprawidłowe",
   "207": "Podany kod weryfikacyjny jest nieprawidłowy",
+  "208": "Podany użytkownik został już aktywowany",
   "251": "Stare hasło jest nieprawidłowe",
   "252": "Nowe hasło oraz powtórzone nowe hasło muszą się zgadzać",
-  "300": "Nie znaleziono firmy dla podanego id"
+  "300": "Nie znaleziono firmy dla podanego id",
+  "350": "Nie znaleziono pakietu sponsorskiego dla podanego id",
+  "351": "Nie znaleziono wyposażenia dla podanego id",
+  "352": "Nie znaleziono wyposażenia pakietu dla podanego id",
+  "353": "Wybrany pakiet sponsorski jest niedostępny do wybrania",
+  "400": "Nieprawidłowe deadliny",
+  "401": "Deadliny nie zostały ustawiuone"
 }

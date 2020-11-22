@@ -2,5 +2,7 @@
   "users" : "Users",
   "allUsers": "All users",
   "sponsorshipPackages": "Sponsorship packages",
-  "sponsorshipPackagesTaken": "Taken sponsorship packages"
+  "sponsorshipPackagesTaken": "Taken sponsorship packages",
+  "companies": "Companies",
+  "allCompanies": "All companies"
 }

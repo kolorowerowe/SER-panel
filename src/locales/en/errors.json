@@ -10,7 +10,14 @@
   "205": "User is inactive",
   "206": "Login or password is incorrect",
   "207": "Provided code is invalid",
+  "208": "User is already activated",
   "251": "Old password is invalid",
   "252": "New password and repeat new password must be the same",
-  "300": "No company found for this id"
+  "300": "No company found for this id",
+  "350": "No sponsorship package for provided id",
+  "351": "No equipment for provided id",
+  "352": "No sponsorship package equipment for provided id",
+  "353": "Sponsorship package is unavailable to choose",
+  "400": "Invalid deadlines",
+  "401": "Deadlines are not initialized"
 }

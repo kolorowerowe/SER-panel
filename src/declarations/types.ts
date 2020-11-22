@@ -92,6 +92,10 @@ export type UserStatistics = {
     }[]
 }
 
+export type CompanyStatistics = {
+    allCompaniesCount: number;
+}
+
 export type SPStatistics = {
     allSPCount: number;
     percentageProgressesSP: {
@@ -103,6 +107,8 @@ export type SPStatistics = {
 
 export type Statistics = {
     userStatistics: UserStatistics;
+    companyStatistics: CompanyStatistics;
+    sponsorshipPackageStatistics: SPStatistics;
 }
 
 export type ParamTypes = {

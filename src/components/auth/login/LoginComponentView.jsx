@@ -69,11 +69,11 @@ const LoginComponentView = (props) => {
                             {t('auth:signIn')}
                         </Button>
                         <Grid container>
-                            <Grid item xs>
-                                <Link href="#" variant="body2">
-                                    {t('auth:forgotPassword')}
-                                </Link>
-                            </Grid>
+                            {/*<Grid item xs>*/}
+                            {/*    <Link href="#" variant="body2">*/}
+                            {/*        {t('auth:forgotPassword')}*/}
+                            {/*    </Link>*/}
+                            {/*</Grid>*/}
                             <Grid item>
                                 <Link href="/activate/email" variant="body2">
                                     {t('auth:firstTime')}

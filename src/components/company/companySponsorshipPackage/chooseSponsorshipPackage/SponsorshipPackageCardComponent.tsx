@@ -24,7 +24,9 @@ const SponsorshipPackageCardComponent: React.FC<Props> = ({sponsorshipPackage, s
         translations,
         prices,
         standSize,
-        isAvailable
+        isAvailable,
+        currentCompanies,
+        maxCompanies
     } = sponsorshipPackage;
 
     const {languageCode} = useSelector((state: RootState) => state.preferences);
@@ -58,7 +60,7 @@ const SponsorshipPackageCardComponent: React.FC<Props> = ({sponsorshipPackage, s
                     color="primary"
                     disabled={!isAvailable}
             >
-                {isAvailable ? t('general:details') : t('sponsorshipPackage:spIsNotAvailable')}
+                {(isAvailable && currentCompanies < maxCompanies) ? t('general:details') : t('sponsorshipPackage:spIsNotAvailable')}
             </Button>
 
 

@@ -10,6 +10,7 @@ import {Divider} from "@material-ui/core";
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import UserStatisticsComponent from "./statistics/UserStatisticsComponent";
 import SPStatisticsComponent from "./statistics/SPStatisticsComponent";
+import CompanyStatisticsComponent from "./statistics/CompanyStatisticsComponent";
 
 const HomeComponentView = (props) => {
 
@@ -25,6 +26,7 @@ const HomeComponentView = (props) => {
         } = {},
         statistics: {
             userStatistics,
+            companyStatistics,
             sponsorshipPackageStatistics
         } = {},
         companies: {
@@ -71,8 +73,16 @@ const HomeComponentView = (props) => {
                     <UserStatisticsComponent userStatistics={userStatistics}/>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <SPStatisticsComponent sponsorshipPackageStatistics={sponsorshipPackageStatistics}/>
+                    <Grid container spacing={2}>
+                        <Grid item xs={12}>
+                            <CompanyStatisticsComponent companyStatistics={companyStatistics}/>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <SPStatisticsComponent sponsorshipPackageStatistics={sponsorshipPackageStatistics}/>
+                        </Grid>
+                    </Grid>
                 </Grid>
+
             </React.Fragment>}
         </Grid>
 
