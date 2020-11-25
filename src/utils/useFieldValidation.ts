@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {ValidatedField} from "../declarations/types";
 
-const useFieldValidation = (initialValue: string,
+const useFieldValidation = (initialValue: string| number,
                             validate: (value: string | number) => Error | null): ValidatedField => {
     const [value, setValue] = useState<string | number>(initialValue);
     const [error, setError] = useState<Error | null>(null);

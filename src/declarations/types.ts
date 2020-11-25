@@ -60,6 +60,25 @@ export type SponsorshipPackage = {
     spEquipmentList: SPEquipment[];
 }
 
+export type CatalogInformation = {
+    companyName: string;
+    description: string;
+    email: string;
+    website: string;
+    businessProfile: string;
+    numberOfEmployeesPoland: number;
+    numberOfEmployeesWorldwide: number;
+    candidateRequirements: string;
+    mainOfficeLocation: string;
+    subsidiaryOfficesLocations: string;
+    numberOfJobVacancies: number;
+    paidInternships: boolean;
+    unpaidInternships: boolean;
+    recruitmentContactName: string;
+    recruitmentContactEmail: string;
+    recruitmentContactPhone: string;
+}
+
 export type UserMiniData = {
     id: string;
     email: string;
@@ -81,6 +100,7 @@ export type CompanyResponse = {
     taxId: string;
     companyCreatedDate: string;
     sponsorshipPackage?: SponsorshipPackage;
+    catalogInformation?: CatalogInformation;
     companyDeadlineStatuses?: CompanyDeadlineStatus[];
 }
 
@@ -128,7 +148,7 @@ export type ValidatedField = {
 
 export type SelectElement = {
     name: string;
-    value: string|number;
+    value: string | number;
 }
 
 export type ResponseMetaData = {

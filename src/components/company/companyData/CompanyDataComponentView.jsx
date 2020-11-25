@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import ValidatedTextField from "../../../generic/input/ValidatedTextField";
 import Button from "@material-ui/core/Button";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import {CardActionArea} from "@material-ui/core";
 
 
 const CompanyDataComponentView = (props) => {
@@ -35,7 +36,6 @@ const CompanyDataComponentView = (props) => {
                         <Grid item xs={12}>
                             <ValidatedTextField
                                 label={t('company:companyName')}
-                                name="companyName"
                                 field={companyNameField}
                                 className={classes.formElement}
                                 disabled
@@ -45,7 +45,6 @@ const CompanyDataComponentView = (props) => {
                         <Grid item xs={12} md={6}>
                             <ValidatedTextField
                                 label={t('company:contactPhone')}
-                                name="contactPhone"
                                 field={contactPhoneField}
                                 className={classes.formElement}
                                 disabled={loading}

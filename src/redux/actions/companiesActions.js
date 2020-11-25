@@ -94,8 +94,9 @@ export const fetchCompanyDetailsAction = (companyId, authToken, dispatch) => {
         });
 };
 
-export const changeCompanyDetailsAction = (companyId, changeCompanyDetailsBody, authToken, dispatch, snackbar) => {
+export const changeCompanyDetailsAction = (companyId, changeCompanyDetailsBody, snackbar) => (dispatch, getState) => {
     dispatch({type: CHANGE_COMPANY_DETAILS});
+    const {authToken} = getState().auth;
 
     axios.patch(`${baseUrl}/company/${companyId}`, changeCompanyDetailsBody, {
         headers: {

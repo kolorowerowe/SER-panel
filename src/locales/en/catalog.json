@@ -1,0 +1,21 @@
+{
+ "catalog": "Catalog",
+ "catalogData": "Catalog data",
+ "companyName": "Company name",
+ "description": "Company description",
+ "email": "Company email",
+ "website": "Company website",
+ "businessProfile": "Business profile",
+ "numberOfEmployeesPoland": "Number of employees in Poland",
+ "numberOfEmployeesWorldwide": "Number of employees Worldwide",
+ "candidateRequirements": "Candidate requirements",
+ "mainOfficeLocation": "Main office location",
+ "subsidiaryOfficesLocations": "Subsidiary offices locations",
+ "numberOfJobVacancies": "Number of job vacancies",
+ "paidInternships": "Paid internships",
+ "unpaidInternships": "Unpaid internships",
+ "recruitmentContactName": "Recruitment contact name",
+ "recruitmentContactEmail": "Recruitment contact email",
+ "recruitmentContactPhone": "Recruitment contact phone",
+ "saveCatalog": "Save catalog"
+}

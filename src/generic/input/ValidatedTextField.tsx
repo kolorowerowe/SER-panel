@@ -6,6 +6,7 @@ type Props = {
     field: ValidatedField;
     label?: string;
     disabled?: boolean;
+    multiline?: boolean;
     type?: string;
 }
 
@@ -20,6 +21,7 @@ const ValidatedTextField: React.FC<Props> = (props: Props) => {
         },
         label,
         disabled,
+        multiline = false,
         type
     } = props;
 
@@ -35,6 +37,7 @@ const ValidatedTextField: React.FC<Props> = (props: Props) => {
             label={label}
             type={type}
             disabled={disabled}
+            multiline={multiline}
         />
     );
 };

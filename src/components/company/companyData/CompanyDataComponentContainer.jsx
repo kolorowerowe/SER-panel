@@ -40,7 +40,7 @@ const CompanyDataComponentContainer = ({companyId, company, loading}) => {
                 }
             }
 
-            changeCompanyDetailsAction(company.id, saveCompanyDetailsBody, authToken, dispatch, snackbar);
+            dispatch(changeCompanyDetailsAction(company.id, saveCompanyDetailsBody, snackbar));
         }
 
 

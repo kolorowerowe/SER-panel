@@ -35,6 +35,11 @@ import helpEN from './locales/en/help.json'
 import helpPL from './locales/pl/help.json'
 
 
+import catalogEN from './locales/en/catalog.json'
+import catalogPL from './locales/pl/catalog.json'
+
+
+
 const resources = {
     en: {
         sidebar: sidebarEN,
@@ -47,7 +52,8 @@ const resources = {
         deadline: deadlineEN,
         sponsorshipPackage: sponsorshipPackageEN,
         statistics: statisticsEN,
-        help: helpEN
+        help: helpEN,
+        catalog: catalogEN
     },
     pl: {
         sidebar: sidebarPL,
@@ -60,7 +66,8 @@ const resources = {
         deadline: deadlinePL,
         sponsorshipPackage: sponsorshipPackagePL,
         statistics: statisticsPL,
-        help: helpPL
+        help: helpPL,
+        catalog: catalogPL
     }
 };
 

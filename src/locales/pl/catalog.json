@@ -1,0 +1,21 @@
+{
+ "catalog": "Katalog",
+ "catalogData": "Dane katalogowe",
+ "companyName": "Nazwa firmy",
+ "description": "Opis firmy",
+ "email": "Adres email firmy",
+ "website": "Strona internetowa",
+ "businessProfile": "Profil biznesowy",
+ "numberOfEmployeesPoland": "Liczba pracowników w Polsce",
+ "numberOfEmployeesWorldwide": "Liczba pracowników na świecie",
+ "candidateRequirements": "Wymagania wobec kandydatów",
+ "mainOfficeLocation": "Lokalizacja głównego biura",
+ "subsidiaryOfficesLocations": "Inne lokalizacje firmy",
+ "numberOfJobVacancies": "Liczba wolnych stanowisk",
+ "paidInternships": "Płatne staże",
+ "unpaidInternships": "Bezpłatne staże",
+ "recruitmentContactName": "Nazwa rekrutera",
+ "recruitmentContactEmail": "Adres email rekrutera",
+ "recruitmentContactPhone": "Numer telefonu rekrutera",
+ "saveCatalog": "Zapisz katalog"
+}
