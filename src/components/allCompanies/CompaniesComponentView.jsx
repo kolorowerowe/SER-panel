@@ -10,9 +10,15 @@ const CompaniesComponentView = (props) => {
         loading,
         error,
         errorResponse,
+        handleCompaniesExport
     } = props;
 
     const {t} = useTranslation();
+
+    const actionMenu = [{
+        name: t('company:exportCompanies'),
+        onClick: handleCompaniesExport
+    }]
 
     return (
         <DefaultCard title={t('company:allCompanies')}
@@ -20,6 +26,7 @@ const CompaniesComponentView = (props) => {
                      loading={loading}
                      error={error}
                      errorResponse={errorResponse}
+                     actionMenu={actionMenu}
         >
             <CompaniesTable companies={companies}/>
         </DefaultCard>

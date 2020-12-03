@@ -23,5 +23,6 @@
  "companyRegisteredSuccess": "Firma została zarejestrowana",
  "companyRegisteredFailure": "Wystąpił błąd w trakcie rejestracji firmy. Spróbuj ponownie później.",
  "pastePhone": "Wklej twój numer telefonu",
- "companySummary": "Podsumowanie firmy"
+ "companySummary": "Podsumowanie firmy",
+ "exportCompanies": "Eksportuj firmy do pliku (.csv)"
 }

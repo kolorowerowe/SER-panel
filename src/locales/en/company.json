@@ -23,5 +23,6 @@
  "companyRegisteredSuccess": "Company has been registered",
  "companyRegisteredFailure": "Error encountered during company registration. Try again later",
  "pastePhone": "Paste your phone number",
- "companySummary": "Company summary"
+ "companySummary": "Company summary",
+ "exportCompanies": "Export company to file (.csv)"
 }

@@ -5,10 +5,11 @@ import Typography from "@material-ui/core/Typography";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import IconButton from "@material-ui/core/IconButton";
 import {useNavigate} from "react-router-dom";
-import Grid from "@material-ui/core/Grid";
-import Divider from "@material-ui/core/Divider";
+import ActionMenu, {ActionItem} from "./ActionMenu";
+import {Divider, Grid} from "@material-ui/core";
 import ErrorAlert from "../ErrorAlert";
 import ProgressBar from "../ProgressBar";
+
 
 type DefaultCardProps = {
     title?: string;
@@ -20,7 +21,7 @@ type DefaultCardProps = {
     disabled?: boolean;
     error?: object;
     errorResponse?: object;
-
+    actionMenu?: ActionItem[];
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -62,7 +63,8 @@ const DefaultCard: React.FunctionComponent<DefaultCardProps> = (props: DefaultCa
         loading = false,
         disabled = false,
         error,
-        errorResponse
+        errorResponse,
+        actionMenu = []
     } = props;
 
     const classes = useStyles();
@@ -81,6 +83,7 @@ const DefaultCard: React.FunctionComponent<DefaultCardProps> = (props: DefaultCa
                 </div>
 
                 {!!buttonComponent && buttonComponent}
+                {!!actionMenu.length && <ActionMenu actions={actionMenu}/>}
             </div>
 
             <Grid container spacing={2}>
