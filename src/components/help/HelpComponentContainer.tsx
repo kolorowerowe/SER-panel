@@ -14,12 +14,10 @@ const useStyles = makeStyles((theme) => ({
         paddingBottom: 10,
         paddingRight: 10,
     },
-    contactStaff: {
-        marginTop: theme.spacing(6),
-        maxWidth: 600
-    },
-    contactDeveloper: {
+    marginTop: {
         marginTop: theme.spacing(2),
+    },
+    maxWidth: {
         maxWidth: 600
     }
 }));
@@ -45,9 +43,10 @@ const HelpComponentContainer: React.FC = () => {
                 </Typography>
             </Grid>
 
+            <Grid item xs={12}/>
 
-            <Grid item xs={12} className={styles.contactStaff}>
-                <Typography>
+            <Grid item xs={12} className={styles.marginTop}>
+                <Typography className={styles.maxWidth}>
                     {t('help:contactStaff1')}
                     <Link href="mailto:dont-send-message@temp.com">
                         {t('help:contactStaffName')}
@@ -56,8 +55,8 @@ const HelpComponentContainer: React.FC = () => {
                 </Typography>
             </Grid>
 
-            <Grid item xs={12} className={styles.contactDeveloper}>
-                <Typography>
+            <Grid item xs={12} className={styles.marginTop}>
+                <Typography className={styles.maxWidth}>
                     {t('help:contactDeveloper1')}
                     <Link href="mailto:kolodziejd@student.agh.edu.pl">
                         {t('help:contactDeveloperName')}

@@ -58,7 +58,7 @@ const CompanyComponent: React.FC = () => {
         // }, {
             label: t('catalog:catalog'),
             href: "catalog",
-            index: 4,
+            index: 3,
             component: <CatalogComponentContainer companyId={companyId}
                                                   company={company}
                                                   loading={loading}/>
