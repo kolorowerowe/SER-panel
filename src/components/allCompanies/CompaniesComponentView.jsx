@@ -10,7 +10,8 @@ const CompaniesComponentView = (props) => {
         loading,
         error,
         errorResponse,
-        handleCompaniesExport
+        handleCompaniesExport,
+        handleCatalogExport
     } = props;
 
     const {t} = useTranslation();
@@ -18,6 +19,9 @@ const CompaniesComponentView = (props) => {
     const actionMenu = [{
         name: t('company:exportCompanies'),
         onClick: handleCompaniesExport
+    }, {
+        name: t('company:exportCatalog'),
+        onClick: handleCatalogExport
     }]
 
     return (

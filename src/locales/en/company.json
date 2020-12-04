@@ -24,5 +24,6 @@
  "companyRegisteredFailure": "Error encountered during company registration. Try again later",
  "pastePhone": "Paste your phone number",
  "companySummary": "Company summary",
- "exportCompanies": "Export company to file (.csv)"
+ "exportCompanies": "Export company to file (.csv)",
+ "exportCatalog": "Export catalog information to file (.csv)"
 }

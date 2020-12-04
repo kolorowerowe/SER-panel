@@ -11,7 +11,7 @@ const CompaniesComponentContainer = () => {
     const {authToken} = useSelector(state => state.auth);
     const dispatch = useDispatch();
 
-    const {handleCompaniesExport} = useCompaniesData();
+    const {handleCompaniesExport, handleCatalogExport} = useCompaniesData();
 
     useEffect(() => {
         fetchCompaniesAction(authToken, dispatch);
@@ -25,6 +25,7 @@ const CompaniesComponentContainer = () => {
                                 error={error}
                                 errorResponse={errorResponse}
                                 handleCompaniesExport={handleCompaniesExport}
+                                handleCatalogExport={handleCatalogExport}
         />
     );
 };

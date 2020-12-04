@@ -24,5 +24,6 @@
  "companyRegisteredFailure": "Wystąpił błąd w trakcie rejestracji firmy. Spróbuj ponownie później.",
  "pastePhone": "Wklej twój numer telefonu",
  "companySummary": "Podsumowanie firmy",
- "exportCompanies": "Eksportuj firmy do pliku (.csv)"
+ "exportCompanies": "Eksportuj firmy do pliku (.csv)",
+ "exportCatalog": "Eksportuj dane katalogowe do pliku (.csv)"
 }
