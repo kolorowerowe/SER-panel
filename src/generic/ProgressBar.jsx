@@ -11,13 +11,13 @@ const ProgressBar = props => {
         ...other
     } = props;
 
-    return (
+    return loading ? (
         displayGrid ?
-            loading && <Grid item xs={12}>
+            <Grid item xs={12}>
                 <LinearProgress {...other}/>
             </Grid> :
-            loading && <LinearProgress {...other}/>
-    );
+            <LinearProgress {...other}/>
+    ) : null;
 };
 
 ProgressBar.propTypes = {
