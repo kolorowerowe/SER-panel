@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ser-panel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ser-panel
+  template:
+    metadata:
+      labels:
+        app: ser-panel
+    spec:
+      containers:
+        - env:
+            - name: REACT_APP_BACK_END_URL
+              value: "http://10.16.3.203"
+          name: ser-panel
+          image: kolorowerowe/ser-panel:1.0.5
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80

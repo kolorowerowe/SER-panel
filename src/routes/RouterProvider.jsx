@@ -22,6 +22,7 @@ import HelpComponentContainer from "../components/help/HelpComponentContainer";
 import EquipmentComponentContainer from "../components/eventConfig/equipment/all/EquipmentComponentContainer";
 import EquipmentDetailsContainer from "../components/eventConfig/equipment/equipmentDetails/EquipmentDetailsContainer";
 import EventConfigComponentContainer from "../components/eventConfig/eventConfig/EventConfigComponentContainer";
+import DeveloperComponent from "../components/developer/DeveloperComponent";
 
 const RouterProvider = () => {
 
@@ -92,6 +93,9 @@ const RouterProvider = () => {
             <ProtectedRoute path="/profile"
                             element={ProfileComponentContainer}
             />
+
+            <Route path="/developer"
+                   element={<DeveloperComponent/>}/>
 
             <Route path="/help"
                    element={<HelpComponentContainer/>}/>
