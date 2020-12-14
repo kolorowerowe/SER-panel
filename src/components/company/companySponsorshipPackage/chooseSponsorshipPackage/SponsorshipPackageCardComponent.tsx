@@ -35,8 +35,10 @@ const SponsorshipPackageCardComponent: React.FC<Props> = ({sponsorshipPackage, s
 
 
     const translation = useMemo(
-        (): Translation => getRightTranslation(sponsorshipPackage.translations, languageCode),
-        [sponsorshipPackage, languageCode]);
+        (): Translation => getRightTranslation(translations, languageCode),
+        [translations, languageCode]);
+
+    const isCardDisabled = useMemo(() => !(isAvailable && currentCompanies < maxCompanies), [isAvailable, currentCompanies, maxCompanies]);
 
     return (<DefaultCard title={translation.name} divider disabled={!isAvailable}>
         <Grid container spacing={1}>
@@ -58,9 +60,9 @@ const SponsorshipPackageCardComponent: React.FC<Props> = ({sponsorshipPackage, s
 
             <Button onClick={(): void => setChosenSponsorshipPackageId(id)}
                     color="primary"
-                    disabled={!isAvailable}
+                    disabled={isCardDisabled}
             >
-                {(isAvailable && currentCompanies < maxCompanies) ? t('general:details') : t('sponsorshipPackage:spIsNotAvailable')}
+                {isCardDisabled ? t('sponsorshipPackage:spIsNotAvailable') : t('general:details')}
             </Button>
 
 

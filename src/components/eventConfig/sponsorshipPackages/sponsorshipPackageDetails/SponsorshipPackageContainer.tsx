@@ -52,7 +52,7 @@ const SponsorshipPackageContainer: React.FC = () => {
     };
 
     const onDeleteSponsorshipPackageSubmit = () => {
-        deleteSponsorshipPackageAction(sponsorshipPackageId, snackbar, navigate);
+        dispatch(deleteSponsorshipPackageAction(sponsorshipPackageId, snackbar, navigate));
     }
 
 

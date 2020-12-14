@@ -56,7 +56,7 @@ const DeadlineComponentContainer: React.FC = () => {
             deadlineDate: moment().add(3, 'days'),
             orderNumber: 3
         }, {
-            activity: 'FILL_CATALOGUE_INFORMATION',
+            activity: 'FILL_CATALOG_INFORMATION',
             deadlineDate: moment().add(4, 'days'),
             orderNumber: 4
         }, {
