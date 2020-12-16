@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import Grid from "@material-ui/core/Grid";
 import CompanyTileComponentContainer from "./company/CompanyTileComponentContainer";
 import Typography from "@material-ui/core/Typography";
@@ -13,6 +13,7 @@ import SPStatisticsComponent from "./statistics/SPStatisticsComponent";
 import CompanyStatisticsComponent from "./statistics/CompanyStatisticsComponent";
 import ErrorAlert from "../../generic/ErrorAlert";
 import ProgressBar from "../../generic/ProgressBar";
+import {useSelector} from "react-redux";
 
 const HomeComponentView = (props) => {
 
@@ -38,6 +39,8 @@ const HomeComponentView = (props) => {
             companies
         } = {},
         timeLeftToEvent,
+        eventNamePl,
+        eventNameEn,
         eventConfigLoading,
         eventConfigError,
         eventConfigErrorResponse
@@ -45,27 +48,46 @@ const HomeComponentView = (props) => {
     } = props;
 
     const {t} = useTranslation();
-    console.log(role)
+    const {languageCode} = useSelector((state) => state.preferences);
+
+    const eventName = useMemo(() => {
+        if (languageCode === 'pl') {
+            return eventNamePl;
+        }
+        return eventNameEn;
+    }, [languageCode, eventNameEn, eventNamePl]);
 
     return (
         <Grid container spacing={2}>
             <Grid item xs={12}>
-                <DefaultCard title={t('general:hello') + ' ' + fullName}
-                             loading={eventConfigLoading}
+                <DefaultCard loading={eventConfigLoading}
                              error={eventConfigError}
                              errorResponse={eventConfigErrorResponse}>
-                    <div style={{display: 'flex', flexDirection: 'row'}}>
+                    <Typography variant={'h5'}>
+                        {t('general:hello') + ' ' + fullName}!
+                    </Typography>
+                    <div style={{display: 'flex', flexDirection: 'row', marginTop: 5}}>
                         <VerifiedUserIcon fontSize={'small'} color={'disabled'}/>
                         <Typography color={'textSecondary'}>
                             {t(`user:${role}`)}
                         </Typography>
                     </div>
-
+                    <Typography align={'center'} variant={'h3'} color={'primary'}>
+                        {eventName}
+                    </Typography>
                     <Divider style={{margin: '20px 0px'}}/>
+
                     <Typography align={'center'}>
                         {t('general:timeLeftToEvent')}
                     </Typography>
-                    <CountdownComponent timeLeft={timeLeftToEvent}/>
+                    {timeLeftToEvent.asSeconds() < 1  ?
+                        <Typography align={'center'} variant={'h5'}>
+                            {t('general:eventHasStarted')}
+                        </Typography> :
+                        <CountdownComponent timeLeft={timeLeftToEvent}/>
+
+
+                    }
                 </DefaultCard>
             </Grid>
 

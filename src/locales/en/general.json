@@ -26,8 +26,11 @@
   "minutes": "Minutes",
   "seconds": "Seconds",
   "timeLeftToEvent": "Time left to event:",
+  "eventHasStarted": "Event has started!",
   "eventConfig": "Event config",
   "eventConfigNotInitialized": "Event config is not initialized",
+  "configureEvent": "Configure event",
   "eventDate": "Event date",
-  "defineEventDate": "Define event date"
+  "eventNamePl": "Polish event name",
+  "eventNameEn": "English event name"
 }

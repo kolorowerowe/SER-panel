@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import Card from "@material-ui/core/Card";
 import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -70,9 +70,11 @@ const DefaultCard: React.FunctionComponent<DefaultCardProps> = (props: DefaultCa
     const classes = useStyles();
     const navigate = useNavigate();
 
+    const headerHasContent = useMemo(()=> (!!title || !!buttonComponent || !!actionMenu.length), [title, buttonComponent, actionMenu]);
+
     return (
         <Card className={disabled ? classes.disabledCard : classes.card}>
-            <div className={classes.header}>
+            {headerHasContent && <div className={classes.header}>
                 <div className={classes.leftHeader}>
                     {!!backButton && <IconButton onClick={() => navigate(-1)}>
                         <ArrowBackIcon/>
@@ -84,7 +86,7 @@ const DefaultCard: React.FunctionComponent<DefaultCardProps> = (props: DefaultCa
 
                 {!!buttonComponent && buttonComponent}
                 {!!actionMenu.length && <ActionMenu actions={actionMenu}/>}
-            </div>
+            </div>}
 
             <Grid container spacing={2}>
 

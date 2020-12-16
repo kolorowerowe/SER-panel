@@ -14,7 +14,7 @@ export const formatDateWithBackwardPeriod = (date: string | undefined, format = 
 export const useCountdownHook = (dateTo: string) => {
     const eventDateTime = moment(dateTo).valueOf();
 
-    const [timeLeft, setTimeLeft] = useState<Duration>(moment.duration(0, 'millisecond'));
+    const [timeLeft, setTimeLeft] = useState<Duration>(moment.duration(1, 'millisecond'));
 
     const updateTimeLeft = () => {
         const currentTime = moment().valueOf();

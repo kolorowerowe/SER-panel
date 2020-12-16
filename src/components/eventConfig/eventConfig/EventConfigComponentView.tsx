@@ -4,11 +4,13 @@ import DefaultCard from "../../../generic/displayData/DefaultCard";
 import ErrorAlert from "../../../generic/ErrorAlert";
 import {matchErrorCode} from "../../../utils/ErrorUtils";
 import CustomAlert from "../../../generic/CustomAlert";
-import {Button, CardActions, Grid, Typography} from "@material-ui/core";
+import {Button, CardActions, Divider, Grid, Typography} from "@material-ui/core";
 import {useCommonStyles} from "../../../styles/commonStyles";
 import {KeyboardDatePicker, KeyboardTimePicker, MuiPickersUtilsProvider} from "@material-ui/pickers";
 import moment, {Moment} from "moment";
 import MomentUtils from "@date-io/moment";
+import {ValidatedField} from "../../../declarations/types";
+import ValidatedTextField from "../../../generic/input/ValidatedTextField";
 
 
 type Props = {
@@ -18,6 +20,8 @@ type Props = {
     eventDate?: string;
     initializeEventDate: () => void;
     onEventDateChange: (date: Moment | null) => void;
+    eventNamePlField: ValidatedField;
+    eventNameEnField: ValidatedField;
     handleSave: () => void;
 }
 
@@ -30,6 +34,8 @@ const EventConfigComponentView: React.FC<Props> = (props: Props) => {
         eventDate,
         onEventDateChange,
         initializeEventDate,
+        eventNamePlField,
+        eventNameEnField,
         handleSave
     } = props;
 
@@ -62,35 +68,48 @@ const EventConfigComponentView: React.FC<Props> = (props: Props) => {
                                 displayGrid
                     />}
 
-                {!!eventDate && <MuiPickersUtilsProvider utils={MomentUtils} libInstance={moment}>
+                {!!eventDate && <>
+                    <MuiPickersUtilsProvider utils={MomentUtils} libInstance={moment}>
 
-                    <Grid item xs={12} lg={6}>
-                        <Typography>
-                            {t(`general:eventDate`)}
-                        </Typography>
-                        <Typography variant="body2" className={styles.secondaryField}>
-                            ({moment(eventDate).fromNow()})
-                        </Typography>
+                        <Grid item xs={12} lg={6}>
+                            <Typography>
+                                {t(`general:eventDate`)}
+                            </Typography>
+                            <Typography variant="body2" className={styles.secondaryField}>
+                                ({moment(eventDate).fromNow()})
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12} lg={3}>
+                            <KeyboardDatePicker
+                                label={t('general:date')}
+                                format="DD/MM/yyyy"
+                                value={eventDate}
+                                onChange={onEventDateChange}
+                            />
+                        </Grid>
+                        <Grid item xs={12} lg={3}>
+                            <KeyboardTimePicker
+                                ampm={false}
+                                label={t('general:time')}
+                                format="HH:mm"
+                                mask="__:__"
+                                value={eventDate}
+                                onChange={onEventDateChange}
+                            />
+                        </Grid>
+                    </MuiPickersUtilsProvider>
+
+                    <Divider style={{margin: 20}}/>
+                    <Grid item xs={12}>
+                        <ValidatedTextField field={eventNamePlField}
+                                            label={t('general:eventNamePl')}/>
                     </Grid>
-                    <Grid item xs={12} lg={3}>
-                        <KeyboardDatePicker
-                            label={t('general:date')}
-                            format="DD/MM/yyyy"
-                            value={eventDate}
-                            onChange={onEventDateChange}
-                        />
+                    <Grid item xs={12}>
+                        <ValidatedTextField field={eventNameEnField}
+                                            label={t('general:eventNameEn')}/>
                     </Grid>
-                    <Grid item xs={12} lg={3}>
-                        <KeyboardTimePicker
-                            ampm={false}
-                            label={t('general:time')}
-                            format="HH:mm"
-                            mask="__:__"
-                            value={eventDate}
-                            onChange={onEventDateChange}
-                        />
-                    </Grid>
-                </MuiPickersUtilsProvider>}
+
+                </>}
 
             </Grid>
 
@@ -98,7 +117,7 @@ const EventConfigComponentView: React.FC<Props> = (props: Props) => {
                 {eventConfigNotInitialized && !eventDate && <Button onClick={initializeEventDate}
                                                                     color="primary"
                                                                     variant="contained">
-                    {t('general:defineEventDate')}
+                    {t('general:configureEvent')}
                 </Button>}
                 {!!eventDate && <Button onClick={handleSave}
                                         color="primary"

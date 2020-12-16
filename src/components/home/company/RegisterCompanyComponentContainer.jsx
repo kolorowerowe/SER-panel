@@ -166,28 +166,24 @@ const RegisterCompanyComponentContainer = (props) => {
                         <Grid item xs={12} md={6}>
                             <ValidatedTextField
                                 label={t('company:buildingNumber')}
-                                name="buildingNumber"
                                 field={buildingNumberField}
                             />
                         </Grid>
                         <Grid item xs={12} md={6}>
                             <ValidatedTextField
                                 label={t('company:flatNumber')}
-                                name="flatNumber"
                                 field={flatNumberField}
                             />
                         </Grid>
                         <Grid item xs={12} md={4}>
                             <ValidatedTextField
                                 label={t('company:postalCode')}
-                                name="postalCode"
                                 field={postalCodeField}
                             />
                         </Grid>
                         <Grid item xs={12} md={8}>
                             <ValidatedTextField
                                 label={t('company:city')}
-                                name="city"
                                 field={cityField}
                             />
                         </Grid>

@@ -21,7 +21,9 @@ const HomeComponentContainer: React.FC = () => {
     } = useSelector((state: RootState) => state.statistics);
     const {
         eventConfig: {
-            eventDate = ''
+            eventDate = '',
+            eventNamePl = '',
+            eventNameEn = ''
         } = {},
         loading: eventConfigLoading,
         error: eventConfigError,
@@ -66,6 +68,8 @@ const HomeComponentContainer: React.FC = () => {
                            statisticsError={statisticsError}
                            statisticsErrorResponse={statisticsErrorResponse}
                            timeLeftToEvent={timeLeft}
+                           eventNamePl={eventNamePl}
+                           eventNameEn={eventNameEn}
                            eventConfigLoading={eventConfigLoading}
                            eventConfigError={eventConfigError}
                            eventConfigErrorResponse={eventConfigErrorResponse}/>

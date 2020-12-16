@@ -1,18 +1,17 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../../redux/store";
 import moment, {Moment} from "moment";
 import {useSnackbar} from "../../../utils/useSnackbar";
 import {fetchEventConfigAction, saveEventConfigAction} from "../../../redux/actions/eventConfigActions";
 import EventConfigComponentView from "./EventConfigComponentView";
-import {matchErrorCode} from "../../../utils/ErrorUtils";
+import useFieldValidation from "../../../utils/useFieldValidation";
+import {validateEventName} from "../../../utils/Validators";
 
 const EventConfigComponentContainer: React.FC = () => {
 
     const {
-        eventConfig: {
-            eventDate: eventDateResponse = ''
-        } = {},
+        eventConfig,
         loading,
         error,
         errorResponse
@@ -27,18 +26,36 @@ const EventConfigComponentContainer: React.FC = () => {
     }, [dispatch]);
 
     const [eventDate, setEventDate] = useState<string>('');
+    const eventNamePlField = useFieldValidation('', validateEventName);
+    const eventNameEnField = useFieldValidation('', validateEventName);
 
     useEffect(() => {
-        if (!!eventDateResponse) {
-            setEventDate(eventDateResponse);
-        }
-    }, [eventDateResponse]);
+        if (!!eventConfig) {
 
+            const {
+                eventDate: eventDateResponse = '',
+                eventNamePl = '',
+                eventNameEn = ''
+            } = eventConfig;
+
+            setEventDate(eventDateResponse);
+            eventNamePlField.setValue(eventNamePl);
+            eventNameEnField.setValue(eventNameEn);
+        }
+    }, [eventConfig]);
 
 
     const handleSave = (): void => {
+
+        const validationError = eventNamePlField.validate() || eventNameEnField.validate();
+        if (!!validationError){
+            return;
+        }
+
         const body = {
-            eventDate: eventDate
+            eventDate: eventDate,
+            eventNamePl: eventNamePlField.value,
+            eventNameEn: eventNameEnField.value
         }
 
         saveEventConfigAction(body, authToken, dispatch, snackbar);
@@ -64,6 +81,8 @@ const EventConfigComponentContainer: React.FC = () => {
                                   eventDate={eventDate}
                                   initializeEventDate={initializeEventDate}
                                   onEventDateChange={onEventDateChange}
+                                  eventNamePlField={eventNamePlField}
+                                  eventNameEnField={eventNameEnField}
                                   handleSave={handleSave}
         />
     );

@@ -147,4 +147,12 @@ export const validatePositiveNumber = (number) => {
     return null;
 }
 
+export const validateEventName = (eventName) => {
+    if (!eventName) {
+        return new Error(i18n.t('validation:fieldRequired'));
+    }
+
+    return null;
+};
+
 export const noValidate = () => null;
