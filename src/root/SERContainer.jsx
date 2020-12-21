@@ -10,7 +10,7 @@ import CustomSnackBar from "../generic/CustomSnackbar";
 const SERContainer = () => {
     const classes = useStyles();
 
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(true);
 
     const handleDrawerToggle = () => {
         setOpen(prevState => !prevState);

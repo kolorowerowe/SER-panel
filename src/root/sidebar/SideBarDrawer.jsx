@@ -7,7 +7,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Drawer from "@material-ui/core/Drawer";
-import {AllInbox, Business, Dashboard, Group, Person, Schedule, Tune, Tv} from "@material-ui/icons";
+import {AllInbox, Business, Dashboard, Group, Person, Schedule, Tune, Tv, LockOpen} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/core/styles";
 import PropTypes from "prop-types"
 import {useNavigate} from "react-router-dom";
@@ -15,7 +15,6 @@ import {useTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
 import {logoutAction} from "../../redux/actions/authActions";
 import NavigationList from "./NavigationList";
-
 const drawerWidth = 280;
 
 const SideBarDrawer = ({open, handleDrawerClose}) => {
@@ -51,10 +50,17 @@ const SideBarDrawer = ({open, handleDrawerClose}) => {
 
     const sideBarElements = [
         {
+            text: t('sidebar:logIn'),
+            icon: <LockOpen/>,
+            path: '/login',
+            visible: !isLoggedIn,
+            collapsible: false
+        },
+        {
             text: t('sidebar:startPage'),
             icon: <Dashboard/>,
             path: '/',
-            visible: true,
+            visible: isLoggedIn,
             collapsible: false
         },
         ...getSideBarCompanies,
@@ -131,12 +137,12 @@ const SideBarDrawer = ({open, handleDrawerClose}) => {
                 </ListItemIcon>
                 <ListItemText primary={t('sidebar:help')}/>
             </ListItem>
-            <ListItem button onClick={handleLogout}>
+            {!!isLoggedIn && <ListItem button onClick={handleLogout}>
                 <ListItemIcon>
                     <ExitToAppIcon/>
                 </ListItemIcon>
                 <ListItemText primary={t('sidebar:signOut')}/>
-            </ListItem>
+            </ListItem>}
         </Drawer>
     );
 };

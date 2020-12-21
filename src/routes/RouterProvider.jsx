@@ -23,6 +23,7 @@ import EquipmentComponentContainer from "../components/eventConfig/equipment/all
 import EquipmentDetailsContainer from "../components/eventConfig/equipment/equipmentDetails/EquipmentDetailsContainer";
 import EventConfigComponentContainer from "../components/eventConfig/eventConfig/EventConfigComponentContainer";
 import DeveloperComponent from "../components/developer/DeveloperComponent";
+import DataProcessingInfoComponent from "../components/help/DataProcessingInfoComponentContainer";
 
 const RouterProvider = () => {
 
@@ -99,6 +100,9 @@ const RouterProvider = () => {
 
             <Route path="/help"
                    element={<HelpComponentContainer/>}/>
+
+            <Route path="/data-processing-info"
+                   element={<DataProcessingInfoComponent/>}/>
 
             <ProtectedRoute path="/"
                             element={HomeComponentContainer}

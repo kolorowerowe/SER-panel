@@ -32,5 +32,6 @@
   "configureEvent": "Configure event",
   "eventDate": "Event date",
   "eventNamePl": "Polish event name",
-  "eventNameEn": "English event name"
+  "eventNameEn": "English event name",
+  "usefulLinks": "Useful links"
 }

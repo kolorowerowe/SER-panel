@@ -17,6 +17,13 @@ const useStyles = makeStyles((theme) => ({
     marginTop: {
         marginTop: theme.spacing(2),
     },
+    usefulLinks: {
+        marginTop: theme.spacing(6),
+    },
+    usefulLink:{
+        marginTop: theme.spacing(2),
+        marginLeft: theme.spacing(2)
+    },
     maxWidth: {
         maxWidth: 600
     }
@@ -66,6 +73,16 @@ const HelpComponentContainer: React.FC = () => {
             </Grid>
 
         </Grid>
+
+
+        <Typography variant={'h6'} className={styles.usefulLinks}>
+            {t('general:usefulLinks')}
+        </Typography>
+        <Typography className={styles.usefulLink}>
+            - <Link color="inherit" href="/data-processing-info">
+            {t('law:dataProcessingHeader')}
+        </Link>
+        </Typography>
 
         <Typography variant="body2" color="textSecondary" className={styles.footer}>
             {'Copyright © '}

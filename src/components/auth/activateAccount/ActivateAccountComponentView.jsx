@@ -9,13 +9,16 @@ import {useTranslation} from "react-i18next";
 import ErrorAlert from "../../../generic/ErrorAlert";
 import ActivateAccountStepper from "../ActivateAccountStepper";
 import ProgressBar from "../../../generic/ProgressBar";
+import CheckboxInput from "../../../generic/input/CheckboxInput";
+import {Grid} from "@material-ui/core";
 
 const ActivateAccountComponentView = (props) => {
 
     const {
         onSendVerificationCodeSubmit,
         emailField,
-
+        checkedInformationAboutDataProcessing,
+        setCheckedInformationAboutDataProcessing,
         loading,
         error,
         errorResponse
@@ -38,32 +41,43 @@ const ActivateAccountComponentView = (props) => {
                         {t('auth:activateAccountDesc')}
                     </Typography>
                     <form className={classes.form} noValidate>
-                        <ValidatedTextField
-                            label={t('auth:email')}
-                            name="email"
-                            autoComplete="email"
-                            field={emailField}
-                            className={classes.formElement}
-                        />
+                        <Grid container spacing={2}>
+                            <Grid item xs={12}>
+                                <ValidatedTextField
+                                    label={t('auth:email')}
+                                    name="email"
+                                    autoComplete="email"
+                                    field={emailField}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <CheckboxInput checked={checkedInformationAboutDataProcessing}
+                                               onChange={e => setCheckedInformationAboutDataProcessing(e.target.checked)}
+                                               label={t('law:dataProcessingConfirmation')}/>
+                            </Grid>
 
-                        <ErrorAlert error={error}
-                                    errorResponse={errorResponse}
-                                    className={classes.formElement}/>
+                            <ErrorAlert error={error}
+                                        errorResponse={errorResponse}
+                                        displayGrid/>
+
+                            <ProgressBar loading={loading} displayGrid/>
+
+                            <Grid item xs={12}>
+                                <Button
+                                    type="submit"
+                                    fullWidth
+                                    variant="contained"
+                                    color="primary"
+                                    className={classes.submit}
+                                    onClick={onSendVerificationCodeSubmit}
+                                    disabled={loading || !emailField.value || !checkedInformationAboutDataProcessing}
+                                >
+                                    {t('auth:sendVerificationCode')}
+                                </Button>
+                            </Grid>
+                        </Grid>
 
 
-                        <ProgressBar loading={loading} className={classes.formElement}/>
-
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            color="primary"
-                            className={classes.submit}
-                            onClick={onSendVerificationCodeSubmit}
-                            disabled={loading}
-                        >
-                            {t('auth:sendVerificationCode')}
-                        </Button>
                     </form>
                 </CardContent>
             </Card>
