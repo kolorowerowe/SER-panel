@@ -20,7 +20,7 @@ export const sendVerificationCodeAction = (email, dispatch) => {
         payload: email
     });
 
-    axios.get(`${baseUrl}/user/verify/request`, {
+    axios.post(`${baseUrl}/user/verify/request`, {}, {
         params: {
             email
         }
@@ -43,7 +43,7 @@ export const verifyCodeAction = (email, code, dispatch) => {
         type: VERIFY_CODE,
     });
 
-    axios.get(`${baseUrl}/user/verify/check`, {
+    axios.post(`${baseUrl}/user/verify/check`, {}, {
         params: {
             email,
             code
