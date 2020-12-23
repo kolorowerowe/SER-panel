@@ -1,6 +1,7 @@
 {
   "0": "Wystąpił niespodziewany błąd",
   "1": "Wystąpił błąd w trakcie wysyłania maila. Proszę spróbować później.",
+  "2": "Wystąpił błąd w trakcie eksportowania do pliku .csv. Proszę spróbować później.",
   "100": "Sesja wygasła, proszę zalogować sie ponownie",
   "200": "Nie znaleziono użytkownika dla podanego id",
   "201": "Nie znaleziono użytkownika dla podanego adresu email",

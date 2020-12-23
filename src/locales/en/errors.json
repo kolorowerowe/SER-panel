@@ -1,6 +1,7 @@
 {
-  "0": "Unexpexted error occurred",
-  "1": "An error occurred when sending an email. Pleasy try again.",
+  "0": "Unexpected error occurred",
+  "1": "An error occurred when sending an email. Please try again.",
+  "2": "n error occurred when exporting data fo csv file. Please try again.",
   "100": "Session has expired, please login again",
   "200": "No user found for provided id",
   "201": "No user found for provided email",
@@ -21,5 +22,5 @@
   "400": "Invalid deadlines",
   "401": "Deadlines are not initialized",
   "402": "Event config is not initializes",
-  "403": "Event config "
+  "403": "Event config is invalid"
 }
