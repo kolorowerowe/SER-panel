@@ -57,7 +57,7 @@ const CompanyComponent: React.FC = () => {
         //     component: <Typography>//TODO 13/09/20: Additional equipment </Typography>
         // }, {
             label: t('catalog:catalog'),
-            href: "catalog",
+                href: "catalog",
             index: 3,
             component: <CatalogComponentContainer companyId={companyId}
                                                   company={company}

@@ -29,7 +29,7 @@ export const useCompaniesData = () => {
                 snackbar.addSuccess(t('general:successfullyExported'));
             })
             .catch((e) => {
-                console.log(e)
+                console.error(e)
                 snackbar.addError(t('general:failedExport'));
             });
     }
@@ -47,7 +47,7 @@ export const useCompaniesData = () => {
                 snackbar.addSuccess(t('general:successfullyExported'));
             })
             .catch((e) => {
-                console.log(e)
+                console.error(e)
                 snackbar.addStatus(t('general:failedExport'), 'error');
             });
     }

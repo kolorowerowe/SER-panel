@@ -50,14 +50,6 @@ const RouterProvider = () => {
                    element={<ActivationCompletedComponent/>}
             />
 
-            <ProtectedRoute path="/user/:userId"
-                            element={UserDetailsComponentContainer}
-            />
-
-            <ProtectedRoute path="/user"
-                            element={UsersComponentContainer}
-            />
-
             <ProtectedRoute path="/company/:companyId/*"
                             element={CompanyComponent}
             />
@@ -66,13 +58,14 @@ const RouterProvider = () => {
                             element={CompaniesComponentContainer}
             />
 
-            <ProtectedRoute path="/sponsorship-package/:sponsorshipPackageId/*"
-                            element={SponsorshipPackageContainer}
+            <ProtectedRoute path="/user/:userId"
+                            element={UserDetailsComponentContainer}
             />
 
-            <ProtectedRoute path="/sponsorship-package"
-                            element={SponsorshipPackagesComponentContainer}
+            <ProtectedRoute path="/user"
+                            element={UsersComponentContainer}
             />
+
 
             <ProtectedRoute path="/event-config"
                             element={EventConfigComponentContainer}
@@ -82,6 +75,13 @@ const RouterProvider = () => {
                             element={DeadlineComponentContainer}
             />
 
+            <ProtectedRoute path="/sponsorship-package/:sponsorshipPackageId/*"
+                            element={SponsorshipPackageContainer}
+            />
+
+            <ProtectedRoute path="/sponsorship-package"
+                            element={SponsorshipPackagesComponentContainer}
+            />
 
             <ProtectedRoute path="/equipment/:equipmentId"
                             element={EquipmentDetailsContainer}

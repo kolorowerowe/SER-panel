@@ -17,7 +17,7 @@ spec:
             - name: REACT_APP_BACK_END_URL
               value: "http://10.16.3.203"
           name: ser-panel
-          image: kolorowerowe/ser-panel:1.0.8
+          image: kolorowerowe/ser-panel:1.0.9
           imagePullPolicy: Always
           ports:
             - containerPort: 80
