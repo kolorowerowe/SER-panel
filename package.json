@@ -18,7 +18,7 @@
     "@types/react-jss": "^10.0.0",
     "@types/react-router": "^5.1.8",
     "@types/recharts": "^1.8.16",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "clsx": "^1.1.1",
     "currency-symbol-map": "^4.0.4",
     "dotenv": "^8.2.0",
